@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{SERVER_NAME}}-service
+spec:
+  type: ClusterIP
+  selector:
+    app: {{SERVER_NAME}}
+  ports:
+    - name: mcserver
+      protocol: TCP
+      port: {{SERVER_PORT}}
+      targetPort: {{SERVER_PORT}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{SERVER_NAME}}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{SERVER_NAME}}
+  template:
+    metadata:
+      labels:
+        app: {{SERVER_NAME}}
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      containers:
+        - name: {{SERVER_NAME}}
+          image: {{ACR_URL}}/server/{{SERVER_NAME}}-image
+          resources:
+            requests:
+              # specify minimum resources that pods need to work
+              memory: 2Gi
+              cpu: 1000m  # millicpus (1000m == 1 core)
+          ports:
+            - containerPort: {{SERVER_PORT}}
+          env:
+            # hardcoded variables that are the same for all Server instances
+            - name: ENVIRONMENT
+              value: "PROD"
+
+            - name: APPLICATIONINSIGHTS_ROLE_INSTANCE
+              value: "plaiground-mcplugin-dev"
+
+            # variables generated during the scaffolding process
+{{ENV_VARIABLES}}

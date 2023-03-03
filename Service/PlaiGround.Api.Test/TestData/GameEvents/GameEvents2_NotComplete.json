@@ -1,0 +1,405 @@
+[
+  {
+    "eventType": "PlatformGameStartEvent",
+    "id": "50898e4b-85db-4cae-a8a6-7593efbc2ee9",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": null,
+    "groupId": null,
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlatformPlayerJoinsGameEvent",
+    "playerId": "a0667ff4-929a-4a54-8ed6-e037d745e625",
+    "id": "053dd436-b723-40fa-8845-4c7b28d86860",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "4d7ee4dd-470e-403b-971a-a537de81147c",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerToggleFlightEvent",
+    "isFlying": false,
+    "id": "2fd1edc9-3002-4651-b719-5115657187a5",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 11.268314,
+      "yaw": -20.052265
+    },
+    "id": "aba0bf9f-9c86-4956-9245-6392b8927aac",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 15.172302,
+      "yaw": -32.207844
+    },
+    "id": "d8b179bc-e62c-49da-9d7c-8dd33d7951ed",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 10.647225,
+      "yaw": -16.237
+    },
+    "id": "7a84da0a-19f1-4245-94c3-07be98c805e8",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 13.486489,
+      "yaw": -38.06379
+    },
+    "id": "62f44c88-a110-4c14-90b9-e68d9bbe07e3",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 14.728667,
+      "yaw": -57.140076
+    },
+    "id": "0020bf76-e2fa-496d-8b9a-f171ad847c21",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 15.52721,
+      "yaw": -69.650536
+    },
+    "id": "531c23ab-3d1b-437e-9d60-158866dedb31",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 15.882118,
+      "yaw": -90.50131
+    },
+    "id": "504ccfe4-5333-461b-9579-16fd863f26c7",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 17.124285,
+      "yaw": -110.28735
+    },
+    "id": "d7dd958b-443e-4a06-bc1a-f0cf3390f40d",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 17.92282,
+      "yaw": -127.145454
+    },
+    "id": "b15b4782-0d0c-46ed-999f-a6af9388bd35",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 29.634745,
+      "yaw": -141.16438
+    },
+    "id": "d1d8d2c6-455b-48d5-9e8f-ad44e6de8d1f",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "BlockPlaceEvent",
+    "location": {
+      "x": 2.0,
+      "y": 1.0,
+      "z": -2.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    "material": 19,
+    "id": "a94a27d8-0c1b-4837-84e2-d83347d39747",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "BlockPlaceEvent",
+    "location": {
+      "x": 3.0,
+      "y": 1.0,
+      "z": -2.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    "material": 19,
+    "id": "f153c1f3-1e61-493e-a973-37988fbcf14b",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 43.742218,
+      "yaw": -139.9225
+    },
+    "id": "e5346e91-f1a3-4ce6-b090-db67c25866c6",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "BlockPlaceEvent",
+    "location": {
+      "x": 2.0,
+      "y": 1.0,
+      "z": -1.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    "material": 29,
+    "id": "bc70342b-17ca-4fcd-976b-513dcb24bbfd",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.5,
+      "y": 1.0,
+      "z": 0.5,
+      "pitch": 43.742218,
+      "yaw": -122.35463
+    },
+    "id": "9c6f1ea6-2bfa-4075-a424-828c3d3100bd",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "BlockPlaceEvent",
+    "location": {
+      "x": 2.0,
+      "y": 1.0,
+      "z": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    "material": 29,
+    "id": "2c51157e-99cb-4519-97bf-4302ea4b8f0c",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 1.2259661,
+      "y": 1.0,
+      "z": 0.7635891,
+      "pitch": 39.128464,
+      "yaw": -132.46938
+    },
+    "id": "fde636ac-b4af-42a1-9839-1a54156d4913",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 0.84388095,
+      "y": 1.0,
+      "z": 0.803118,
+      "pitch": 39.128464,
+      "yaw": -133.17921
+    },
+    "id": "be8a0000-f972-4cf1-824c-1a320a393fa4",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlayerMoveEvent",
+    "newLocation": {
+      "x": 0.2815074,
+      "y": 1.0,
+      "z": 0.65204835,
+      "pitch": 32.828915,
+      "yaw": -121.821884
+    },
+    "id": "fefe30eb-02a7-4402-98b7-50fd51cb7649",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlatformPlayerLeavesGameEvent",
+    "id": "d1df7b52-58db-45b1-9806-baf6d4786920",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": "Everything",
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  },
+  {
+    "eventType": "PlatformGameEndEvent",
+    "id": "ebd1b421-de5d-4b9e-bc4e-12e7bbbef37c",
+    "gameId": "c60878fb-377c-4a70-8e2d-e9f6fa21e157",
+    "taskId": "0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "tournamentId": "12284b4d-3073-4c3e-9e53-55b1c3446f90",
+    "source": "MinecraftPlugin",
+    "roleId": null,
+    "groupId": "12284b4d-3073-4c3e-9e53-55b1c3446f90:0bf16099-8cdd-408e-afcf-20f0c92d918a",
+    "agentSubscriptionFilterValue": null
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "gradle build"
+    },
+    {
+      "label": "Clean Minecraft",
+      "type": "shell",
+      "command": "gradle cleanMinecraft"
+    },
+    {
+      "label": "Scaffold Minecraft",
+      "type": "shell",
+      "command": "gradle scaffoldMinecraft"
+    },
+    {
+      "label": "Copy Plugins to Servers",
+      "type": "shell",
+      "command": "gradle copyPluginJarToServer"
+    },
+    {
+      "label": "Copy LobbyServer Plugin to Server",
+      "type": "shell",
+      "command": "gradle Plugins:LobbyServerPlugin:copyPluginJarToServer -x check"
+    },
+    {
+      "label": "Copy GameServer Plugin to Server",
+      "type": "shell",
+      "command": "gradle Plugins:GameServerPlugin:copyPluginJarToServer -x check"
+    }
+  ]
+}

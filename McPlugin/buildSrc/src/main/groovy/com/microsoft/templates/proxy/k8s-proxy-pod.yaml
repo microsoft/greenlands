@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{PROXY_NAME}}-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: {{PROXY_NAME}}
+  ports:
+    - name: mcserver
+      protocol: TCP
+      port: {{QUERY_PORT}}
+      targetPort: {{QUERY_PORT}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{PROXY_NAME}}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{PROXY_NAME}}
+  template:
+    metadata:
+      labels:
+        app: {{PROXY_NAME}}
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      containers:
+        - name: {{PROXY_NAME}}
+          image: {{ACR_URL}}/proxy/{{PROXY_NAME}}-image
+          resources:
+            requests:
+              # specify minimum resources that pods need to work
+              memory: 1Gi
+              cpu: 1000m  # millicpus (1000m == 1 core)
+          ports:
+            - containerPort: {{QUERY_PORT}}

@@ -1,0 +1,15 @@
+*.class
+
+.env.local
+.gradle
+.idea
+
+bin
+build
+lib
+
+minecraft-server
+mc-cache
+
+terraform/.terraform
+terraform/.terraform.tfstate.lock.info

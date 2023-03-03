@@ -1,0 +1,5 @@
+main : com.microsoft.plaiground.lobbyserver.LobbyServerPlugin
+name : LobbyServerPlugin
+version : 1.0
+api-version : 1.18
+depend : [ 'Multiverse-Core', 'CleanroomGenerator' ]

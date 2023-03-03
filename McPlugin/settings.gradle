@@ -1,0 +1,5 @@
+rootProject.name = 'PlaiGround'
+include 'Common',
+        'Plugins:LobbyServerPlugin',
+        'Plugins:GameServerPlugin'
+

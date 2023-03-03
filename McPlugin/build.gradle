@@ -1,0 +1,250 @@
+import com.microsoft.tasks.CleanMcTask
+import com.microsoft.tasks.ScaffoldMcTask
+
+import java.nio.file.Files
+
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath 'net.linguica.gradle:maven-settings-plugin:0.5'
+    }
+}
+
+def sharedLibs = subprojects.findAll { it.path.contains("Common") && hasSrc(it) }
+def pluginsProjects = subprojects.findAll { it.path.contains("Plugins") && hasSrc(it) }
+
+/** Checks whether a pluginName has a source directory */
+def hasSrc(proj) {
+    return new File(proj.projectDir, "src").exists()
+}
+
+def isBuildDebug = true
+
+configure(pluginsProjects + sharedLibs) {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'net.linguica.maven-settings'
+
+    group 'com.microsoft'
+    version '1.0.0'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://repo.papermc.io/repository/maven-public/' }
+        maven { url 'https://repo.onarandombox.com/content/groups/public/' }
+        maven { url 'https://maven.citizensnpcs.co/repo' }
+        maven {
+            url 'https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/maven/v1'
+            name 'PlaiGround'
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    compileJava
+            {
+                // -PbuildType=debug or -PbuildType=release
+                if (project.hasProperty("buildType")) {
+                    isBuildDebug = project.getProperty("buildType").equalsIgnoreCase("debug")
+                    if (!isBuildDebug) {
+                        options.debugOptions.debugLevel = "none"
+                    }
+                    options.debug = isBuildDebug;
+                }
+            }
+
+    configurations {
+        toBundle
+        notToBundle
+        implementation.extendsFrom(toBundle, notToBundle)
+    }
+
+    dependencies {
+        // Minecraft
+        notToBundle 'io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT'
+        notToBundle 'com.onarandombox.multiversecore:Multiverse-Core:4.3.1'
+        notToBundle 'org.apache.logging.log4j:log4j-core:2.19.0'
+        notToBundle('net.citizensnpcs:citizens-main:2.0.30-SNAPSHOT') {
+            exclude group: '*', module: '*'
+        }
+
+        // General
+        toBundle 'org.apache.commons:commons-lang3:3.12.0'
+        toBundle 'redis.clients:jedis:3.7.0'
+        toBundle 'io.github.openfeign:feign-core:11.9'
+        toBundle 'com.microsoft.plaiground:plaiground-client:1.0.0-CI-20221213.4'
+        toBundle 'com.google.inject:guice:5.1.0'
+        toBundle 'com.azure:azure-messaging-eventhubs:5.14.0'
+        toBundle 'com.microsoft.azure:msal4j:1.13.2'
+        toBundle 'com.azure:azure-storage-blob:12.20.0'
+        toBundle 'com.azure:azure-core-serializer-json-jackson:1.2.22'
+        toBundle 'com.azure:azure-core:1.33.0'
+
+        // Testing
+        testImplementation 'org.mockito:mockito-core:4.3.1'
+        testImplementation 'org.mockito:mockito-inline:4.3.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+        // Make Plugins depend on Common
+        if (project.path.contains("Plugin")) sharedLibs.each {
+            toBundle it
+            testImplementation it
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    jacocoTestReport {
+        dependsOn test // tests are required to run before generating the report
+    }
+
+    jacocoTestCoverageVerification {
+        violationRules {
+            rule {
+                limit {
+                    minimum = 0.7
+                }
+            }
+        }
+    }
+
+    processResources {
+        doFirst {
+            file("$buildDir/resources/main").listFiles().each {
+                it.delete()
+            }
+        }
+    }
+
+    // only for pluginName that actually contain a 'src' directory (ignore subfolders used for grouping
+    // projects)
+    jar {
+        archiveClassifier = ''
+        from sourceSets.main.output
+        dependsOn configurations.runtimeClasspath
+
+        // multi-project dependencies cause duplicate external deps. If when bundling we
+        // encounter a duplicate then we just ignore it
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+        from({
+            var notToBundleSet = configurations.notToBundle.toSet()
+            configurations.toBundle
+                    .findAll { !notToBundleSet.contains(it) }
+                    .collect { zipTree(it) }
+        }, {
+            exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+        })
+    }
+
+    task copyPluginJarToServer {
+        group 'Custom tasks'
+        description 'Copies the plugin JAR to Minecrafts server plugin directories'
+        dependsOn build
+
+        var minecraftPath = rootProject.rootDir.toPath().resolve("minecraft-server/")
+
+        if (!minecraftPath.toFile().exists()) {
+            dependsOn ":scaffoldMinecraft"
+        }
+
+        doLast {
+            var projectName = project.name
+            if (!projectName.endsWith("ServerPlugin")) return
+
+            var rootPath = project.projectDir.toPath()
+            var sourcePath = rootPath.resolve("build/libs/$projectName-${project.version}.jar")
+
+            var serversDir = minecraftPath.resolve("servers/")
+            var projectRootName = projectName.split("ServerPlugin").first()
+            for (server in Files.list(serversDir)) {
+                if (!server.fileName.toString().startsWith(projectRootName)) continue
+
+                var targetPath = serversDir.resolve("$server/plugins/${sourcePath.fileName}")
+                if (targetPath.toFile().exists()) {
+                    println("Trying to delete existing plugin $targetPath")
+
+                    // poor man's hot-reload (run "reload confirm" on server, this will swap the jars)
+                    while (!targetPath.toFile().delete()) {
+                        Thread.sleep(10)
+                    }
+
+                    println("Done!")
+                }
+
+                Files.copy(sourcePath, targetPath)
+            }
+        }
+    }
+}
+
+tasks.register('scaffoldMinecraft', ScaffoldMcTask) {
+    group 'Custom tasks'
+    description 'Will download required jars to start a minecraft server and write the basic proxy and server file structures'
+}
+
+tasks.register('cleanMinecraft', CleanMcTask) {
+    group 'Custom tasks'
+    description 'Will delete all server files and folders except the necessary ones. Basically brings the server to a "clean" state. Will not delete the mc-cache folder.'
+}
+
+task setJavaClientVersion {
+    group 'Custom tasks'
+    description 'Expects a parameter -PreqVersion="version" and will set the value of the JavaClient to the value of this parameter'
+    doFirst {
+        if (reqVersion == null) {
+            println "required 'reqVersion' parameter not provided"
+            return
+        }
+
+        println "Setting Java client to provided version of $reqVersion"
+
+        var buildFilePath = project.getRootDir().toPath().resolve("./build.gradle")
+        var buildFileContents = Files.readString(buildFilePath)
+
+        var newContents = buildFileContents.replaceAll("toBundle 'com.microsoft.plaiground:plaiground-client:(\\d+\\.?)[^']+'",
+                "toBundle 'com.microsoft.plaiground:plaiground-client:$reqVersion'")
+
+        Files.writeString(buildFilePath, newContents)
+    }
+}
+
+task writeMavenSettings {
+    group 'Custom tasks'
+    description 'Expects a parameter -Ppassword="your key from ADO" and will add the appropriate credentials to ~/.m2/settings.xml. Note: this task will overwrite the settings.xml file.'
+    doFirst {
+        // create .m2 dir if it doesn't exist
+        var homeDir = System.getProperty("user.home");
+        var m2Dir = Files.createDirectories(new File(homeDir + "/.m2/").toPath())
+
+        var settingsFile = m2Dir.resolve("settings.xml").toFile()
+        settingsFile.write("""
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>PlaiGround</id>
+      <username>deeplearningeng</username>
+      <password>$password</password>
+    </server>
+  </servers>
+</settings>
+""")
+    }
+}

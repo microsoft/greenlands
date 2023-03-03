@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
+COPY . /usr/src/{{SERVER_NAME}}
+WORKDIR /usr/src/{{SERVER_NAME}}
+
+# The flags for running the server come from https://paper.readthedocs.io/en/latest/server/aikar-flags.html
+CMD java --add-opens java.base/java.lang=ALL-UNNAMED \
+         --add-opens java.base/java.lang.invoke=ALL-UNNAMED \
+         -Xmx{{SERVER_MEMORY}} \
+         -Xms{{SERVER_MEMORY}} \
+         -Dcom.sun.management.jmxremote \
+         -Dcom.sun.management.jmxremote.port=1089 \
+         -Dcom.sun.management.jmxremote.rmi.port=1089 \
+         -Dcom.sun.management.jmxremote.ssl=false \
+         -Dcom.sun.management.jmxremote.authenticate=false \
+         -Dcom.sun.management.jmxremote.local.only=false \
+         -Djava.rmi.server.hostname=127.0.0.1 \
+         -enableassertions \
+         -jar server.jar --nogui

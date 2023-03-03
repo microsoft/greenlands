@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/openjdk/jdk:17-ubuntu
+EXPOSE {{QUERY_PORT}}
+COPY . /usr/src/{{PROXY_NAME}}
+WORKDIR /usr/src/{{PROXY_NAME}}
+RUN mv velocity-k8s.toml velocity.toml
+CMD java -Xmx{{PROXY_MEMORY}} -Xms{{PROXY_MEMORY}} -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -jar velocity.jar

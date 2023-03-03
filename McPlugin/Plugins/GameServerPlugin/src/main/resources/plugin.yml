@@ -1,0 +1,5 @@
+main : com.microsoft.plaiground.gameserver.GameServerPlugin
+name : GameServerPlugin
+version : 1.0
+api-version : 1.18
+depend : [ 'Multiverse-Core', 'CleanroomGenerator', 'Citizens' ]

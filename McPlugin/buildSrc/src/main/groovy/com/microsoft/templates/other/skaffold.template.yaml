@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: minecraft-server
+profiles:
+  - name: release
+    build :
+      local :
+        push : true
+build:
+  artifacts:
+{{ARTIFACTS}}
+deploy:
+  kubectl:
+    manifests:
+    - k8s-redis-pod.yaml
+{{MANIFESTS}}
