@@ -1,0 +1,6 @@
+{
+  "npmName": "@plaiground/client",
+  "npmRepository": "https://dev.azure.com/deeplearningeng/_git/PlaiGround",
+  "supportsES6": true,
+  "typescriptThreePlus": true
+}

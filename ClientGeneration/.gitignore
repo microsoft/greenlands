@@ -1,0 +1,7 @@
+*.jar
+*.exe
+
+swagger*.json
+
+downloads/
+*Client*/

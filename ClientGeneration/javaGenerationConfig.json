@@ -1,0 +1,10 @@
+{
+  "library": "feign",
+  "groupId": "com.microsoft.plaiground",
+  "invokerPackage": "com.microsoft.plaiground.client",
+  "modelPackage": "com.microsoft.plaiground.client.model",
+  "apiPackage": "com.microsoft.plaiground.client.api",
+  "artifactId": "plaiground-client",
+  "artifactDescription": "Java Client for PLaiGround Service",
+  "artifactUrl": "https://dev.azure.com/deeplearningeng/_git/PlaiGround?path=/Service"
+}
