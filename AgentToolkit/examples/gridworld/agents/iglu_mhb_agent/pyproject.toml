@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "iglu_mhb_agent"
+version = "0.1.0"
+description = "IGLU's MHB agent that runs in Gridworld"
+authors = ["MSR Deep Learning Team"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+python-dotenv = "^0.20.0"
+azure-eventhub = "5.10.0"
+requests = "^2.28.1"
+plaiground-agent-toolkit = "0.20221101.4"
+numba = "^0.56.2"
+matplotlib = "^3.6.0"
+azure-storage-blob = "^12.13"
+pydantic = "^1.10.2"
+wandb = "^0.13.3"
+sentencepiece = "^0.1.97"
+transformers = "^4.22.2"
+numpy = "^1.23.3"
+torch = "1.13.0"
+torchvision = "0.14.0"
+torchaudio = "0.13.0"
+plaiground-api = "0.20221101.4"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.961"
+types-requests = "^2.28.3"
+
+[tool.poetry.group.render]
+optional = true
+
+[tool.poetry.group.render.dependencies]
+opencv-python = "^4.6.0.66"
+filelock = "^3.8.0"
+pyglet = "^1.5.27"
+pyrender = "^0.1.45"
+
+[tool.poetry.group.linuxdeps]
+optional = true
+
+[tool.poetry.group.linuxdeps.dependencies]
+sample-factory = "1.121.3"
+
+[[tool.poetry.source]]
+name = "PlaiGround"
+url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple/"
+secondary = true
+
+# [[tool.poetry.source]]
+# name = "pytorch"
+# url = "https://download.pytorch.org/whl/cpu/"
+# secondary = true
+# default = false
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

@@ -1,0 +1,17 @@
+# Updates the local evaluation procedure so it only evaluates on 1 task instead
+# of evaluating on all tasks. Useful if we just want to test that the agent is
+# able to initialize itself and play 1 task.
+
+diff --git a/local_evaluation.py b/local_evaluation.py
+index 4248261..a8634e5 100644
+--- a/local_evaluation.py
++++ b/local_evaluation.py
+@@ -71,7 +71,7 @@ def evaluate(LocalEvalConfig):
+     num_parallel_envs = agent.num_parallel_envs
+     action_space_name = agent.action_space_name
+ 
+-    task_generator = TaskGenerator(LocalEvalConfig.LIMIT_TASKS)
++    task_generator = TaskGenerator(1)
+ 
+     episode_tracker = TaskEpisodeTracker(num_parallel_envs=num_parallel_envs,
+                                          max_episodes_per_task=LocalEvalConfig.MAX_EPISODES_PER_TASK,

@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "gridworld_command_agent"
+version = "1.0.0"
+description = "Agent that runs in Gridworld, receives text commands and takes action"
+authors = ["MSR Deep Learning Team"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+python-dotenv = "^0.20.0"
+azure-eventhub = "5.10.0"
+requests = "^2.28.1"
+numba = "^0.56.2"
+matplotlib = "^3.6.0"
+numpy = "^1.23.3"
+plaiground-api = {path = "../../../../ClientGeneration/PythonClient", develop = true}
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.961"
+types-requests = "^2.28.3"
+
+[tool.poetry.group.render]
+optional = true
+
+[tool.poetry.group.render.dependencies]
+opencv-python = "^4.6.0.66"
+filelock = "^3.8.0"
+pyglet = "^1.5.27"
+pyrender = "^0.1.45"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+max_line_length = 120
+

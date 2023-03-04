@@ -1,0 +1,25 @@
+# This patch file will fix how the MHB agent will "compute" where is the path
+# which it will download (and load) the weights to.
+
+diff --git a/agents/mhb_baseline/step_by_step_enjoy.py b/agents/mhb_baseline/step_by_step_enjoy.py
+index 162c781..b20fce2 100644
+--- a/agents/mhb_baseline/step_by_step_enjoy.py
++++ b/agents/mhb_baseline/step_by_step_enjoy.py
+@@ -139,13 +139,15 @@ class APPOHolder:
+ def make_agent():
+     register_custom_components()
+ 
++
++    script_path = Path(os.path.dirname(__file__))
+     cfg = parse_args(argv=[
+         '--algo=APPO', '--env=IGLUSilentBuilder-v0', '--experiment=rl_model',
+         '--experiments_root=mhb_baseline',
+-        '--train_dir=./agents/'
++        '--train_dir='+ str((script_path/'..').resolve())
+     ],
+         evaluation=True)
+     cfg = load_from_checkpoint(cfg)
+ 
+-    cfg.setdefault("path_to_weights", "./agents/mhb_baseline/rl_model")
++    cfg.setdefault("path_to_weights", str(script_path/"rl_model"))
+     return APPOHolder(cfg)

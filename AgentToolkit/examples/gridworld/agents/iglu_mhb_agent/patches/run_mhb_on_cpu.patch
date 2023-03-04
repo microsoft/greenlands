@@ -1,0 +1,27 @@
+# This patch updates the MHB code so that it makes the agent run on CPU, not on
+# GPU (which is the default).
+
+diff --git a/agents/mhb_baseline/nlp_model/agent.py b/agents/mhb_baseline/nlp_model/agent.py
+index efc9e0f..292550e 100644
+--- a/agents/mhb_baseline/nlp_model/agent.py
++++ b/agents/mhb_baseline/nlp_model/agent.py
+@@ -27,8 +27,8 @@ def load_model(args):
+     model = T5ForConditionalGeneration.from_pretrained(os.path.join(script_dir, "model/"))
+     # model.save_pretrained("model")
+     model.resize_token_embeddings(len(tokenizer))
+-    model.load_state_dict(torch.load(args.model))
+-    model.cuda()
++    model.load_state_dict(torch.load(args.model, map_location=torch.device('cpu')))
++    # model.cuda()
+     model.eval()
+ 
+     return model, tokenizer
+@@ -39,7 +39,7 @@ def generate_actions(args, model, tokenizer, command, history, log_file=None):
+ 
+     input_ids = tokenizer(f"{args.task_prefix} {context}", return_tensors="pt").input_ids
+ 
+-    outputs = model.generate(input_ids.cuda(), min_length=2, max_length=args.max_target_length, )
++    outputs = model.generate(input_ids, min_length=2, max_length=args.max_target_length, )
+     prediction = tokenizer.decode(outputs[0], skip_special_tokens=True)
+ 
+     if args.verbose > 0:

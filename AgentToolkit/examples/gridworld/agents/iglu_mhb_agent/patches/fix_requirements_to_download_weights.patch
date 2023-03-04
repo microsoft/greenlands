@@ -1,0 +1,36 @@
+# This patch file modifies the requirements.txt of the MHB agent repo so that
+# they correspond to the versions that we use in OUR mhb_agent (the versions
+# that we use from Poetry).
+
+diff --git a/requirements.txt b/requirements.txt
+index f113705..11488a3 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,16 +1,10 @@
+-pydantic>=1.8.2
+-wandb>=0.12.0
+-matplotlib
+-opencv-python
+-sentencepiece
+-transformers==4.2.1
+-
+-# IGLU packages
+-git+https://github.com/iglu-contest/gridworld.git@master
+-git+https://github.com/iglu-contest/sample-factory.git@1.121.3.iglu
+-
+-# PyTorch
+--f https://download.pytorch.org/whl/torch_stable.html
+-torch==1.8.1+cu111
+-torchvision==0.9.1+cu111
+-torchaudio==0.8.1
+\ No newline at end of file
++pydantic==1.10.2
++wandb==0.13.3
++matplotlib==3.6.0
++opencv-python==4.6.0.66
++sentencepiece==0.1.97
++transformers==4.22.2
++sample-factory==1.121.3
++torch==1.12.1
++torchaudio==0.12.1
++torchvision==0.13.1

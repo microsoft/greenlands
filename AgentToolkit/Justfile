@@ -1,0 +1,25 @@
+help:
+    @just --list
+
+# Update your local Poetry env to use the package versions defined in poetry.lock
+install:
+    @poetry install
+
+# Run MyPy typechecking on agent toolkit package
+typecheck:
+    @poetry run mypy plaiground_agent_toolkit
+
+test: typecheck
+    @poetry run python -m unittest -v ./tests/test_events.py
+
+run-command-agent-local:
+    @poetry run python ./examples/tutorial/run_local_agent_service.py
+
+run-command-agent-remote:
+    @poetry run python ./examples/tutorial/run_agent_service.py
+
+run-gridworld-command-agent-local:
+    @poetry run python ./examples/agents/gridworld_command/run_local_agent_service.py
+
+run-gridworld-command-agent-remote:
+    @poetry run python ./examples/agents/gridworld_command/run_agent_service.py

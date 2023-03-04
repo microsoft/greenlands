@@ -1,0 +1,9 @@
+examples/agents/iglu_mhb_agent/iglu_2022_mhb_baseline
+
+**/.venv
+**/.env.local
+
+examples/agents/iglu_happy_iglu_agent
+examples/agents/iglu_felipe_agent
+examples/agents/gridworld_command
+examples/agents/gridworld

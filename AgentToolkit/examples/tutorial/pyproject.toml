@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "command_agent"
+version = "1.0.0"
+description = "Agent that receives text commands and takes action"
+authors = ["MSR Deep Learning Team"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+python-dotenv = "^0.20.0"
+azure-eventhub = "5.10.0"
+requests = "^2.28.1"
+plaiground-agent-toolkit = "0.20221213.4"
+plaiground-api = "0.20221213.4"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.961"
+types-requests = "^2.28.3"
+
+[[tool.poetry.source]]
+name = "PlaiGround"
+url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple/"
+secondary = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+max_line_length = 120
+
