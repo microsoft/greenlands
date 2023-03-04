@@ -22,7 +22,7 @@ Additionally, GameEnvironments can be integrated like wrappers that extend some 
 When the agent is implemented, it's time to connect it to the Minecraft server. See `run_agent_service.py` scripts for specific examples of the following steps. You must first register the agent through the service and obtain the necessary access keys for EventHub and Azure Storage. Use them to set up a `.env` file.
 
 The `AgentToolkit` class will orchestrate the traffic of events. You need to create:
-* The client that will send and receive the Events from the source. `PlaiGroundMessageClient` is the class that interacts with EventHub.
+* The client that will send and receive the Events from the source. `GreenlandMessageClient` is the class that interacts with EventHub.
 * The environment generator function `create_game_environment`. This function combines all the environments and wrappers and returns the outer instance.
 
 When you call AgentToolkit `run` method, the connection to client is open and the process stays in a loop listening for events. See more details about the interaction between the AgentToolkit and the server in the [Getting Started](/AgentToolkit/Getting-Started.md) section.
@@ -67,7 +67,7 @@ about this process).
 When adding a new event to Service, the _PythonClient_ will have classes for the new models. But if you want to work with them then
 there are some things you need to do if you want to work with these classes from with AT:
 
-1. Register the new event classes in `AgentToolkit/plaiground_agent_toolkit/event_factory.py` `_REGISTERED_EVENTS` types list.
+1. Register the new event classes in `AgentToolkit/agent_toolkit/event_factory.py` `_REGISTERED_EVENTS` types list.
     - This is so that AT's type checker (`mypy`) is able to know about these new events and can properly type-check your usage of them
 1. If you want to be able to receive and aggregate the specific event into a `GameState` then you also need to add the new event to the
-   list at the top of `AgentToolkit/plaiground_agent_toolkit/event_factory.py`
+   list at the top of `AgentToolkit/agent_toolkit/event_factory.py`

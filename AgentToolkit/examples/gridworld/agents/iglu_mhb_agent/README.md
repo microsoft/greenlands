@@ -2,7 +2,7 @@
 
 This readme explains how to run the [MHB baseline
 agent](https://gitlab.aicrowd.com/aicrowd/challenges/iglu-challenge-2022/iglu-2022-rl-mhb-baseline/-/tree/master)
-so that it works properly with PlaiGround and the rest of the Agent Toolkit.
+so that it works properly with Greenland and the rest of the Agent Toolkit.
 
 For the MHB to work it needs to have a renderer available (since one of the
 inputs of the model is the RGB matrix of the current frame). To enable renderer
@@ -31,8 +31,8 @@ git clone http://gitlab.aicrowd.com/aicrowd/challenges/iglu-challenge-2022/iglu-
 cd iglu_2022_mhb_baseline
 git reset --hard 253ae17ee6ee4daa3a9d02da56b6a7bdad7c77d8
 
-# Now we need to apply a patch file to the repo to fix some issues with the base code, 
-# as well as correcting where the configuration files are found. 
+# Now we need to apply a patch file to the repo to fix some issues with the base code,
+# as well as correcting where the configuration files are found.
 # Check out the patch files for more information
 git apply ../patches/fix_mhb_paths.patch
 
@@ -70,11 +70,11 @@ the following:
 ```bash
 # Download weights for the NLP model (~2.8GB)
 cd iglu_2022_mhb_baseline/agents/mhb_baseline/nlp_model/
-python download.py 
+python download.py
 
 # Download weights for RL model. This is automatically done for us by the local_evaluation script
 # go back up to the iglu_2022_mhb_baseline folder
-cd ../../../ 
+cd ../../../
 
 # call the local_evaluation script. Note that as soon as you start seeing messages like:
 #   Num Steps: 500, Num episodes: 7
@@ -117,7 +117,7 @@ python examples/agents/iglu_mhb_agent/run_agent_service.py
 python examples/agents/iglu_mhb_agent/iglu_local_evaluation.py
 
 
-# note, if you also want to enable the renderer output for any of these then you'll need to prepend 
+# note, if you also want to enable the renderer output for any of these then you'll need to prepend
 # IGLU_HEADLESS=0, for example:
 #   IGLU_HEADLESS=0 PYTHONPATH=$(pwd) python examples/agents/iglu_mhb_agent/iglu_local_evaluation.py
 ```
@@ -155,7 +155,7 @@ command to build the docker image for the IHB agent locally.
 # POETRY_REPO_KEY    - is the ADO token used to authenticate with our private artifact
 #                      repository
 # WANDB_TOKEN        - is your personal WANDB token, which you can get from here:
-#                      https://wandb.ai/authorize 
+#                      https://wandb.ai/authorize
 
 ./scripts/create-docker-image.sh \
               BUILD_CONTEXT_PATH="../../.." \
@@ -164,41 +164,6 @@ command to build the docker image for the IHB agent locally.
 
 # run `./scripts/create-docker-image.sh --help` for more info on this script
 ```
-
-## Running remote Docker image
-
-First you need to authenticate with our ACR. Then run the image as
-
-```bash
-docker run -it --gpus all \
-               --env LOGLEVEL="DEBUG" \
-               --env AGENT_SERVICE_ID="xxx" \
-               --env AGENT_SERVICE_ROLE_ID="xxx" \
-               --env PUBLISH_SUBSCRIBE_CONNECTION_STRING="xxx" \
-               --env EVENT_HUB_CONSUMER_GROUP="xxx" \
-               plaiground4bawacr.azurecr.io/plaiground/mhb-agent:0.0.1-GPU
-```
-
-All of the `--env` flags above are required **except** for `LOGLEVEL` which
-defaults to `INFO` if not provided.
-
-To run with only one GPU change `--gpus all` in the command above to `--gpus
-'"device=0"'`, where `0` is the number of the GPU you want the container to use.
-Reference the [official
-documentation](https://docs.docker.com/engine/reference/commandline/run/#access-an-nvidia-gpu)
-for more information on having the containers access NVIDIA GPUs.
-
-`docker run` is also able to limit both the number of CPUs that the container
-gets assigned, as well as possible memory. See
-[documentation](https://docs.docker.com/engine/reference/commandline/run/#options)
-for more info. Relevant options are:
-
-- `--cpus` - Number of CPUs
-- `--cpuset-cpus` - CPUs in which to allow execution (0-3, 0,1)
-- `--cpuset-mems` - MEMs in which to allow execution (0-3, 0,1)
-- `--memory` - Memory limit (more info about this
-  [here](https://docs.docker.com/engine/reference/commandline/run/#specify-hard-limits-on-memory-available-to-containers--m---memory))
-
 
 ## Running local Docker image
 
@@ -209,24 +174,5 @@ docker run -it --gpus all \
                --env AGENT_SERVICE_ROLE_ID="xxx" \
                --env PUBLISH_SUBSCRIBE_CONNECTION_STRING="xxx" \
                --env EVENT_HUB_CONSUMER_GROUP="xxx" \
-               plaiground/mhb-agent:0.0.1-GPU
-```
-
-## Pushing Docker image to ACR
-
-This supposes you have previously built the image locally and it is available
-with the name `plaiground/mhb-agent:0.0.1-GPU`.
-
-First you need to authenticate with our ACR if you haven't done so already.
-
-Next, you need to tag the image to include the URL of our ACR:
-
-```bash
-docker tag plaiground/mhb-agent:0.0.1-GPU plaiground4bawacr.azurecr.io/plaiground/mhb-agent:0.0.1-GPU
-```
-
-Now you can proceed to push the image to the ACR
-
-```bash
-docker push plaiground4bawacr.azurecr.io/plaiground/mhb-agent:0.0.1-GPU
+               greenland/mhb-agent:0.0.1-GPU
 ```

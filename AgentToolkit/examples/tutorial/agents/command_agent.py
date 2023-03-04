@@ -3,7 +3,7 @@ from typing import Dict
 
 from examples.tutorial.environments import action_space
 from examples.tutorial.environments.command_game_environment import AppendCommandsAction
-from plaiground_agent_toolkit import Agent, logger
+from agent_toolkit import Agent, logger
 
 _LOGGER = logger.get_logger(__name__)
 _LOGGER.setLevel('DEBUG')

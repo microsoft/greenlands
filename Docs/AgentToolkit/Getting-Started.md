@@ -43,7 +43,7 @@ First ensure you have correctly generated the plaiground client form OpenAPI.
 Create a new conda/pip environment using Python `3.9`. You will need to manually install each of the dependencies with the following commands.
 
 ```
-conda create -n plaiground python=3.9
+conda create -n greenland python=3.9
 cd ClientGeneration/PythonClient
 pip install -e .
 cd ../../AgentToolkit

@@ -13,9 +13,9 @@ from examples.gridworld.environment.utils import (
         PLAYER_HEIGHT,
         TERMINAL_VELOCITY, WALKING_SPEED, WHITE, normalize)
 
-from plaiground_agent_toolkit import LocalGameState, logger
+from agent_toolkit import LocalGameState, logger
 
-_LOGGER = logger.get_logger(f"plaiground_agent_toolkit.gridworld_command.{__name__}")
+_LOGGER = logger.get_logger(f"agent_toolkit.gridworld_command.{__name__}")
 
 Vector3 = Tuple[Number, Number, Number]
 Vector2 = Tuple[Number, Number]

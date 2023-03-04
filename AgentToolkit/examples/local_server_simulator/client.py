@@ -4,8 +4,8 @@ from typing import Callable, List
 
 from plaiground_client.model.base_event import BaseEvent
 
-from plaiground_agent_toolkit import BaseMessageClient, PlaigroundEventFactory, logger
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit import BaseMessageClient, PlaigroundEventFactory, logger
+from agent_toolkit.event_factory import RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 

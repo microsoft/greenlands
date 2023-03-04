@@ -9,7 +9,7 @@ from examples.tutorial.environments.command_game_environment import (
     CommandGameEnvironment, CommandLocalGameState)
 from examples.tests.base_local_test_suite import BaseLocalTestsSuite
 from examples.tests.mocks import MockEventClient
-from plaiground_agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
+from agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
 
 
 class CommandAgentActionEventsTests(BaseLocalTestsSuite):

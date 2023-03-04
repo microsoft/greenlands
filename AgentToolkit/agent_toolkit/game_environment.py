@@ -7,11 +7,11 @@ from typing import Any, Dict, List, Tuple
 
 import gym
 
-from plaiground_agent_toolkit import logger
-from plaiground_agent_toolkit.event_aggregator import EventAggregator
-from plaiground_agent_toolkit.event_aggregator.local_game_state import LocalGameState
-from plaiground_agent_toolkit.event_callback_provider import EventCallbackProvider
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit import logger
+from agent_toolkit.event_aggregator import EventAggregator
+from agent_toolkit.event_aggregator.local_game_state import LocalGameState
+from agent_toolkit.event_callback_provider import EventCallbackProvider
+from agent_toolkit.event_factory import RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 

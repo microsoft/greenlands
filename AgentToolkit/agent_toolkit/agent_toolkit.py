@@ -18,11 +18,11 @@ from plaiground_client.model.agent_is_ready_event import AgentIsReadyEvent
 from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
 from plaiground_client.model.platform_game_start_event import PlatformGameStartEvent
 
-from plaiground_agent_toolkit import BaseMessageClient, logger
-from plaiground_agent_toolkit.agent import Agent
-from plaiground_agent_toolkit.common_events_properties import CommonEventsProperties
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
-from plaiground_agent_toolkit.game_thread import CreateGameEnvironmentFnType, GameThread
+from agent_toolkit import BaseMessageClient, logger
+from agent_toolkit.agent import Agent
+from agent_toolkit.common_events_properties import CommonEventsProperties
+from agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit.game_thread import CreateGameEnvironmentFnType, GameThread
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -167,7 +167,7 @@ class AgentToolkit:
             # belongs, which should never happen
             _LOGGER.warning(
                 f"Received event {event.__class__} for game that is not being tracked. This is likely an issue " +
-                "with the PlaiGround platform itself, please report this issue to a platform " +
+                "with the Greenland platform itself, please report this issue to a platform " +
                 f"administrator so they can investigate. "
                 f"Game id: {event.game_id}, event: {event.id}")
 

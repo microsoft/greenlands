@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "plaiground-agent-toolkit"
+name = "agent-toolkit"
 version = "0.20221213.4"
-description = "A package to connect automatic agents to Plaiground server and services."
+description = "A package to connect automatic agents to Greenland server and services."
 authors = ["MSR Deep Learning Engineering Team"]
 packages = [
-    { include = "plaiground_agent_toolkit" }
+    { include = "agent_toolkit" }
 ]
 
 [tool.poetry.dependencies]

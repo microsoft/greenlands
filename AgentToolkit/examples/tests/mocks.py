@@ -1,8 +1,8 @@
 
 from typing import Callable, List
 
-from plaiground_agent_toolkit.clients.base_message_client import BaseMessageClient
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit.clients.base_message_client import BaseMessageClient
+from agent_toolkit.event_factory import RegisteredEvent
 
 
 class MockEventClient(BaseMessageClient):

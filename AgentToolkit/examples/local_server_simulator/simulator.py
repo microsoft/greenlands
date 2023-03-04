@@ -4,7 +4,7 @@ from queue import Queue
 from threading import Thread
 from typing import Callable
 
-from plaiground_agent_toolkit import BaseMessageClient, logger
+from agent_toolkit import BaseMessageClient, logger
 from examples.local_server_simulator.client import LocalQueueClient
 from examples.local_server_simulator.server import LocalQueueServer
 

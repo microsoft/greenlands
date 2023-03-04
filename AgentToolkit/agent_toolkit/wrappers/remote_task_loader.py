@@ -7,7 +7,7 @@ import requests
 from plaiground_client.model.game_changes import GameChanges
 from plaiground_client.model.game_state import GameState
 
-from plaiground_agent_toolkit import (CommonEventsProperties, GameEnvironment, LocalGameState,
+from agent_toolkit import (CommonEventsProperties, GameEnvironment, LocalGameState,
                                       PlayerState, event_factory, logger, parse_location_string)
 
 _LOGGER = logger.get_logger(__name__)

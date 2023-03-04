@@ -16,12 +16,12 @@ from plaiground_client.model.platform_player_turn_change_event import PlatformPl
 from plaiground_client.model.turn_change_reason import TurnChangeReason
 
 from examples.tests.mocks import MockEventClient
-from plaiground_agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,
+from agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,
                                       get_env_var)
-from plaiground_agent_toolkit.agent import Agent
-from plaiground_agent_toolkit.event_aggregator.local_game_state import LocalGameState
-from plaiground_agent_toolkit.game_environment import GameEnvironment
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit.agent import Agent
+from agent_toolkit.event_aggregator.local_game_state import LocalGameState
+from agent_toolkit.game_environment import GameEnvironment
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 
 class BaseLocalTestsSuite(unittest.TestCase, ABC):

@@ -26,10 +26,10 @@ from examples.local_server_simulator import LocalConnectionSimulator
 from examples.tutorial.agents.command_agent import ChatCommandAgent
 from examples.tutorial.environments.command_game_environment import (
         CommandGameEnvironment, CommandLocalGameState)
-from plaiground_agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
+from agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
                                       EventCallbackProvider, PlaigroundEventFactory,
                                       get_env_var, logger)
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 _LOGGER = logger.get_logger(__name__)
 

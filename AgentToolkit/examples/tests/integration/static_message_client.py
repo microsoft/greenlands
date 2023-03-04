@@ -3,16 +3,16 @@ import compare_events
 from datetime import datetime
 from typing import List, Sequence
 from plaiground_client.model import event_source
-from plaiground_agent_toolkit import (
+from agent_toolkit import (
     RegisteredEvent,
-    PlaiGroundMessageClient
+    GreenlandMessageClient
 )
 from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
 from dotenv import load_dotenv
-from plaiground_agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import PlaigroundEventFactory
 
 
-class StaticMessageClient(PlaiGroundMessageClient):
+class StaticMessageClient(GreenlandMessageClient):
     def __init__(self,
                  agent_service_id: str,
                  agent_service_role_id: str,

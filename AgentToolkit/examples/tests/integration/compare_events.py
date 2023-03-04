@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List
 from xmlrpc.client import boolean
-from plaiground_agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import PlaigroundEventFactory
 
 
 class RoleIdException(Exception):
@@ -74,7 +74,7 @@ def compare_moves(all_events: dict, move_indexes: dict) -> List[dict]:
     sent_indexes = move_indexes["sentMoveIndexes"]
     if len(received_indexes) != len(sent_indexes):
         raise CompareException("Different number of Player Moved Events sent and recieved")
-    
+
     for i in range(0, len(received_indexes)):
         received_event = all_events["receivedEvents"][received_indexes[i]]
         sent_event = all_events["sentEvents"][sent_indexes[i]]
@@ -83,7 +83,7 @@ def compare_moves(all_events: dict, move_indexes: dict) -> List[dict]:
         for coord in coordinates:
             if received_event["newLocation"][coord] != sent_event["newLocation"][coord]:
                 event_errors.append(EventError(received_event, sent_event, coord))
-        
+
     return event_errors
 
 

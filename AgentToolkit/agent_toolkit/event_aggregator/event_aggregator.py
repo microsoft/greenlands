@@ -12,9 +12,9 @@ from plaiground_client.model.platform_player_turn_change_event import PlatformPl
 from plaiground_client.model.player_chat_event import PlayerChatEvent
 from plaiground_client.model.player_move_event import PlayerMoveEvent
 
-from plaiground_agent_toolkit import logger
-from plaiground_agent_toolkit.event_aggregator.local_game_state import LocalGameState
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit import logger
+from agent_toolkit.event_aggregator.local_game_state import LocalGameState
+from agent_toolkit.event_factory import RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 

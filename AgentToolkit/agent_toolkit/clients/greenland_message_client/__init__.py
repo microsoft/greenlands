@@ -11,11 +11,11 @@ from azure.eventhub import EventData, EventHubProducerClient
 from azure.eventhub.aio import EventHubConsumerClient, PartitionContext
 from plaiground_client.model.event_source import EventSource
 
-from plaiground_agent_toolkit import logger
-from plaiground_agent_toolkit.clients.plaiground_message_client._producer_process import PlaigroundMessageProducer
-from plaiground_agent_toolkit.clients.plaiground_message_client._consumer_process import PlaigroundMessageConsumer
-from plaiground_agent_toolkit.clients.base_message_client import BaseMessageClient
-from plaiground_agent_toolkit.event_factory import PlaigroundEventFactory, RegisteredEvent
+from agent_toolkit import logger
+from agent_toolkit.clients.greenland_message_client._producer_process import GreenlandMessageProducer
+from agent_toolkit.clients.greenland_message_client._consumer_process import GreenlandMessageConsumer
+from agent_toolkit.clients.base_message_client import BaseMessageClient
+from agent_toolkit.event_factory import PlaigroundEventFactory, RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -30,7 +30,7 @@ def _add_property_if_not_empty(event_data: EventData,
         event_data.properties[property_name] = value
 
 
-class PlaiGroundMessageClient(BaseMessageClient):
+class GreenlandMessageClient(BaseMessageClient):
     def __init__(
         self,
         agent_service_id: str,
@@ -40,22 +40,22 @@ class PlaiGroundMessageClient(BaseMessageClient):
     ) -> None:
         super().__init__()
 
-        _LOGGER.debug(f"Creating PlaiGroundMessageClient for agent service id: {agent_service_id}")
+        _LOGGER.debug(f"Creating GreenlandMessageClient for agent service id: {agent_service_id}")
 
         self._agent_service_id = agent_service_id
 
         # - The Consumer Process ONLY puts events on incoming queue, then
-        #   PlaiGroundMessageClient#subscribe() takes events off of the queue
+        #   GreenlandMessageClient#subscribe() takes events off of the queue
         #   and processes them.
         #
-        # - For publishing the PlaiGroundMessageClient ONLY puts events on to
+        # - For publishing the GreenlandMessageClient ONLY puts events on to
         #   outgoing queue and the Producer process monitors this queue and
         #   publishes any events put on it.
 
         self.__outgoing_event_queue: Queue[EventData] = Queue()
         self.__incoming_event_queue: Queue[EventData] = Queue()
 
-        self.consumer_process = PlaigroundMessageConsumer(
+        self.consumer_process = GreenlandMessageConsumer(
             queue=self.__incoming_event_queue,
             publish_subscribe_connection_string=publish_subscribe_connection_string,
             consumer_group=consumer_group,
@@ -63,7 +63,7 @@ class PlaiGroundMessageClient(BaseMessageClient):
         )
         self.consumer_process.start()
 
-        self.producer_process = PlaigroundMessageProducer(
+        self.producer_process = GreenlandMessageProducer(
             queue=self.__outgoing_event_queue,
             publish_subscribe_connection_string=publish_subscribe_connection_string,
             event_hub_name=event_hub_name,

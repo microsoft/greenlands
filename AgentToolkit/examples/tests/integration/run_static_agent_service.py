@@ -9,14 +9,14 @@ from examples.gridworld.environment.task import Task
 from examples.gridworld.environment.world import World
 from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
         IGLUFormatTaskConverterWrapper
-from plaiground_agent_toolkit import (
+from agent_toolkit import (
     AgentToolkit,
     CommonEventsProperties,
     EventCallbackProvider,
     get_env_var,
     logger
     )
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 from examples.tests.integration.static_message_client import StaticMessageClient
 from examples.tests.integration.static_agent import StaticAgent
 
@@ -30,7 +30,7 @@ logger_blocklist = [
 for module in logger_blocklist:
     logging.getLogger(module).setLevel(logging.WARNING)
 
-logging.getLogger('plaiground_agent_toolkit').setLevel(logging.DEBUG)
+logging.getLogger('agent_toolkit').setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

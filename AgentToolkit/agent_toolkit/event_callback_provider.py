@@ -12,15 +12,15 @@ from plaiground_client.model.player_chat_event import PlayerChatEvent
 from plaiground_client.model.player_move_event import PlayerMoveEvent
 from plaiground_client.model.turn_change_reason import TurnChangeReason
 
-from plaiground_agent_toolkit.clients.base_message_client import BaseMessageClient
-from plaiground_agent_toolkit.common_events_properties import CommonEventsProperties
+from agent_toolkit.clients.base_message_client import BaseMessageClient
+from agent_toolkit.common_events_properties import CommonEventsProperties
 
 
 class EventCallbackProvider:
     """Provides methods to call when an operation that may trigger an event has happened.
 
     Methods of this class should be called from the GameEnvironment or subclass when the
-    game state is altered, to notify the Plaiground server of the change.
+    game state is altered, to notify the Minecraft server of the change.
 
     NOTE: Not all calls to methods will cause events to be sent or published. For example, movement
     events are produced only when the distance between the last sent location and the new target

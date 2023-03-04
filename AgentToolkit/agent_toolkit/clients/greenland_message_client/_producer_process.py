@@ -6,7 +6,7 @@ from typing import List
 
 from azure.eventhub import EventData, EventHubProducerClient
 
-from plaiground_agent_toolkit import logger
+from agent_toolkit import logger
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -19,7 +19,7 @@ def success_callback(send_events: List, args):
     _LOGGER.debug(f"Successfully sent {len(send_events)} events")
 
 
-class PlaigroundMessageProducer(Process):
+class GreenlandMessageProducer(Process):
     """
     This process is in charge of acting as a buffer of events that the AT wants
     to send to EH. It receives events and stores them in a queue. Every
@@ -35,24 +35,24 @@ class PlaigroundMessageProducer(Process):
         wait_time=0.1,
     ):
         """
-        Initializes a new instance of the PlaigroundMessageProducer class.
+        Initializes a new instance of the GreenlandMessageProducer class.
 
         Args:
             queue (Queue): The queue used to inform this process which are the
             EventData objects that need to be sent to EH.
-            
+
             publish_subscribe_connection_string (str): Connection string for
             event hub.
-            
+
             event_hub_name (str): Name of the event hub to send events to.
-            
+
             wait_time (float, optional): Tells the process how much time to wait
             for new events to come in before building batches out of them.
             Defaults to 0.1.
         """
 
         super().__init__(
-            name="PlaigroundMessageProducer_Process",
+            name="GreenlandMessageProducer_Process",
         )
 
         self.wait_time = wait_time

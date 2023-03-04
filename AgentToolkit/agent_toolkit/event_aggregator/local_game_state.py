@@ -9,8 +9,8 @@ from plaiground_client.model.location import Location
 from plaiground_client.model.player_state import PlayerState as PlaigroundClientPlayerState
 from typing_extensions import TypeAlias
 
-from plaiground_agent_toolkit import logger
-from plaiground_agent_toolkit.event_factory import (PlaigroundEventFactory,
+from agent_toolkit import logger
+from agent_toolkit.event_factory import (PlaigroundEventFactory,
                                                     deserialize_plaiground_model)
 
 _LOGGER = logger.get_logger(__name__)

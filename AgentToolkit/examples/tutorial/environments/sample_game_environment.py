@@ -4,7 +4,7 @@ from typing import Dict, Tuple
 from plaiground_client.model.location import Location
 
 from examples.tutorial.environments import action_space
-from plaiground_agent_toolkit import GameEnvironment
+from agent_toolkit import GameEnvironment
 
 
 class SampleGameEnvironment(GameEnvironment):
@@ -12,7 +12,7 @@ class SampleGameEnvironment(GameEnvironment):
 
     This class is designed to show a very simple way in which the Plaiground
     GameEnvironment class can be extended. For each received action:
-        1. Updates its game state calling the appropiate modifier method.
+        1. Updates its game state calling the appropriate modifier method.
         2. Emits the events notifying the change.
 
     More complex GameEnvironment subclasses will have different action spaces and

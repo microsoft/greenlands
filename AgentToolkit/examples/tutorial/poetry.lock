@@ -213,8 +213,8 @@ category = "main"
 optional = false
 python-versions = ">=3.8,<3.11"
 files = [
-    {file = "plaiground_agent_toolkit-0.20221213.4-py3-none-any.whl", hash = "sha256:fc3e924e12d946d76e9af6d204a06a4491c29e7073cdcec192c39e9dc47996d0"},
-    {file = "plaiground_agent_toolkit-0.20221213.4.tar.gz", hash = "sha256:7ecb2abad355dd2c102535333857351c0709895efb940f145c37880c78424111"},
+    {file = "agent_toolkit-0.20221213.4-py3-none-any.whl", hash = "sha256:fc3e924e12d946d76e9af6d204a06a4491c29e7073cdcec192c39e9dc47996d0"},
+    {file = "agent_toolkit-0.20221213.4.tar.gz", hash = "sha256:7ecb2abad355dd2c102535333857351c0709895efb940f145c37880c78424111"},
 ]
 
 [package.dependencies]

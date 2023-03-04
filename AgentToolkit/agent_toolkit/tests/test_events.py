@@ -3,7 +3,7 @@ import unittest
 from plaiground_client.model import (block_place_event, event_source, location,
                                      platform_game_start_event)
 
-from plaiground_agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import PlaigroundEventFactory
 
 
 class PlaigroundEventFactoryTests(unittest.TestCase):

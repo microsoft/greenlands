@@ -7,7 +7,7 @@ import threading
 from abc import ABC, abstractmethod
 from typing import Any
 
-from plaiground_agent_toolkit.event_aggregator.local_game_state import LocalGameState
+from agent_toolkit.event_aggregator.local_game_state import LocalGameState
 
 
 class Agent(ABC):

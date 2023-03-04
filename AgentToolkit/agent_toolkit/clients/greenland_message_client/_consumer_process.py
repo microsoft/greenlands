@@ -1,16 +1,16 @@
 import asyncio
 from multiprocessing import Process, Queue
-from typing import Callable, List, Optional
+from typing import Optional
 
-from azure.eventhub import EventData, EventHubProducerClient
+from azure.eventhub import EventData
 from azure.eventhub.aio import EventHubConsumerClient, PartitionContext
 
-from plaiground_agent_toolkit import logger
+from agent_toolkit import logger
 
 _LOGGER = logger.get_logger(__name__)
 
 
-class PlaigroundMessageConsumer(Process):
+class GreenlandMessageConsumer(Process):
     def __init__(
             self,
             queue: Queue,
@@ -19,7 +19,7 @@ class PlaigroundMessageConsumer(Process):
             event_hub_name: str,
     ):
         super().__init__(
-            name="PlaigroundMessageConsumer_Process",
+            name="GreenlandMessageConsumer_Process",
         )
 
         self.__event_queue: Queue[EventData] = queue

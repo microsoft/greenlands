@@ -4,7 +4,7 @@ import threading
 from abc import ABC, abstractmethod
 from typing import Callable, List
 
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit.event_factory import RegisteredEvent
 
 
 class BaseMessageClient(ABC):

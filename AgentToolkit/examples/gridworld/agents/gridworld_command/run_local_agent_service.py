@@ -33,10 +33,10 @@ from examples.gridworld.environment.world import World
 from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
     IGLUFormatTaskConverterWrapper
 from examples.local_server_simulator import LocalConnectionSimulator
-from plaiground_agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
+from agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
                                       EventCallbackProvider, PlaigroundEventFactory, logger)
-from plaiground_agent_toolkit.utils import get_env_var
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit.utils import get_env_var
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 logger_blocklist = [
     'uamqp',
@@ -48,7 +48,7 @@ _LOGGER = logger.get_logger(__name__)
 for module in logger_blocklist:
     logging.getLogger(module).setLevel(logging.WARNING)
 
-logging.getLogger('plaiground_agent_toolkit').setLevel(logging.DEBUG)
+logging.getLogger('agent_toolkit').setLevel(logging.DEBUG)
 
 
 def run_agent_service(event_client: BaseMessageClient,
