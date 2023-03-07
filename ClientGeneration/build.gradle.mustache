@@ -27,14 +27,8 @@ java {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    maven {
-        url 'https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/maven/v1'
-        name 'Greenlands'
-        authentication {
-            basic(BasicAuthentication)
-        }
-    }
 }
 
 if(hasProperty('target') && target == 'android') {
@@ -101,13 +95,7 @@ if(hasProperty('target') && target == 'android') {
 
     publishing {
         repositories {
-            maven {
-                url 'https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/maven/v1'
-                name 'Greenlands'
-                authentication {
-                    basic(BasicAuthentication)
-                }
-            }
+            mavenLocal()
         }
         publications {
             maven(MavenPublication) {

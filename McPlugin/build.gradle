@@ -37,13 +37,6 @@ configure(pluginsProjects + sharedLibs) {
         maven { url 'https://repo.papermc.io/repository/maven-public/' }
         maven { url 'https://repo.onarandombox.com/content/groups/public/' }
         maven { url 'https://maven.citizensnpcs.co/repo' }
-        // maven {
-        //     url 'https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/maven/v1'
-        //     name 'Greenlands'
-        //     authentication {
-        //         basic(BasicAuthentication)
-        //     }
-        // }
     }
 
     java {
