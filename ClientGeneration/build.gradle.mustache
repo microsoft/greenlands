@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
 
-group = 'com.microsoft.plaiground'
+group = 'com.microsoft.greenlands'
 version = '{{package_version}}'
 
 buildscript {
@@ -111,7 +111,7 @@ if(hasProperty('target') && target == 'android') {
         }
         publications {
             maven(MavenPublication) {
-                artifactId = 'plaiground-client'
+                artifactId = 'greenlands-client'
                 from components.java
             }
         }
