@@ -33,7 +33,7 @@ RUN wget "https://github.com/PowerShell/PowerShell/releases/download/v7.3.0/powe
 RUN su vscode -c "echo 'alias python=\"python3\"' >> ~/.bashrc"
 
 # add poetry and just
-RUN su vscode -c "curl -sSL https://install.python-poetry.org | python3 - --version 1.2.1"
+RUN su vscode -c "curl -sSL https://install.python-poetry.org | python3 - --version 1.4.0"
 
 # tell poetry to create the virtualenvs inside .venv directories in the project.
 # This ensures VScode is able to find all dependencies and properly suggest
