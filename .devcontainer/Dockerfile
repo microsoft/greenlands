@@ -91,3 +91,10 @@ RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/
 RUN curl -Lo terraform https://releases.hashicorp.com/terraform/1.3.6/terraform_1.3.6_darwin_amd64.zip && \
     chmod a+x ./terraform && \
     mv ./terraform /usr/local/bin
+
+
+#################################################
+# install Service dependencies
+
+RUN apt update && \
+    apt install -yq dotnet-sdk-6.0 aspnetcore-runtime-6.0
