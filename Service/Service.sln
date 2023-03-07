@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaiGround.Api", "PlaiGround.Api\PlaiGround.Api.csproj", "{5AA811FD-CE85-4AF2-BBE8-D8236C4E2B7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greenlands.Api", "Greenlands.Api\Greenlands.Api.csproj", "{5AA811FD-CE85-4AF2-BBE8-D8236C4E2B7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaiGround.Api.Test", "PlaiGround.Api.Test\PlaiGround.Api.Test.csproj", "{D1EE627F-411E-4550-AA01-D57D079B59C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenlands.Api.Test", "Greenlands.Api.Test\Greenlands.Api.Test.csproj", "{D1EE627F-411E-4550-AA01-D57D079B59C7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5AA811FD-CE85-4AF2-BBE8-D8236C4E2B7C} = {5AA811FD-CE85-4AF2-BBE8-D8236C4E2B7C}
 	EndProjectSection

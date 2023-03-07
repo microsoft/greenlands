@@ -1,3 +1,3 @@
-# PlaiGround Service
+# Greenlands Service
 
-Link to documentation: [PlaiGround Service](/Docs/Service/Getting-Started.md)
+Link to documentation: [Greenlands Service](/Docs/Service/Getting-Started.md)
