@@ -46,7 +46,7 @@ dotnet tool restore
 dotnet tool list
 
 cd Greenlands.Api
-$apiKeyHeaderMatchResult = Get-Content .\Properties\launchSettings.json | Select-String -Pattern '"ApiKeyAuthentication:HeaderName": "([\w-]+)"'
+$apiKeyHeaderMatchResult = Get-Content ./Properties/launchSettings.json | Select-String -Pattern '"ApiKeyAuthentication:HeaderName": "([\w-]+)"'
 $headerName = $apiKeyHeaderMatchResult.Matches[0].Groups[1].Value
 echo "Set ApiKeyAuthentication__HeaderName to $headerName"
 $env:ApiKeyAuthentication__HeaderName = $headerName
@@ -55,7 +55,7 @@ $env:ApiKeyAuthentication__HeaderName = $headerName
 # TODO: Find way to re-use swagger file later
 # Note: We might generate the same swagger file twice! (Once here and possibly later in generate-client.ps1)
 # Compare swagger file generated from target branch code to swagger file generated from current code
-dotnet tool run swagger tofile --output "$PSScriptRoot\$swaggerFileName" bin\Debug\net6.0\Greenlands.Api.dll v1
+dotnet tool run swagger tofile --output "$PSScriptRoot/$swaggerFileName" bin/Debug/net6.0/Greenlands.Api.dll v1
 
 Write-Step "Downloading OpenAPI generator JAR"
 cd $clientGenerationDir
@@ -80,7 +80,7 @@ Write-Step "Print Generated JavaClient/build.gradle"
 type JavaClient/build.gradle
 
 Write-Step "Overwrite generated JavaClient/build.gradle with custom build.gradle"
-(Get-Content .\build.gradle.mustache) -replace '\{\{package_version\}\}',$ClientVersion | Set-Content ./JavaClient/build.gradle
+(Get-Content ./build.gradle.mustache) -replace '\{\{package_version\}\}',$ClientVersion | Set-Content ./JavaClient/build.gradle
 
 Write-Step "Print Modified JavaClient/build.gradle"
 type JavaClient/build.gradle
