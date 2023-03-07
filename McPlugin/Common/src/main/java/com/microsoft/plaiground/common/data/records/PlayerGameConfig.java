@@ -1,12 +1,12 @@
-package com.microsoft.plaiground.common.data.records;
+package com.microsoft.greenlands.common.data.records;
 
 import javax.annotation.Nullable;
 
-import com.microsoft.plaiground.client.model.GameMode;
-import com.microsoft.plaiground.client.model.TournamentRole;
-import com.microsoft.plaiground.client.model.TurnLimits;
-import com.microsoft.plaiground.common.data.RedisRecord;
-import com.microsoft.plaiground.common.data.annotations.RedisKey;
+import com.microsoft.greenlands.client.model.GameMode;
+import com.microsoft.greenlands.client.model.TournamentRole;
+import com.microsoft.greenlands.client.model.TurnLimits;
+import com.microsoft.greenlands.common.data.RedisRecord;
+import com.microsoft.greenlands.common.data.annotations.RedisKey;
 
 public class PlayerGameConfig implements RedisRecord {
 

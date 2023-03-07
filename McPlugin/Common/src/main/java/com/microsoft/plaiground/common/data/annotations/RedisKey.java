@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.data.annotations;
+package com.microsoft.greenlands.common.data.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

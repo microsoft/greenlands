@@ -1,16 +1,16 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
-import com.microsoft.plaiground.client.ApiClient;
-import com.microsoft.plaiground.client.api.AgentChallengesApi;
-import com.microsoft.plaiground.client.api.AgentsApi;
-import com.microsoft.plaiground.client.api.GamesApi;
-import com.microsoft.plaiground.client.api.HumanChallengesApi;
-import com.microsoft.plaiground.client.api.TasksApi;
-import com.microsoft.plaiground.client.api.TournamentsApi;
-import com.microsoft.plaiground.common.config.CommonApplicationConfig;
+import com.microsoft.greenlands.client.ApiClient;
+import com.microsoft.greenlands.client.api.AgentChallengesApi;
+import com.microsoft.greenlands.client.api.AgentsApi;
+import com.microsoft.greenlands.client.api.GamesApi;
+import com.microsoft.greenlands.client.api.HumanChallengesApi;
+import com.microsoft.greenlands.client.api.TasksApi;
+import com.microsoft.greenlands.client.api.TournamentsApi;
+import com.microsoft.greenlands.common.config.CommonApplicationConfig;
 import feign.RequestInterceptor;
 
-public class PlaigroundServiceApi {
+public class GreenlandsServiceApi {
 
   private static String apiKeyHeaderName = null;
   private static String apiKey = null;
@@ -19,7 +19,7 @@ public class PlaigroundServiceApi {
   public static void initialize(CommonApplicationConfig appConfig) {
     apiKeyHeaderName = appConfig.authenticationSettings().apiKeyHeaderName();
     apiKey = appConfig.authenticationSettings().apiKey();
-    serviceHost = appConfig.plaigroundApiSettings().host();
+    serviceHost = appConfig.greenlandsApiSettings().host();
   }
 
   public static TournamentsApi tournamentsApi() {

@@ -1,7 +1,7 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
 import com.google.inject.Inject;
-import com.microsoft.plaiground.common.constants.CommonConstants;
+import com.microsoft.greenlands.common.constants.CommonConstants;
 import javax.annotation.Nonnull;
 import org.bukkit.scheduler.BukkitScheduler;
 

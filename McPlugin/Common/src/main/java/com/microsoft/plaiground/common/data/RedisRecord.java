@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.data;
+package com.microsoft.greenlands.common.data;
 
 public interface RedisRecord {
 

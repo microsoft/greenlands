@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
@@ -8,10 +8,10 @@ import java.util.Map;
 
 import com.azure.core.util.BinaryData;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.microsoft.plaiground.client.model.Block;
-import com.microsoft.plaiground.client.model.GameChanges;
-import com.microsoft.plaiground.client.model.GameState;
-import com.microsoft.plaiground.common.utils.MinecraftLogger;
+import com.microsoft.greenlands.client.model.Block;
+import com.microsoft.greenlands.client.model.GameChanges;
+import com.microsoft.greenlands.client.model.GameState;
+import com.microsoft.greenlands.common.utils.MinecraftLogger;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -23,7 +23,7 @@ public class TaskDataProvider {
 
     public static GameState getInitialGameState(String taskId) {
         var blobName = getInitialGameStateBlobName(taskId);
-        var objectMapper = PlaigroundServiceApi.getApiClient().getObjectMapper();
+        var objectMapper = GreenlandsServiceApi.getApiClient().getObjectMapper();
         var gameState = new GameState();
 
         try {
@@ -59,7 +59,7 @@ public class TaskDataProvider {
         var blobClient = StorageClientProvider.getTaskDataBlobContainerClient()
             .getBlobClient(blobName);
         MinecraftLogger.finest("Saving " + blobClient.getBlobUrl());
-        var objectMapper = PlaigroundServiceApi.getApiClient().getObjectMapper();
+        var objectMapper = GreenlandsServiceApi.getApiClient().getObjectMapper();
 
         String preSerializedObject = "{}";
         try {
@@ -86,7 +86,7 @@ public class TaskDataProvider {
             .getBlobClient(blobName);
         MinecraftLogger.finest("Saving " + blobClient.getBlobUrl());
 
-        var objectMapper = PlaigroundServiceApi.getApiClient().getObjectMapper();
+        var objectMapper = GreenlandsServiceApi.getApiClient().getObjectMapper();
 
         String preSerializedObject = "{}";
         try {
@@ -109,7 +109,7 @@ public class TaskDataProvider {
 
     public static List<GameChanges> getTargetGameChanges(String taskId) {
         var blobName = getTargetGameChangesBlobName(taskId);
-        var objectMapper = PlaigroundServiceApi.getApiClient().getObjectMapper();
+        var objectMapper = GreenlandsServiceApi.getApiClient().getObjectMapper();
         List<GameChanges> gameChangesList = new ArrayList<GameChanges>();
 
         try {
@@ -146,7 +146,7 @@ public class TaskDataProvider {
         var blobClient = StorageClientProvider.getTaskDataBlobContainerClient()
             .getBlobClient(blobName);
         MinecraftLogger.finest("Saving " + blobClient.getBlobUrl());
-        var objectMapper = PlaigroundServiceApi.getApiClient().getObjectMapper();
+        var objectMapper = GreenlandsServiceApi.getApiClient().getObjectMapper();
 
         String preSerializedObject = "[]";
         try {

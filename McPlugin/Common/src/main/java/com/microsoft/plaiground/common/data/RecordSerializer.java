@@ -1,6 +1,6 @@
-package com.microsoft.plaiground.common.data;
+package com.microsoft.greenlands.common.data;
 
-import com.microsoft.plaiground.common.data.annotations.RedisKey;
+import com.microsoft.greenlands.common.data.annotations.RedisKey;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

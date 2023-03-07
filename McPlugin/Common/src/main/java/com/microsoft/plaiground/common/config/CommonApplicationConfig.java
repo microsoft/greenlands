@@ -1,11 +1,11 @@
-package com.microsoft.plaiground.common.config;
+package com.microsoft.greenlands.common.config;
 
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.AuthenticationSettings;
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.AzureStorageSettings;
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.EnvironmentSettings;
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.EventHubSettings;
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.PlaigroundApiSettings;
-import com.microsoft.plaiground.common.config.CommonApplicationConfigProvider.RedisSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.AuthenticationSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.AzureStorageSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.EnvironmentSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.EventHubSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.GreenlandsApiSettings;
+import com.microsoft.greenlands.common.config.CommonApplicationConfigProvider.RedisSettings;
 
 /**
  *
@@ -18,7 +18,7 @@ public interface CommonApplicationConfig {
 
   public RedisSettings redisSettings();
 
-  public PlaigroundApiSettings plaigroundApiSettings();
+  public GreenlandsApiSettings greenlandsApiSettings();
 
   public AzureStorageSettings azureStorageSettings();
 

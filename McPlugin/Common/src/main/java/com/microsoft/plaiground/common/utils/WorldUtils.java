@@ -1,7 +1,7 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
-import com.microsoft.plaiground.common.constants.CommonConstants;
-import com.microsoft.plaiground.common.providers.TaskDataProvider;
+import com.microsoft.greenlands.common.constants.CommonConstants;
+import com.microsoft.greenlands.common.providers.TaskDataProvider;
 import com.onarandombox.MultiverseCore.MultiverseCore;
 import com.onarandombox.MultiverseCore.api.MVWorldManager;
 import com.onarandombox.MultiverseCore.api.MultiverseWorld;
@@ -57,7 +57,7 @@ public class WorldUtils {
    * @param location The location where you want to teleport the player.
    */
   public static void teleportPlayerToLocation(Player player, String worldName,
-      com.microsoft.plaiground.client.model.Location location) {
+      com.microsoft.greenlands.client.model.Location location) {
 
     var targetWorld = getWorldWithName(worldName);
     var bukkitLocation = LocationUtils.convertToBukkitLocation(

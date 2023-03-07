@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -31,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
  *      // this callback is optional, but if provided will run on the main server thread.
  *    };
  *  });
- * 
+ *
  *  AsyncHelper.run(() -> {
  *    // Example which does not return a callback
  *    return null;

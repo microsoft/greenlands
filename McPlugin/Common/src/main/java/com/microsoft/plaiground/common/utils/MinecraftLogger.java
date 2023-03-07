@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
 import java.util.logging.Logger;
 

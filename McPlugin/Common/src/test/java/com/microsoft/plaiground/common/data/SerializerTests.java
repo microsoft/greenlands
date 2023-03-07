@@ -1,7 +1,7 @@
-package com.microsoft.plaiground.common.data;
+package com.microsoft.greenlands.common.data;
 
-import com.microsoft.plaiground.client.model.GameMode;
-import com.microsoft.plaiground.common.data.mocks.DummySerializableClassWith2Keys;
+import com.microsoft.greenlands.client.model.GameMode;
+import com.microsoft.greenlands.common.data.mocks.DummySerializableClassWith2Keys;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

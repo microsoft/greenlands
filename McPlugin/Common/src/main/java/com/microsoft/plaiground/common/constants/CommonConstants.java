@@ -1,12 +1,12 @@
-package com.microsoft.plaiground.common.constants;
+package com.microsoft.greenlands.common.constants;
 
 import org.bukkit.ChatColor;
 
-import com.microsoft.plaiground.common.utils.Scheduler;
+import com.microsoft.greenlands.common.utils.Scheduler;
 
 public class CommonConstants {
 
-  public static final String COMMON_COMMAND_PREFIX = "plaiground";
+  public static final String COMMON_COMMAND_PREFIX = "greenlands";
 
   public static final ChatColor CHAT_COLOR_INFO = ChatColor.AQUA;
   public static final ChatColor CHAT_COLOR_WARNING = ChatColor.YELLOW;

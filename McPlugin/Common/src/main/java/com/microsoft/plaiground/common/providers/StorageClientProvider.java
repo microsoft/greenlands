@@ -1,8 +1,8 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
-import com.microsoft.plaiground.common.config.CommonApplicationConfig;
+import com.microsoft.greenlands.common.config.CommonApplicationConfig;
 
 public class StorageClientProvider {
 

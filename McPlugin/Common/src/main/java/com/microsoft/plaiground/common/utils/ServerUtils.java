@@ -1,7 +1,7 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.microsoft.plaiground.common.providers.PlaigroundServiceApi;
+import com.microsoft.greenlands.common.providers.GreenlandsServiceApi;
 import java.util.Map;
 import org.bukkit.Bukkit;
 
@@ -20,7 +20,7 @@ public class ServerUtils {
    * </pre>
    */
   public static void tellRawToPlayer(String playerName, Map<String, Object> tellRawParams) {
-    var objectMapper = PlaigroundServiceApi
+    var objectMapper = GreenlandsServiceApi
         .getApiClient()
         .getObjectMapper();
 

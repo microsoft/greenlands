@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.config;
+package com.microsoft.greenlands.common.config;
 
 import javax.annotation.Nullable;
 
@@ -38,7 +38,7 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
   /**
    * Configuration to access the PlaiGround Service API.
    */
-  public record PlaigroundApiSettings(String host) {
+  public record GreenlandsApiSettings(String host) {
 
   }
 
@@ -58,7 +58,7 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
   public final AzureStorageSettings azureStorageSettings;
   public final EventHubSettings eventHubSettings;
   public final RedisSettings redisSettings;
-  public final PlaigroundApiSettings plaigroundApiSettings;
+  public final GreenlandsApiSettings greenlandsApiSettings;
   public final EnvironmentSettings environmentSettings;
 
   public CommonApplicationConfigProvider() {
@@ -66,7 +66,7 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
     azureStorageSettings = initializeAzureStorageSettings();
     eventHubSettings = initializeEventHubSettings();
     redisSettings = initializeRedisSettings();
-    plaigroundApiSettings = initializePlaigroundApiSettings();
+    greenlandsApiSettings = initializeGreenlandsApiSettings();
     environmentSettings = initializeEnvironmentSettings();
   }
 
@@ -91,8 +91,8 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
   }
 
   @Override
-  public PlaigroundApiSettings plaigroundApiSettings() {
-    return plaigroundApiSettings;
+  public GreenlandsApiSettings greenlandsApiSettings() {
+    return greenlandsApiSettings;
   }
 
   @Override
@@ -100,8 +100,8 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
     return environmentSettings;
   }
 
-  private PlaigroundApiSettings initializePlaigroundApiSettings() {
-    return new PlaigroundApiSettings(
+  private GreenlandsApiSettings initializeGreenlandsApiSettings() {
+    return new GreenlandsApiSettings(
         getEnvVariable("API_SERVICE_HOST"));
   }
 

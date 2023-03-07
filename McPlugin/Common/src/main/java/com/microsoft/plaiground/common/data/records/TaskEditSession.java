@@ -1,7 +1,7 @@
-package com.microsoft.plaiground.common.data.records;
+package com.microsoft.greenlands.common.data.records;
 
-import com.microsoft.plaiground.common.data.RedisRecord;
-import com.microsoft.plaiground.common.data.annotations.RedisKey;
+import com.microsoft.greenlands.common.data.RedisRecord;
+import com.microsoft.greenlands.common.data.annotations.RedisKey;
 
 /**
  * This class represents the intent of an author to edit a task. A record of this kind is created on

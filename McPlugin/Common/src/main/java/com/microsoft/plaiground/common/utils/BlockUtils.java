@@ -1,8 +1,8 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
-import com.microsoft.plaiground.client.model.Block;
-import com.microsoft.plaiground.client.model.Location;
-import com.microsoft.plaiground.common.constants.CommonConstants;
+import com.microsoft.greenlands.client.model.Block;
+import com.microsoft.greenlands.client.model.Location;
+import com.microsoft.greenlands.common.constants.CommonConstants;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,9 +86,9 @@ public class BlockUtils {
   }
 
   public static void addBlocksToWorld(World bukkitWorld,
-      Map<String, com.microsoft.plaiground.client.model.Block> plaigroundBlockMap) {
-    for (var locationBlockEntry : plaigroundBlockMap.entrySet()) {
-      var location = LocationUtils.fromStringToPlaigroundLocation(locationBlockEntry.getKey());
+      Map<String, com.microsoft.greenlands.client.model.Block> greenlandsBlockMap) {
+    for (var locationBlockEntry : greenlandsBlockMap.entrySet()) {
+      var location = LocationUtils.fromStringToGreenlandsLocation(locationBlockEntry.getKey());
       addBlockToWorld(bukkitWorld, location, locationBlockEntry.getValue());
     }
   }
@@ -237,19 +237,19 @@ public class BlockUtils {
                     + " to a PlaiGround BlockMap");
             // TODO: We currently don't use block data, but it is accessible.
             // var bukkitBlockData = chunkSnapshot.getBlockData(x, y, z);
-            var plaigroundLocation = new Location()
+            var greenlandsLocation = new Location()
                 .x((float) absoluteX)
                 .y((float) y)
                 .z((float) absoluteZ)
                 .pitch(0f)
                 .yaw(0f);
 
-            var plaigroundBlock = new Block();
-            plaigroundBlock.setType(bukkitBlockMaterial.ordinal());
+            var greenlandsBlock = new Block();
+            greenlandsBlock.setType(bukkitBlockMaterial.ordinal());
 
-            var locationString = LocationUtils.fromPlaigroundLocationToString(plaigroundLocation);
+            var locationString = LocationUtils.fromGreenlandsLocationToString(greenlandsLocation);
 
-            chunkBlocks.put(locationString, plaigroundBlock);
+            chunkBlocks.put(locationString, greenlandsBlock);
           }
         }
       }

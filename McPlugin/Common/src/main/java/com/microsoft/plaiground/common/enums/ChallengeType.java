@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.enums;
+package com.microsoft.greenlands.common.enums;
 
 import java.util.Optional;
 

@@ -2,7 +2,7 @@
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 //-----------------------------------------------------------------------------
 
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
 /**
  * A provider of PlaiGround data stored in Redis.

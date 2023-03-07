@@ -1,8 +1,8 @@
-package com.microsoft.plaiground.common.entities;
+package com.microsoft.greenlands.common.entities;
 
-import com.microsoft.plaiground.client.model.AreaCube;
-import com.microsoft.plaiground.client.model.Block;
-import com.microsoft.plaiground.common.utils.LocationUtils;
+import com.microsoft.greenlands.client.model.AreaCube;
+import com.microsoft.greenlands.client.model.Block;
+import com.microsoft.greenlands.common.utils.LocationUtils;
 import java.util.Map;
 import java.util.Optional;
 import org.bukkit.util.Vector;
@@ -22,8 +22,8 @@ public class GeometryInfo {
   }
 
   /**
-   * Given the map of {@link com.microsoft.plaiground.client.model.Location} string
-   * [x,y,z,pitch,yaw], {@link com.microsoft.plaiground.client.model.Block} that represents the
+   * Given the map of {@link com.microsoft.greenlands.client.model.Location} string
+   * [x,y,z,pitch,yaw], {@link com.microsoft.greenlands.client.model.Block} that represents the
    * target structure, return an instance of {@link GeometryInfo} that represents it.
    *
    * If the provided target block changes are null or empty then no {@link GeometryInfo} can be
@@ -46,7 +46,7 @@ public class GeometryInfo {
 
     for (var entry : targetBlockChanges.entrySet()) {
       var locationString = entry.getKey();
-      var location = LocationUtils.fromStringToPlaigroundLocation(locationString);
+      var location = LocationUtils.fromStringToGreenlandsLocation(locationString);
 
       // X dim size
       if (location.getX() < westMostLocation) {

@@ -1,12 +1,12 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
-import com.microsoft.plaiground.common.config.CommonApplicationConfig;
-import com.microsoft.plaiground.common.data.RecordSerializer;
-import com.microsoft.plaiground.common.data.RedisRecord;
-import com.microsoft.plaiground.common.data.records.GameConfig;
-import com.microsoft.plaiground.common.data.records.PlayerGameConfig;
-import com.microsoft.plaiground.common.data.records.TaskEditSession;
-import com.microsoft.plaiground.common.utils.MinecraftLogger;
+import com.microsoft.greenlands.common.config.CommonApplicationConfig;
+import com.microsoft.greenlands.common.data.RecordSerializer;
+import com.microsoft.greenlands.common.data.RedisRecord;
+import com.microsoft.greenlands.common.data.records.GameConfig;
+import com.microsoft.greenlands.common.data.records.PlayerGameConfig;
+import com.microsoft.greenlands.common.data.records.TaskEditSession;
+import com.microsoft.greenlands.common.utils.MinecraftLogger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -150,7 +150,7 @@ public class JedisClientProvider implements JedisClient {
 
   /**
    * Provided a {@link RedisRecord} where the {@link
-   * com.microsoft.plaiground.common.data.annotations.RedisKey} properties have been set
+   * com.microsoft.greenlands.common.data.annotations.RedisKey} properties have been set
    * (NOTE: they MUST be set for this to work properly), delete the Redis entries that correspond to
    * that record.
    */
@@ -161,7 +161,7 @@ public class JedisClientProvider implements JedisClient {
 
   /**
    * Tries to get the record with the provided type and key(s), if no record is found then NULL is
-   * returned. NOTE: the {@link com.microsoft.plaiground.common.data.annotations.RedisKey}
+   * returned. NOTE: the {@link com.microsoft.greenlands.common.data.annotations.RedisKey}
    * properties of the record MUST be set for this to work properly.
    */
   private @Nullable RedisRecord getRecord(@Nonnull RedisRecord recordWithKeyValues) {

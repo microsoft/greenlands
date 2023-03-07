@@ -1,9 +1,9 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
 import com.azure.messaging.eventhubs.EventData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microsoft.plaiground.client.model.BaseEvent;
+import com.microsoft.greenlands.client.model.BaseEvent;
 import java.io.IOException;
 
 /**
@@ -22,7 +22,7 @@ public class EventConverter {
     // We only need to set eventsPackageLocation once, since it will never change
     // while the application is running
     if (eventsPackageLocation == null) {
-      // i.e. com.microsoft.plaiground.client.model.BaseEvent
+      // i.e. com.microsoft.greenlands.client.model.BaseEvent
       var baseEventsCanonicalName = BaseEvent.class.getCanonicalName();
       eventsPackageLocation = baseEventsCanonicalName.substring(0,
           baseEventsCanonicalName.lastIndexOf("."));
@@ -40,7 +40,7 @@ public class EventConverter {
    * deserializing the payload to the event with that class name.
    *
    * For example, if the incoming event data has eventType=BlockPlaceEvent then we will try to
-   * deserialize it to an instance of {@link com.microsoft.plaiground.client.model.BlockPlaceEvent}
+   * deserialize it to an instance of {@link com.microsoft.greenlands.client.model.BlockPlaceEvent}
    */
   public BaseEvent convertEventDataToBaseEvent(EventData eventData)
       throws IOException, ClassNotFoundException {

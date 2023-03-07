@@ -1,4 +1,4 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
 import java.util.function.Consumer;
 
@@ -8,8 +8,8 @@ import com.azure.messaging.eventhubs.EventHubClientBuilder;
 import com.azure.messaging.eventhubs.EventHubConsumerAsyncClient;
 import com.azure.messaging.eventhubs.models.EventPosition;
 import com.azure.messaging.eventhubs.models.PartitionEvent;
-import com.microsoft.plaiground.common.config.CommonApplicationConfig;
-import com.microsoft.plaiground.common.utils.MinecraftLogger;
+import com.microsoft.greenlands.common.config.CommonApplicationConfig;
+import com.microsoft.greenlands.common.utils.MinecraftLogger;
 
 /**
  * This client is in charge of listening to events that come from EventHub. In

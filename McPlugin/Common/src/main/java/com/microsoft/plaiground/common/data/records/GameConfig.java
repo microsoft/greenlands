@@ -1,9 +1,9 @@
-package com.microsoft.plaiground.common.data.records;
+package com.microsoft.greenlands.common.data.records;
 
-import com.microsoft.plaiground.client.model.GameLimits;
-import com.microsoft.plaiground.common.data.RedisRecord;
-import com.microsoft.plaiground.common.data.annotations.RedisKey;
-import com.microsoft.plaiground.common.enums.ChallengeType;
+import com.microsoft.greenlands.client.model.GameLimits;
+import com.microsoft.greenlands.common.data.RedisRecord;
+import com.microsoft.greenlands.common.data.annotations.RedisKey;
+import com.microsoft.greenlands.common.enums.ChallengeType;
 import javax.annotation.Nullable;
 
 public class GameConfig implements RedisRecord {

@@ -1,16 +1,16 @@
-package com.microsoft.plaiground.common.providers;
+package com.microsoft.greenlands.common.providers;
 
 import com.azure.messaging.eventhubs.EventHubClientBuilder;
 import com.azure.messaging.eventhubs.models.CreateBatchOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.microsoft.plaiground.client.model.BaseEvent;
-import com.microsoft.plaiground.client.model.EventSource;
-import com.microsoft.plaiground.common.config.CommonApplicationConfig;
-import com.microsoft.plaiground.common.constants.CommonConstants;
-import com.microsoft.plaiground.common.data.records.GameConfig;
-import com.microsoft.plaiground.common.data.records.PlayerGameConfig;
-import com.microsoft.plaiground.common.utils.EventConverter;
-import com.microsoft.plaiground.common.utils.MinecraftLogger;
+import com.microsoft.greenlands.client.model.BaseEvent;
+import com.microsoft.greenlands.client.model.EventSource;
+import com.microsoft.greenlands.common.config.CommonApplicationConfig;
+import com.microsoft.greenlands.common.constants.CommonConstants;
+import com.microsoft.greenlands.common.data.records.GameConfig;
+import com.microsoft.greenlands.common.data.records.PlayerGameConfig;
+import com.microsoft.greenlands.common.utils.EventConverter;
+import com.microsoft.greenlands.common.utils.MinecraftLogger;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -54,7 +54,7 @@ public class EventHubProducerClient {
       return;
     }
 
-    eventConverter = new EventConverter(PlaigroundServiceApi.getApiClient().getObjectMapper());
+    eventConverter = new EventConverter(GreenlandsServiceApi.getApiClient().getObjectMapper());
 
     var settings = appConfig.eventHubSettings();
     var consumerGroup = settings.consumerGroupGameServer();

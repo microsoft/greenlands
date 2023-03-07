@@ -1,12 +1,12 @@
-package com.microsoft.plaiground.common.utils;
+package com.microsoft.greenlands.common.utils;
 
-import com.microsoft.plaiground.client.model.Location;
+import com.microsoft.greenlands.client.model.Location;
 import org.bukkit.World;
 import org.bukkit.util.Vector;
 
 public class LocationUtils {
 
-  public static com.microsoft.plaiground.client.model.Location fromStringToPlaigroundLocation(
+  public static com.microsoft.greenlands.client.model.Location fromStringToGreenlandsLocation(
       String locationString) {
     locationString = locationString.replace("[", "");
     locationString = locationString.replace("]", "");
@@ -27,8 +27,8 @@ public class LocationUtils {
     return location;
   }
 
-  public static String fromPlaigroundLocationToString(
-      com.microsoft.plaiground.client.model.Location location
+  public static String fromGreenlandsLocationToString(
+      com.microsoft.greenlands.client.model.Location location
   ) {
     // sometimes yaw and pitch can be NaN (e.g. for a block)
     float pitch = location.getPitch() == null || location.getPitch().isNaN() ?
@@ -49,24 +49,24 @@ public class LocationUtils {
   }
 
   /**
-   * Plaiground -> Bukkit Location converter.
+   * Greenlands -> Bukkit Location converter.
    **/
   public static org.bukkit.Location convertToBukkitLocation(
       World world,
-      com.microsoft.plaiground.client.model.Location plaigroundLoc) {
+      com.microsoft.greenlands.client.model.Location greenlandsLoc) {
 
     return new org.bukkit.Location(world,
-        plaigroundLoc.getX(),
-        plaigroundLoc.getY(),
-        plaigroundLoc.getZ(),
-        plaigroundLoc.getYaw(),
-        plaigroundLoc.getPitch());
+        greenlandsLoc.getX(),
+        greenlandsLoc.getY(),
+        greenlandsLoc.getZ(),
+        greenlandsLoc.getYaw(),
+        greenlandsLoc.getPitch());
   }
 
   /**
-   * Bukkit -> Plaiground Location converter.
+   * Bukkit -> Greenlands Location converter.
    **/
-  public static com.microsoft.plaiground.client.model.Location convertToPlaigroundLocation(
+  public static com.microsoft.greenlands.client.model.Location convertToGreenlandsLocation(
       org.bukkit.Location bukkitLoc) {
 
     Location location = new Location();
@@ -80,12 +80,12 @@ public class LocationUtils {
   }
 
   public static Vector convertToVector(
-      com.microsoft.plaiground.client.model.Location plaigroundLoc
+      com.microsoft.greenlands.client.model.Location greenlandsLoc
   ) {
-    return new Vector(plaigroundLoc.getX(), plaigroundLoc.getY(), plaigroundLoc.getZ());
+    return new Vector(greenlandsLoc.getX(), greenlandsLoc.getY(), greenlandsLoc.getZ());
   }
 
-  public static com.microsoft.plaiground.client.model.Location clone(com.microsoft.plaiground.client.model.Location location) {
+  public static com.microsoft.greenlands.client.model.Location clone(com.microsoft.greenlands.client.model.Location location) {
     return new Location()
         .x(location.getX())
         .y(location.getY())
