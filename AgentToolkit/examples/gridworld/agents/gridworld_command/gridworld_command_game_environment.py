@@ -1,7 +1,7 @@
 from typing import Dict
 
 from examples.gridworld.environment.gridworld_game_environment import GridWorldGameEnvironment
-from plaiground_agent_toolkit.game_environment import TurnState
+from agent_toolkit.game_environment import TurnState
 
 
 class GridworldCommandGameEnvironment(GridWorldGameEnvironment):

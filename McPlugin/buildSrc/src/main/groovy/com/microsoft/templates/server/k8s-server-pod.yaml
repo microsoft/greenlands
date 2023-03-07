@@ -45,7 +45,7 @@ spec:
               value: "PROD"
 
             - name: APPLICATIONINSIGHTS_ROLE_INSTANCE
-              value: "plaiground-mcplugin-dev"
+              value: "greenlands-mcplugin-dev"
 
             # variables generated during the scaffolding process
 {{ENV_VARIABLES}}

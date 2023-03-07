@@ -1,8 +1,8 @@
 import re
 from typing import Dict
 
-from plaiground_agent_toolkit import Agent, LocalGameState, logger
-from plaiground_agent_toolkit.event_aggregator.local_game_state import ConversationActivity
+from agent_toolkit import Agent, LocalGameState, logger
+from agent_toolkit.event_aggregator.local_game_state import ConversationActivity
 
 _LOGGER = logger.get_logger(__name__)
 _LOGGER.setLevel('DEBUG')

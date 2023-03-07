@@ -2,10 +2,10 @@ import queue
 from queue import Queue
 from typing import Callable, List
 
-from plaiground_client.model.base_event import BaseEvent
+from greenlands_client.model.base_event import BaseEvent
 
-from plaiground_agent_toolkit import BaseMessageClient, PlaigroundEventFactory, logger
-from plaiground_agent_toolkit.event_factory import RegisteredEvent
+from agent_toolkit import BaseMessageClient, GreenlandsEventFactory, logger
+from agent_toolkit.event_factory import RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -28,7 +28,7 @@ class LocalQueueClient(BaseMessageClient):
 
     def send_events(self, events: List[BaseEvent]):
         for event in events:
-            message_dict = PlaigroundEventFactory.to_dict(event)
+            message_dict = GreenlandsEventFactory.to_dict(event)
             # TODO @atupini: the AT is expecting this value, so it should be part
             # of either the AT or the base client.
             message_dict['agent_subscription_filter_value'] = self.agent_service_id
@@ -51,7 +51,7 @@ class LocalQueueClient(BaseMessageClient):
                     f"Received event {message_dict['eventType']} for game: ({message_dict.get('gameId', 'None')})" +
                     f" id: {message_dict['id']}" +
                     (f" with message {message_dict['message']}" if 'message' in message_dict else ''))
-                event = PlaigroundEventFactory.from_dict(message_dict)
+                event = GreenlandsEventFactory.from_dict(message_dict)
 
                 process_event(event)
 

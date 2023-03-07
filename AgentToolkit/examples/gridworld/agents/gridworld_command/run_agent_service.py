@@ -12,9 +12,9 @@ from examples.gridworld.environment.task import Task
 from examples.gridworld.environment.world import World
 from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
     IGLUFormatTaskConverterWrapper
-from plaiground_agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,
-                                      PlaiGroundMessageClient, get_env_var, logger)
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,
+                                      GreenlandsMessageClient, get_env_var, logger)
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -26,7 +26,7 @@ logger_blocklist = [
 for module in logger_blocklist:
     logging.getLogger(module).setLevel(logging.WARNING)
 
-logging.getLogger('plaiground_agent_toolkit').setLevel(logging.DEBUG)
+logging.getLogger('agent_toolkit').setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
     agent_directory_path = Path(os.path.dirname(__file__))
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     _LOGGER.info(f"event_hub_name: {event_hub_name}")
     _LOGGER.info(f"event_hub_consumer_group: {event_hub_consumer_group}")
 
-    plaiground_message_client = PlaiGroundMessageClient(
+    greenlands_message_client = GreenlandsMessageClient(
         agent_service_id=agent_service_id,
         publish_subscribe_connection_string=publish_subscribe_connection_string,
         event_hub_name=event_hub_name,
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         agent_service_role_id=agent_service_role_id,
         agent=random_action_agent,
         create_game_environment_fn=create_game_environment,
-        client=plaiground_message_client,
+        client=greenlands_message_client,
         max_games=14,
         auto_rejoin_agent_queue=True
     )

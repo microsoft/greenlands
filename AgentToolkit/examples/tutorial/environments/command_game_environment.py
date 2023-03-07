@@ -7,9 +7,9 @@ from typing import Dict, List, Tuple
 
 from examples.tutorial.environments import action_space
 from examples.tutorial.environments.sample_game_environment import SampleGameEnvironment
-from plaiground_agent_toolkit.event_aggregator.local_game_state import LocalGameState
-from plaiground_agent_toolkit.event_callback_provider import EventCallbackProvider
-from plaiground_agent_toolkit.game_environment import TurnState
+from agent_toolkit.event_aggregator.local_game_state import LocalGameState
+from agent_toolkit.event_callback_provider import EventCallbackProvider
+from agent_toolkit.game_environment import TurnState
 
 
 class AppendCommandsAction(action_space.Action):

@@ -1,7 +1,7 @@
 """Example actions an Agent can select.
 
 In this example, we represent actions as instances, but they can be of any type.
-This set of actions has a 1:1 equivalence with Plaiground events.
+This set of actions has a 1:1 equivalence with Greenlands events.
 """
 
 from dataclasses import dataclass
@@ -10,7 +10,7 @@ ActionDataClassDecorator = dataclass(repr=True, eq=True)
 
 @ActionDataClassDecorator
 class Action:
-    """Base class for actions on the PlaiGround platform."""
+    """Base class for actions on the Greenlands platform."""
 
     @property
     def name(self):

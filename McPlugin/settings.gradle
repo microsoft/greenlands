@@ -1,4 +1,4 @@
-rootProject.name = 'PlaiGround'
+rootProject.name = 'Greenlands'
 include 'Common',
         'Plugins:LobbyServerPlugin',
         'Plugins:GameServerPlugin'

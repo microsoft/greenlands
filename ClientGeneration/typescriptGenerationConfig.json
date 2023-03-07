@@ -1,6 +1,6 @@
 {
-  "npmName": "@plaiground/client",
-  "npmRepository": "https://dev.azure.com/deeplearningeng/_git/PlaiGround",
+  "npmName": "@greenlands/client",
+  "npmRepository": "https://dev.azure.com/deeplearningeng/_git/Greenlands",
   "supportsES6": true,
   "typescriptThreePlus": true
 }

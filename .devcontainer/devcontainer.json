@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/python-3
 {
-	"name": "Python 3",
+	"name": "Greenlands DevContainer",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
@@ -14,10 +14,13 @@
 			"NODE_VERSION": "lts/*"
 		}
 	},
-	"runArgs": [
-		"--gpus",
-		"all"
-	],
+	//! NOTE: these are disabled because it only works if the host CPU has CUDA
+	//! installed. They can be enabled if desired but it's not required for
+	//! developmnet.
+	// "runArgs": [
+	// 	"--gpus",
+	// 	"all"
+	// ],
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -39,9 +42,23 @@
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
+				"aaron-bond.better-comments",
+				"bungcip.better-toml",
+				"christian-kohler.path-intellisense",
+				"dawhite.mustache",
+				"EditorConfig.EditorConfig",
+				"Gruntfuggly.todo-tree",
+				"kokakiwi.vscode-just",
+				"mikestead.dotenv",
+				"ms-azuretools.vscode-bicep",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"bungcip.better-toml"
+				"stkb.rewrap",
+				"vscjava.vscode-gradle",
+				"vscjava.vscode-java-pack",
+				"wayou.vscode-todo-highlight",
+				"wholroyd.jinja",
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	},

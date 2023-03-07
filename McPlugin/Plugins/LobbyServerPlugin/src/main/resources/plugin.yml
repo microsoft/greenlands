@@ -1,4 +1,4 @@
-main : com.microsoft.plaiground.lobbyserver.LobbyServerPlugin
+main : com.microsoft.greenlands.lobbyserver.LobbyServerPlugin
 name : LobbyServerPlugin
 version : 1.0
 api-version : 1.18

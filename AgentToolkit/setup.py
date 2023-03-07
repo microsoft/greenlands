@@ -13,11 +13,11 @@ REQUIRES = [
 ]
 
 setup(
-    name='plaiground_agent_toolkit',
+    name='agent_toolkit',
     version='0.1',
     description='Agent toolkit demo code to connect RL model with Minecraft server.',
     author='Microsoft Deep Learning Engineering Team',
     author_email='',
-    packages=['plaiground_agent_toolkit'],
+    packages=['agent_toolkit'],
     install_requires=REQUIRES,
 )

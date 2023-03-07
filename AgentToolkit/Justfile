@@ -7,7 +7,7 @@ install:
 
 # Run MyPy typechecking on agent toolkit package
 typecheck:
-    @poetry run mypy plaiground_agent_toolkit
+    @poetry run mypy agent_toolkit
 
 test: typecheck
     @poetry run python -m unittest -v ./tests/test_events.py

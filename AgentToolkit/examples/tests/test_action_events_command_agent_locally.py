@@ -1,15 +1,15 @@
 import time
 import unittest
 
-from plaiground_client.model.player_chat_event import PlayerChatEvent
-from plaiground_client.model.player_move_event import PlayerMoveEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.player_move_event import PlayerMoveEvent
 
 from examples.tutorial.agents.command_agent import ChatCommandAgent
 from examples.tutorial.environments.command_game_environment import (
     CommandGameEnvironment, CommandLocalGameState)
 from examples.tests.base_local_test_suite import BaseLocalTestsSuite
 from examples.tests.mocks import MockEventClient
-from plaiground_agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
+from agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
 
 
 class CommandAgentActionEventsTests(BaseLocalTestsSuite):

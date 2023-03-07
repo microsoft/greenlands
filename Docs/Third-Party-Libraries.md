@@ -1,6 +1,6 @@
 # Third party libraries and tools
 
-This file contains a list of third party libraries and tools used in _PlaiGround_ and their license, separated by module of the monorepo.
+This file contains a list of third party libraries and tools used in _Greenlands_ and their license, separated by module of the monorepo.
 
 ## McPlugin
 

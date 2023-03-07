@@ -10,7 +10,7 @@ import requests
 
 _LOGGER = logging.getLogger(__name__)
 
-_BASE_BLOB_URL = "https://plaiground4bawstorage.blob.core.windows.net:443"
+_BASE_BLOB_URL = None  # Complete with your storage URL
 _TASKDATA_CONTAINER_URL = f"{_BASE_BLOB_URL}/taskdata"
 _GAMEDATA_CONTAINER_URL = f"{_BASE_BLOB_URL}/gamedata"
 
@@ -135,7 +135,7 @@ def _parse_completion_code(completion_code: str) -> CompletionCodeData:
     """
     Parse the completion code into it's separate IDs.
 
-    The completion code is expected to be GZipped and base64-encoded. 
+    The completion code is expected to be GZipped and base64-encoded.
 
     Once decoded, the format of the completion code is as follows:
 

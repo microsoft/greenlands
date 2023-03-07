@@ -1,4 +1,4 @@
-main : com.microsoft.plaiground.gameserver.GameServerPlugin
+main : com.microsoft.greenlands.gameserver.GameServerPlugin
 name : GameServerPlugin
 version : 1.0
 api-version : 1.18

@@ -12,17 +12,17 @@ import gym
 import numpy as np
 from gym import Wrapper as gymWrapper
 from gym.spaces import Box, Dict, Discrete, Space
-from plaiground_client.model.location import Location
-from plaiground_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
-from plaiground_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.location import Location
+from greenlands_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
 
 from examples.gridworld.environment.task import Task, Tasks
 from examples.gridworld.environment.utils import MC_MATRIAL_IDs
 from examples.gridworld.environment.world import Agent, Vector2, Vector3, World
-from plaiground_agent_toolkit import EventCallbackProvider, GameEnvironment, RegisteredEvent, logger
-from plaiground_agent_toolkit.game_environment import TurnState
+from agent_toolkit import EventCallbackProvider, GameEnvironment, RegisteredEvent, logger
+from agent_toolkit.game_environment import TurnState
 
-_LOGGER = logger.get_logger(f"plaiground_agent_toolkit.gridworld_command.{__name__}")
+_LOGGER = logger.get_logger(f"agent_toolkit.gridworld_command.{__name__}")
 
 
 class String(Space):
@@ -175,7 +175,7 @@ class GridWorldGameEnvironment(GameEnvironment):
         return 0
 
     @staticmethod
-    def _transform_location_for_plaiground(x, y, z, yaw, pitch, is_block=False) -> Location:
+    def _transform_location_for_greenlands(x, y, z, yaw, pitch, is_block=False) -> Location:
         """
         Converts from env's grid coordinates to Minecraft's coordinates
         """
@@ -211,7 +211,7 @@ class GridWorldGameEnvironment(GameEnvironment):
         """
         Converts from World.py coordinates to env's grid coordinates
         """
-        # QUESTION: Why are we adjusting here? It doesn't seem to matter for Plaiground though
+        # QUESTION: Why are we adjusting here? It doesn't seem to matter for Greenlands though
 
         x += 5
         z += 5
@@ -224,7 +224,7 @@ class GridWorldGameEnvironment(GameEnvironment):
         a_yaw, a_pitch = rotation
 
         self.callback_provider.player_move(
-            new_location=self._transform_location_for_plaiground(
+            new_location=self._transform_location_for_greenlands(
                 a_x, a_y, a_z, a_yaw, a_pitch
             )
         )
@@ -256,13 +256,13 @@ class GridWorldGameEnvironment(GameEnvironment):
             b_x, b_y, b_z = self._correct_position_to_env_grid(*position)
             a_x, a_y, a_z = self._correct_position_to_env_grid(*self.agent.position)
 
-            block_location = self._transform_location_for_plaiground(
+            block_location = self._transform_location_for_greenlands(
                 b_x, b_y, b_z, 0, 0,
                 is_block=True
             )
 
             a_yaw, a_pitch = self.agent.rotation
-            player_location = self._transform_location_for_plaiground(
+            player_location = self._transform_location_for_greenlands(
                 a_x, a_y, a_z, a_yaw, a_pitch
             )
 
@@ -297,13 +297,13 @@ class GridWorldGameEnvironment(GameEnvironment):
             # report the block remove event to the callback provider
             a_x, a_y, a_z = self._correct_position_to_env_grid(*self.agent.position)
 
-            block_location = self._transform_location_for_plaiground(
+            block_location = self._transform_location_for_greenlands(
                 b_x, b_y, b_z, 0, 0,
                 is_block=True
             )
 
             a_yaw, a_pitch = self.agent.rotation
-            player_location = self._transform_location_for_plaiground(
+            player_location = self._transform_location_for_greenlands(
                 a_x, a_y, a_z, a_yaw, a_pitch
             )
 
@@ -316,7 +316,7 @@ class GridWorldGameEnvironment(GameEnvironment):
             self.grid[b_y, b_x, b_z] = 0
 
     def _get_position_and_rotation_from_location(self, location: Location) -> Tuple[Tuple[int, int, int], Tuple[int, int]]:
-        # plaiground floor is 1 but gridworld floor is 0
+        # greenlands floor is 1 but gridworld floor is 0
         position = (int(location.x), int(location.y) - 1, int(location.z))
 
         # yaw is rotated 180 degrees and pitch is inverted
@@ -564,7 +564,7 @@ class GridWorldGameEnvironment(GameEnvironment):
             self.step_no = 0
 
             agent_pos = self._correct_position_to_env_grid(*self.agent.position)
-            agent_pos = self._transform_location_for_plaiground(*agent_pos, *self.agent.rotation)
+            agent_pos = self._transform_location_for_greenlands(*agent_pos, *self.agent.rotation)
             self.callback_provider.turn_change(agent_pos)
 
         return self.to_observation_space(), reward, done, {}
@@ -625,7 +625,7 @@ def create_env(
     if load_remote_task:
         from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
             IGLUFormatTaskConverterWrapper
-        from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+        from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
         env = RemoteTaskLoader(
             env,
@@ -642,13 +642,13 @@ def create_env(
 
 
 gym.envs.register(
-    id='PlaigroundGridworld-v0',
+    id='GreenlandsGridworld-v0',
     entry_point=create_env,
     kwargs={}
 )
 
 gym.envs.register(
-    id='PlaigroundGridworldVector-v0',
+    id='GreenlandsGridworldVector-v0',
     entry_point=create_env,
     kwargs={'vector_state': True, 'render': False}
 )

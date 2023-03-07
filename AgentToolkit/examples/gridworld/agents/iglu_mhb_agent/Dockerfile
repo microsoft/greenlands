@@ -1,14 +1,14 @@
 FROM python:3.10-bullseye AS base
 
-SHELL ["/bin/bash", "-c"] 
+SHELL ["/bin/bash", "-c"]
 
-# used for installing dependencies 
+# used for installing dependencies
 ARG POETRY_REPO_KEY
 
 RUN curl -sSL https://install.python-poetry.org | python - --version 1.2.1
 ENV PATH="${PATH}:~/.local/bin/"
 
-RUN poetry config http-basic.PlaiGround deeplearningeng $POETRY_REPO_KEY
+RUN poetry config http-basic.Greenlands deeplearningeng $POETRY_REPO_KEY
 
 RUN apt update && \
         apt install -yq gnupg2 git-lfs && \

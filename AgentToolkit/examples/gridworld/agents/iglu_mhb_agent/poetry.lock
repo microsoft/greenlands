@@ -1433,40 +1433,40 @@ docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-issues
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 
 [[package]]
-name = "plaiground-agent-toolkit"
+name = "agent-toolkit"
 version = "0.20221101.4"
-description = "A package to connect automatic agents to Plaiground server and services."
+description = "A package to connect automatic agents to Greenlands server and services."
 category = "main"
 optional = false
 python-versions = ">=3.8,<3.11"
 files = [
-    {file = "plaiground_agent_toolkit-0.20221101.4-py3-none-any.whl", hash = "sha256:af41fcb44150621e5bd4f98df7f251c6293ac1118fe9bf6af3cf3bd56c38263e"},
-    {file = "plaiground_agent_toolkit-0.20221101.4.tar.gz", hash = "sha256:2594ce9706990d129e0e5cc357e0d430a878e4e131f1942e8b33727077efdca2"},
+    {file = "agent_toolkit-0.20221101.4-py3-none-any.whl", hash = "sha256:af41fcb44150621e5bd4f98df7f251c6293ac1118fe9bf6af3cf3bd56c38263e"},
+    {file = "agent_toolkit-0.20221101.4.tar.gz", hash = "sha256:2594ce9706990d129e0e5cc357e0d430a878e4e131f1942e8b33727077efdca2"},
 ]
 
 [package.dependencies]
 azure-eventhub = ">=5.10.0,<6.0.0"
 gym = "0.21.0"
-plaiground-api = "0.20221101.4"
+greenlands-api = "0.20221101.4"
 python-dateutil = ">=2.8.2,<3.0.0"
 python-dotenv = ">=0.20.0,<0.21.0"
 requests = ">=2.27.1,<3.0.0"
 
 [package.source]
 type = "legacy"
-url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple"
-reference = "PlaiGround"
+url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple"
+reference = "Greenlands"
 
 [[package]]
-name = "plaiground-api"
+name = "greenlands-api"
 version = "0.20221101.4"
-description = "PlaiGround API"
+description = "Greenlands API"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "plaiground_api-0.20221101.4-py3-none-any.whl", hash = "sha256:783dfc84e172bd6238dcd32731f70c698fcb88cb52c1664ad324555fec31b21e"},
-    {file = "plaiground_api-0.20221101.4.tar.gz", hash = "sha256:fce6e8cb0db79da6511c37be2265bf224b38248a845132152ecc4a3872e119fa"},
+    {file = "greenlands_api-0.20221101.4-py3-none-any.whl", hash = "sha256:783dfc84e172bd6238dcd32731f70c698fcb88cb52c1664ad324555fec31b21e"},
+    {file = "greenlands_api-0.20221101.4.tar.gz", hash = "sha256:fce6e8cb0db79da6511c37be2265bf224b38248a845132152ecc4a3872e119fa"},
 ]
 
 [package.dependencies]
@@ -1475,8 +1475,8 @@ urllib3 = ">=1.25.3"
 
 [package.source]
 type = "legacy"
-url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple"
-reference = "PlaiGround"
+url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple"
+reference = "Greenlands"
 
 [[package]]
 name = "promise"

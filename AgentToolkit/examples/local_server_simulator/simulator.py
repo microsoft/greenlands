@@ -4,7 +4,7 @@ from queue import Queue
 from threading import Thread
 from typing import Callable
 
-from plaiground_agent_toolkit import BaseMessageClient, logger
+from agent_toolkit import BaseMessageClient, logger
 from examples.local_server_simulator.client import LocalQueueClient
 from examples.local_server_simulator.server import LocalQueueServer
 
@@ -33,7 +33,7 @@ class LocalConnectionSimulator:
         """Starts the simulator and executes the given function.
 
         Args:
-            run_agent_fn (callable): function that receives a PlaigroundClient
+            run_agent_fn (callable): function that receives a GreenlandsClient
                 or subclass instance and executes the behaviour of the agent.
                 This function will be called with an instance of
                 LocalQueueClient and will connect the environment and agent

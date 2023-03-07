@@ -37,13 +37,6 @@ configure(pluginsProjects + sharedLibs) {
         maven { url 'https://repo.papermc.io/repository/maven-public/' }
         maven { url 'https://repo.onarandombox.com/content/groups/public/' }
         maven { url 'https://maven.citizensnpcs.co/repo' }
-        maven {
-            url 'https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/maven/v1'
-            name 'PlaiGround'
-            authentication {
-                basic(BasicAuthentication)
-            }
-        }
     }
 
     java {
@@ -83,7 +76,7 @@ configure(pluginsProjects + sharedLibs) {
         toBundle 'org.apache.commons:commons-lang3:3.12.0'
         toBundle 'redis.clients:jedis:3.7.0'
         toBundle 'io.github.openfeign:feign-core:11.9'
-        toBundle 'com.microsoft.plaiground:plaiground-client:1.0.0-CI-20221213.4'
+        toBundle 'com.microsoft.greenlands:greenlands-client:1.0.0-LOCAL'
         toBundle 'com.google.inject:guice:5.1.0'
         toBundle 'com.azure:azure-messaging-eventhubs:5.14.0'
         toBundle 'com.microsoft.azure:msal4j:1.13.2'
@@ -216,8 +209,8 @@ task setJavaClientVersion {
         var buildFilePath = project.getRootDir().toPath().resolve("./build.gradle")
         var buildFileContents = Files.readString(buildFilePath)
 
-        var newContents = buildFileContents.replaceAll("toBundle 'com.microsoft.plaiground:plaiground-client:(\\d+\\.?)[^']+'",
-                "toBundle 'com.microsoft.plaiground:plaiground-client:$reqVersion'")
+        var newContents = buildFileContents.replaceAll("toBundle 'com.microsoft.greenlands:greenlands-client:(\\d+\\.?)[^']+'",
+                "toBundle 'com.microsoft.greenlands:greenlands-client:$reqVersion'")
 
         Files.writeString(buildFilePath, newContents)
     }
@@ -239,7 +232,7 @@ task writeMavenSettings {
                               https://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>PlaiGround</id>
+      <id>Greenlands</id>
       <username>deeplearningeng</username>
       <password>$password</password>
     </server>

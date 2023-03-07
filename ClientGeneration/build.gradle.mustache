@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
 
-group = 'com.microsoft.plaiground'
+group = 'com.microsoft.greenlands'
 version = '{{package_version}}'
 
 buildscript {
@@ -27,14 +27,8 @@ java {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    maven {
-        url 'https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/maven/v1'
-        name 'PlaiGround'
-        authentication {
-            basic(BasicAuthentication)
-        }
-    }
 }
 
 if(hasProperty('target') && target == 'android') {
@@ -101,17 +95,11 @@ if(hasProperty('target') && target == 'android') {
 
     publishing {
         repositories {
-            maven {
-                url 'https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/maven/v1'
-                name 'PlaiGround'
-                authentication {
-                    basic(BasicAuthentication)
-                }
-            }
+            mavenLocal()
         }
         publications {
             maven(MavenPublication) {
-                artifactId = 'plaiground-client'
+                artifactId = 'greenlands-client'
                 from components.java
             }
         }

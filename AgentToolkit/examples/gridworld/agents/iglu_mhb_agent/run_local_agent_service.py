@@ -13,15 +13,15 @@ from pathlib import Path
 
 import numpy
 from dotenv import load_dotenv
-from plaiground_client.model import event_source
-from plaiground_client.model.agent_is_ready_event import AgentIsReadyEvent
-from plaiground_client.model.location import Location
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
-from plaiground_client.model.platform_game_start_event import PlatformGameStartEvent
-from plaiground_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
-from plaiground_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
-from plaiground_client.model.turn_change_reason import TurnChangeReason
+from greenlands_client.model import event_source
+from greenlands_client.model.agent_is_ready_event import AgentIsReadyEvent
+from greenlands_client.model.location import Location
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_game_start_event import PlatformGameStartEvent
+from greenlands_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
+from greenlands_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.turn_change_reason import TurnChangeReason
 
 from examples.gridworld.agents.iglu_mhb_agent.mhb_agent import MhbAgent
 from examples.gridworld.environment.gridworld_game_environment import GridWorldGameEnvironment
@@ -31,10 +31,10 @@ from examples.gridworld.environment.wrappers.common_wrappers import TurnEndObser
 from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
     IGLUFormatTaskConverterWrapper
 from examples.local_server_simulator import LocalConnectionSimulator
-from plaiground_agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
-                                      EventCallbackProvider, PlaigroundEventFactory, logger)
-from plaiground_agent_toolkit.utils import get_env_var
-from plaiground_agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
+from agent_toolkit import (AgentToolkit, BaseMessageClient, CommonEventsProperties,
+                                      EventCallbackProvider, GreenlandsEventFactory, logger)
+from agent_toolkit.utils import get_env_var
+from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 logger_blocklist = [
     'uamqp',
@@ -46,7 +46,7 @@ _LOGGER = logger.get_logger(__name__)
 for module in logger_blocklist:
     logging.getLogger(module).setLevel(logging.WARNING)
 
-logging.getLogger('plaiground_agent_toolkit').setLevel(logging.DEBUG)
+logging.getLogger('agent_toolkit').setLevel(logging.DEBUG)
 
 
 def run_agent_service(event_client: BaseMessageClient,
@@ -118,7 +118,7 @@ def process_message(
     """Hardcoded server responses to each type of Event message.
     """
 
-    received_event = PlaigroundEventFactory.from_dict(received_message)
+    received_event = GreenlandsEventFactory.from_dict(received_message)
 
     common_event_properties = {
         'tournament_id': config_dict['tournament_id'],
@@ -148,7 +148,7 @@ def process_message(
             role_id=None,
         )
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
         agent_key = _get_agent_key(
             game_id, config_dict['agent_service_role_id'])
 
@@ -160,7 +160,7 @@ def process_message(
             spawn_location=Location(0., 1., 0., 0., 0.),
         )
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
         # Simulate a different role joining the game
         new_event = PlatformPlayerJoinsGameEvent(
@@ -170,7 +170,7 @@ def process_message(
             role_id=some_other_role_id,
         )
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
         # Make it so that the "other" has first turn, to simulate what would happen in a real game
         new_event = PlatformPlayerTurnChangeEvent(
@@ -180,7 +180,7 @@ def process_message(
             previous_active_role_id=None
         )
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
         # Change turn to agent so it can start processing events
         new_event = PlatformPlayerTurnChangeEvent(
@@ -190,7 +190,7 @@ def process_message(
             previous_active_role_id=some_other_role_id
         )
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
     elif isinstance(received_event, PlatformPlayerLeavesGameEvent):
         # If agent leaves the game, we also simulate the other role leaving the game and then terminating the game
@@ -200,25 +200,25 @@ def process_message(
                 role_id=some_other_role_id,
             )
 
-            send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+            send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
             new_event = PlatformGameEndEvent(
                 **common_event_properties,
             )
 
-            send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+            send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
     # For all other events, simulate plugin behavior.
     # Assume it has been applied to the world and re-publish event with Plugin source.
     else:
         # Should be deepcopy to avoid modifying the original event, but attempt files
         # TypeError: PlayerChatEvent._from_openapi_data() missing 6 required positional arguments: ...
-        new_event = PlaigroundEventFactory.from_dict(
-            copy.deepcopy(PlaigroundEventFactory.to_dict(received_event)))
+        new_event = GreenlandsEventFactory.from_dict(
+            copy.deepcopy(GreenlandsEventFactory.to_dict(received_event)))
         new_event.source = common_event_properties['source']
         new_event.id = str(uuid.uuid4())
 
-        send_message_fn(PlaigroundEventFactory.to_dict(new_event))
+        send_message_fn(GreenlandsEventFactory.to_dict(new_event))
 
 
 def _get_agent_key(game_id: str, role_id: str) -> str:

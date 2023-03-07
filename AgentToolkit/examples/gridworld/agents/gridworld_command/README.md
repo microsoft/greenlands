@@ -2,7 +2,7 @@
 
 This is an example of an agent that uses the AT but runs it's own local
 simulation in Gridworld. Gridworld acts as the source of truth for block and
-player locations. Only chat events coming from PlaiGround are included in the
+player locations. Only chat events coming from Minecraft are included in the
 local game state.
 
 ## Running with a renderer
@@ -14,21 +14,14 @@ By default, this is disabled.
 
 The renderer itself only works on Linux. If you're on Windows then the
 recommended way to get it to work is for you to use VSCode and open the root
-PlaiGround project in the `.devcontainer`. For more info about dev containers
+Greenlands project in the `.devcontainer`. For more info about dev containers
 and how to use it, refer to [the
 documentation](https://code.visualstudio.com/docs/remote/containers).
 
 Devcontainers can be [slightly slow on
 Windows](https://code.visualstudio.com/remote/advancedcontainers/improve-performance).
 If you experience this, then the recommended way to speed it up is to clone the
-PlaiGround repo in WSL and THEN open the repo in the devcontainer.
-
-Note that if you use devcontainer then you need to remember to tell _Poetry_
-what token to use to authenticate with out private ADO artifact repo:
-
-```bash
-poetry config http-basic.PlaiGround deeplearningeng <token>
-```
+Greenlands repo in WSL and THEN open the repo in the devcontainer.
 
 Once that's done, you'll need to install an x-server on Windows so that the
 openGL context can be shown. The recommended way is to install
@@ -90,7 +83,7 @@ Inside the devcontainer, this will output a path such as:
 Work directly on Windows machine, this will output a path such as:
 
 ```powershell
-C:\Users\mattm\AppData\Local\pypoetry\Cache\virtualenvs\gridworld-command-agent-DOExUNHW-py3.10 (Activated)
+C:\Users\username\AppData\Local\pypoetry\Cache\virtualenvs\gridworld-command-agent-DOExUNHW-py3.10 (Activated)
 ```
 
 Then you can manually enter this path when selecting an interpreter.

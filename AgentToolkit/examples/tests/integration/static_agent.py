@@ -1,4 +1,4 @@
-from plaiground_agent_toolkit import Agent
+from agent_toolkit import Agent
 
 
 class StaticAgent(Agent):

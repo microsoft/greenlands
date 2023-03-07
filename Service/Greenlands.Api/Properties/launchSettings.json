@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Greenlands.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Authentication:Instance": "https://login.microsoftonline.com/",
+        "Authentication:ClientId": "REPLACE_WITH_YOURS",
+        // Use common to sign in users with work or school accounts or Microsoft personal accounts.
+        "Authentication:TenantId": "common",
+        "Authentication:Scope": "REPLACE_WITH_YOURS",
+        "ApiKeyAuthentication:HeaderName": "x-api-key",
+        "ApiKeyAuthentication:PluginName": "REPLACE_WITH_YOURS",
+        "ApiKeyAuthentication:IdentityClaim": "Identity",
+        "CosmosDb:AccountEndpoint": "REPLACE_WITH_YOURS",
+        // Expire Key in 8 hours (1 working day)
+        "Redis:KeyExpirationMinutes": "480",
+        "EventHub:FullyQualifiedNamespace": "REPLACE_WITH_YOURS",
+        "EventHub:NamespaceSendListenSharedAccessKeyName": "sendlisten",
+        "EventHub:EventHubSendListenSharedAccessKeyName": "hubsendlisten",
+        "EventHub:ConsumerGroup": "service",
+        "Logging:LogLevel:Default": "Information",
+        "Logging:LogLevel:Microsoft": "Warning",
+        "Logging:LogLevel:Microsoft.Hosting.Lifetime": "Information",
+        "Logging:LogLevel:Microsoft.Identity.Web": "Debug",
+        "Logging:LogLevel:Microsoft.AspNetCore.Authorization": "Debug",
+        "AllowedHosts": "*",
+        // Values which are expected to be overwritten
+        "ApplicationInsights:CloudRoleName": "REPLACE_WITH_YOURS",
+        "ApplicationInsights:CloudRoleInstance": "REPLACE_WITH_YOURS",
+        "CosmosDb:DatabaseName": "Greenlands",
+        "StorageAccount:HumanChallengeDataContainerName": "humanchallengedata",
+        "StorageAccount:AgentChallengeDataContainerName": "agentchallengedata",
+        "StorageAccount:TaskDataContainerName": "taskdata",
+        "StorageAccount:GameDataContainerName": "gamedata",
+        "Redis:KeyPrefix": "dev",
+        "EventHub:EventHubName": "games"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true,
+      "httpPort": 49154,
+      "sslPort": 49155,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Authentication:Instance": "https://login.microsoftonline.com/",
+        "Authentication:ClientId": "REPLACE_WITH_YOURS",
+        // Use common to sign in users with work or school accounts or Microsoft personal accounts.
+        "Authentication:TenantId": "common",
+        "Authentication:Scope": "REPLACE_WITH_YOURS",
+        "ApiKeyAuthentication:HeaderName": "x-api-key",
+        "ApiKeyAuthentication:PluginName": "REPLACE_WITH_YOURS",
+        "ApiKeyAuthentication:IdentityClaim": "Identity",
+        "CosmosDb:AccountEndpoint": "REPLACE_WITH_YOURS",
+        // Expire Key in 8 hours (1 working day)
+        "Redis:KeyExpirationMinutes": "480",
+        "EventHub:FullyQualifiedNamespace": "REPLACE_WITH_YOURS",
+        "EventHub:NamespaceSendListenSharedAccessKeyName": "sendlisten",
+        "EventHub:EventHubSendListenSharedAccessKeyName": "hubsendlisten",
+        "EventHub:ConsumerGroup": "service",
+        "Logging:LogLevel:Default": "Information",
+        "Logging:LogLevel:Microsoft": "Warning",
+        "Logging:LogLevel:Microsoft.Hosting.Lifetime": "Information",
+        "Logging:LogLevel:Microsoft.Identity.Web": "Debug",
+        "Logging:LogLevel:Microsoft.AspNetCore.Authorization": "Debug",
+        "AllowedHosts": "*",
+        // Values which are expected to be overwritten
+        "ApplicationInsights:CloudRoleName": "REPLACE_WITH_YOURS",
+        "ApplicationInsights:CloudRoleInstance": "REPLACE_WITH_YOURS",
+        "CosmosDb:DatabaseName": "Greenlands",
+        "StorageAccount:HumanChallengeDataContainerName": "humanchallengedata",
+        "StorageAccount:AgentChallengeDataContainerName": "agentchallengedata",
+        "StorageAccount:TaskDataContainerName": "taskdata",
+        "StorageAccount:GameDataContainerName": "gamedata",
+        "Redis:KeyPrefix": "dev",
+        "EventHub:EventHubName": "games"
+      }
+    }
+  }
+}

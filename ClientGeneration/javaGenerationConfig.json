@@ -1,10 +1,10 @@
 {
   "library": "feign",
-  "groupId": "com.microsoft.plaiground",
-  "invokerPackage": "com.microsoft.plaiground.client",
-  "modelPackage": "com.microsoft.plaiground.client.model",
-  "apiPackage": "com.microsoft.plaiground.client.api",
-  "artifactId": "plaiground-client",
+  "groupId": "com.microsoft.greenlands",
+  "invokerPackage": "com.microsoft.greenlands.client",
+  "modelPackage": "com.microsoft.greenlands.client.model",
+  "apiPackage": "com.microsoft.greenlands.client.api",
+  "artifactId": "greenlands-client",
   "artifactDescription": "Java Client for PLaiGround Service",
-  "artifactUrl": "https://dev.azure.com/deeplearningeng/_git/PlaiGround?path=/Service"
+  "artifactUrl": "https://dev.azure.com/deeplearningeng/_git/Greenlands?path=/Service"
 }

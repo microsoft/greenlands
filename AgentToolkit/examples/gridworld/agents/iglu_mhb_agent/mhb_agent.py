@@ -4,7 +4,7 @@ from typing import Dict, Optional
 import numpy as np
 from gym.spaces import Box, Dict, Discrete
 
-from plaiground_agent_toolkit import Agent, LocalGameState, logger
+from agent_toolkit import Agent, LocalGameState, logger
 
 # the iglu_mhb_agent expects the following folders to be in the PYTHONPATH. This
 # is handled automatically whe running the agent from with the mhb repo folder,

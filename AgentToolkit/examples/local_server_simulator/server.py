@@ -4,7 +4,7 @@ import time
 from queue import Queue
 from typing import Callable
 
-from plaiground_agent_toolkit import logger
+from agent_toolkit import logger
 
 _LOGGER = logger.get_logger(__name__)
 

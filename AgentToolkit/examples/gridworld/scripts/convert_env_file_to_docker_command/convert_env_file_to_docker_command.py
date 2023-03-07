@@ -17,8 +17,7 @@ def parse_args() -> argparse.Namespace:
                         help="Log level")
 
     parser.add_argument("--image",
-                        help="Name of the image that you want to run",
-                        default="plaiground4bawacr.azurecr.io/plaiground/mhb-agent:0.0.1-GPU")
+                        help="Name of the image that you want to run")
 
     parser.add_argument("--gpu",
                         default="0",

@@ -10,7 +10,7 @@ python = ">=3.8,<3.11"
 python-dotenv = "^0.20.0"
 azure-eventhub = "5.10.0"
 requests = "^2.28.1"
-plaiground-agent-toolkit = "0.20221101.4"
+agent-toolkit = "0.20221101.4"
 numba = "^0.56.2"
 matplotlib = "^3.6.0"
 azure-storage-blob = "^12.13"
@@ -22,7 +22,7 @@ numpy = "^1.23.3"
 torch = "1.13.0"
 torchvision = "0.14.0"
 torchaudio = "0.13.0"
-plaiground-api = "0.20221101.4"
+greenlands-api = "0.20221101.4"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.961"
@@ -44,8 +44,8 @@ optional = true
 sample-factory = "1.121.3"
 
 [[tool.poetry.source]]
-name = "PlaiGround"
-url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple/"
+name = "Greenlands"
+url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple/"
 secondary = true
 
 # [[tool.poetry.source]]

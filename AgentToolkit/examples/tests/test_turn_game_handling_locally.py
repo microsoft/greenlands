@@ -1,15 +1,15 @@
 import unittest
 
-from plaiground_client.model.agent_is_ready_event import AgentIsReadyEvent
-from plaiground_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.agent_is_ready_event import AgentIsReadyEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
 
 from examples.tutorial.agents.command_agent import ChatCommandAgent
 from examples.tutorial.environments.command_game_environment import (
     CommandGameEnvironment, CommandLocalGameState)
 from examples.tests.base_local_test_suite import BaseLocalTestsSuite
 from examples.tests.mocks import MockEventClient
-from plaiground_agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
-from plaiground_agent_toolkit.game_thread import GameThread
+from agent_toolkit.agent_toolkit import AgentToolkitUnexpectedExit
+from agent_toolkit.game_thread import GameThread
 
 
 class TurnGameHandlingTests(BaseLocalTestsSuite):
