@@ -60,7 +60,7 @@ need to manually review the logs to ensure the system works as expected.
 
 ## Adding new events
 
-Events are what the Agent Toolkit uses to communicate with the rest of the PlaiGround platform. The event models themselves
+Events are what the Agent Toolkit uses to communicate with the rest of the Greenlands platform. The event models themselves
 are generated as part of the `PythonClient` that gets generated from Service (see Service's own documentation for more information
 about this process).
 

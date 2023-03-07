@@ -1,4 +1,4 @@
-# PlaiGround Client Generation
+# Greenlands Client Generation
 
 The Service exposes a RESTful API that is intended to be used by several consumers: the Dashboard, the Minecraft Plugin and the Agent Toolkit.
 

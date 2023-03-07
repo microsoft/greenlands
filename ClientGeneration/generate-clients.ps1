@@ -12,17 +12,50 @@ param (
     [switch]$Install
 )
 
+function Write-Step {
+    param (
+        $Text
+    )
+
+    $separator = "=" * $Text.Length
+
+    Write-Host ""
+    Write-Host $separator -ForegroundColor Yellow
+    Write-Host $Text -ForegroundColor Cyan
+    Write-Host $separator -ForegroundColor Yellow
+    Write-Host ""
+}
+
 if (-not $PythonVersionOverride) {
     $PythonVersionOverride=$ClientVersion
 }
 
 $clientGenerationDir=$PSScriptRoot
 
-Import-Module "$PSScriptRoot/../pipelines/scripts/common.psm1" -Force
-
 cd "$clientGenerationDir/.."
 
-New-Swagger
+# Generate swagger file
+$swaggerFileName = "swagger.json"
+
+Write-Step "Generating $swaggerFileName"
+
+cd Service
+dotnet restore --locked-mode
+dotnet build --no-restore
+dotnet tool restore
+dotnet tool list
+
+cd Greenlands.Api
+$apiKeyHeaderMatchResult = Get-Content .\Properties\launchSettings.json | Select-String -Pattern '"ApiKeyAuthentication:HeaderName": "([\w-]+)"'
+$headerName = $apiKeyHeaderMatchResult.Matches[0].Groups[1].Value
+echo "Set ApiKeyAuthentication__HeaderName to $headerName"
+$env:ApiKeyAuthentication__HeaderName = $headerName
+
+# TODO: Find how to get dll path from build instead of hard coding
+# TODO: Find way to re-use swagger file later
+# Note: We might generate the same swagger file twice! (Once here and possibly later in generate-client.ps1)
+# Compare swagger file generated from target branch code to swagger file generated from current code
+dotnet tool run swagger tofile --output "$PSScriptRoot\$swaggerFileName" bin\Debug\net6.0\Greenlands.Api.dll v1
 
 Write-Step "Downloading OpenAPI generator JAR"
 cd $clientGenerationDir
@@ -37,7 +70,7 @@ if (-Not (Test-Path -Path "./downloads/openapi-generator-cli.jar")) {
 
 if (Test-Path -Path "./JavaClient") {
     Write-Step "Existing JavaClient detected, deleting files"
-    rm "./JavaClient" -Recurse -Force
+    Remove-Item "./JavaClient" -Recurse -Force
 }
 
 Write-Step "Generating Java client v$ClientVersion"
@@ -52,17 +85,9 @@ Write-Step "Overwrite generated JavaClient/build.gradle with custom build.gradle
 Write-Step "Print Modified JavaClient/build.gradle"
 type JavaClient/build.gradle
 
-if (Test-Path -Path "./TypeScriptClient") {
-    Write-Step "Existing TypeScriptClient detected, deleting files"
-    Get-ChildItem -Path "./TypeScriptClient" -Exclude ".npmrc", "node_modules" | ForEach-Object {Remove-Item $_ -Recurse }
-}
-
-Write-Step "Generating TypeScript client $ClientVersion"
-java -jar downloads/openapi-generator-cli.jar generate -i swagger.json -g typescript-fetch -o TypeScriptClient -c typescriptGenerationConfig.json -t templates/Typescript -p=npmVersion="$ClientVersion"
-
 if (Test-Path -Path "./PythonClient") {
     Write-Step "Existing PythonClient detected, deleting files"
-    rm "./PythonClient" -Recurse -Force
+    Remove-Item "./PythonClient" -Recurse -Force
 }
 
 Write-Step "Generating PythonClient client $PythonVersionOverride"
@@ -75,15 +100,6 @@ if ($Install) {
 
     Write-Step "Publishing JavaClient to Maven Local repository"
     gradle publishToMavenLocal
-
-    cd ..
-    cd TypeScriptClient
-
-    Write-Step "Installing TypeScript dependencies"
-    npm i
-
-    Write-Step "Linking TypeScript package"
-    npm link
 
     cd ..
     cd PythonClient

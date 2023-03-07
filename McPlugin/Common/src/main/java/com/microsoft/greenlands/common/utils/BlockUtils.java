@@ -202,7 +202,7 @@ public class BlockUtils {
     );
   }
 
-  public static Block convertBukkitBlockToPlaiGroundBlock(org.bukkit.block.Block bukkitBlock) {
+  public static Block convertBukkitBlockToGreenlandsBlock(org.bukkit.block.Block bukkitBlock) {
     var block = new Block();
     block.setType(bukkitBlock.getType().ordinal());
 
@@ -221,7 +221,7 @@ public class BlockUtils {
 
     MinecraftLogger.finest(
         "Convert chunk at position x: " + chunkSnapshot.getX() + ", z: " + chunkSnapshot.getZ()
-            + " to a PlaiGround BlockMap");
+            + " to a Greenlands BlockMap");
     for (var x = 0; x < maxChunkX; x++) {
       for (var z = 0; z < maxChunkZ; z++) {
         for (var y = minChunkY; y < maxChunkY; y++) {
@@ -234,7 +234,7 @@ public class BlockUtils {
             MinecraftLogger.finest(
                 "Adding block at absolute position x: " + absoluteX + ", y: " + y + " z: "
                     + absoluteZ
-                    + " to a PlaiGround BlockMap");
+                    + " to a Greenlands BlockMap");
             // TODO: We currently don't use block data, but it is accessible.
             // var bukkitBlockData = chunkSnapshot.getBlockData(x, y, z);
             var greenlandsLocation = new Location()

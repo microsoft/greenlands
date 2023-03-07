@@ -5,7 +5,7 @@ config-version = "2.0"
 bind = "0.0.0.0:{{QUERY_PORT}}"
 # What should be the MOTD? This gets displayed when the player adds your server to
 # their server list. Legacy color codes and JSON are accepted.
-motd = "&2PlaiGround server"
+motd = "&2Greenlands server"
 # What should we display for the maximum number of players? (Velocity does not support a cap
 # on the number of players online.)
 show-max-players = 500

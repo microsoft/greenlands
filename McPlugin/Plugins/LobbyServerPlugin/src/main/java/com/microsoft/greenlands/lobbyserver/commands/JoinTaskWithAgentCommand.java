@@ -74,7 +74,7 @@ class JoinTaskWithAgentCommand extends BukkitCommand {
     // {tournament id}:{challenge type}:{challenge id}
     // 85DF336F-8834-4E6F-8B14-96F0EDA93C68:ac:1A3AD430-7F8F-4AD9-89FF-C1035B5D80F4
     // This must match the string constructed by the service
-    // https://dev.azure.com/deeplearningeng/PlaiGround/_git/PlaiGround?path=/Service/PlaiGround.Api/Services/AgentsChallengesService/AgentChallengesService.cs&version=GBmain&line=102&lineEnd=103&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents
+    // https://dev.azure.com/deeplearningeng/Greenlands/_git/Greenlands?path=/Service/Greenlands.Api/Services/AgentsChallengesService/AgentChallengesService.cs&version=GBmain&line=102&lineEnd=103&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents
     var groupId = String.join(":", List.of(
       tournamentId,
       ChallengeType.AGENT_CHALLENGE.toString(),

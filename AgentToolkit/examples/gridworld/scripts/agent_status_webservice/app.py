@@ -96,4 +96,4 @@ def is_agent_running(agent_id: str):
 
 @app.route("/")
 def home():
-    return "PlaiGround Agent Container Status Reporter"
+    return "Greenlands Agent Container Status Reporter"

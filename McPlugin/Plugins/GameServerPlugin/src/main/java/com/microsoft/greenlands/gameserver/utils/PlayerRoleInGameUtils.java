@@ -25,7 +25,7 @@ public class PlayerRoleInGameUtils {
       @Nullable PlayerState initialPlayerState
   ) {
 
-    // convert from PlaiGround GameMode enum to bukkit's and apply
+    // convert from Greenlands GameMode enum to bukkit's and apply
     switch (playerGameConfig.gameMode) {
       case SURVIVAL -> player.setGameMode(GameMode.SURVIVAL);
       case CREATIVE -> player.setGameMode(GameMode.CREATIVE);

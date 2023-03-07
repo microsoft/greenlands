@@ -1,7 +1,7 @@
 package com.microsoft.greenlands.lobbyserver.utils.pairing;
 
 import com.microsoft.greenlands.client.model.Game;
-import com.microsoft.greenlands.client.model.PlaiGroundTask;
+import com.microsoft.greenlands.client.model.GreenlandsTask;
 import com.microsoft.greenlands.client.model.Tournament;
 import com.microsoft.greenlands.client.model.TournamentRole;
 import com.microsoft.greenlands.client.model.TurnLimits;
@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 class PairingSystemCommon {
 
   /**
-   * Given a {@link Tournament}, {@link PlaiGroundTask}, and list of players that will play in that
+   * Given a {@link Tournament}, {@link GreenlandsTask}, and list of players that will play in that
    * task, this method will: randomly assign roles to the players (unless the role assignment
    * parameter is set), create an actual {@link Game} instance on Service, create entries in Redis
    * for the game ({@link GameConfig}) as well as the {@link PlayerGameConfig} for each player, and
@@ -41,7 +41,7 @@ class PairingSystemCommon {
    */
   protected static void createGameForPlayersAndMoveThemToGameServer(
       List<PlayerPairingInfo> playerPairingInfos,
-      PlaiGroundTask task,
+      GreenlandsTask task,
       Tournament tournament,
       @Nullable ChallengeType challengeType,
       @Nullable String challengeId,
@@ -142,7 +142,7 @@ class PairingSystemCommon {
   private static void createJedisEntries(
       HashMap<TournamentRole, PlayerPairingInfo> roleToPlayerPairingInfo,
       Tournament tournament,
-      PlaiGroundTask task,
+      GreenlandsTask task,
       Game game,
       @Nullable ChallengeType challengeType,
       @Nullable String challengeId

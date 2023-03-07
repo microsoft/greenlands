@@ -3,7 +3,7 @@ package com.microsoft.greenlands.gameserver.utils;
 import com.microsoft.greenlands.client.model.AreaCube;
 import com.microsoft.greenlands.client.model.GameChanges;
 import com.microsoft.greenlands.client.model.GameState;
-import com.microsoft.greenlands.client.model.PlaiGroundTask;
+import com.microsoft.greenlands.client.model.GreenlandsTask;
 import com.microsoft.greenlands.client.model.PlayerState;
 import com.microsoft.greenlands.common.data.records.GameConfig;
 import com.microsoft.greenlands.common.entities.GeometryInfo;
@@ -57,7 +57,7 @@ public class GameWorldUtils {
       GameState initialGameState,
       PlayerState initialPlayerState,
       List<GameChanges> targetGameChanges,
-      PlaiGroundTask greenlandsTask) {
+      GreenlandsTask greenlandsTask) {
     var worldName = getGameWorldName(gameConfig.gameId);
 
     if (!WorldUtils.worldExists(worldName)) {

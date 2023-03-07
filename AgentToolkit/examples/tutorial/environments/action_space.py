@@ -10,7 +10,7 @@ ActionDataClassDecorator = dataclass(repr=True, eq=True)
 
 @ActionDataClassDecorator
 class Action:
-    """Base class for actions on the PlaiGround platform."""
+    """Base class for actions on the Greenlands platform."""
 
     @property
     def name(self):

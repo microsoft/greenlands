@@ -844,7 +844,7 @@ tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "pa
 [[package]]
 name = "greenlands-api"
 version = "1.0.0"
-description = "PlaiGround API"
+description = "Greenlands API"
 category = "main"
 optional = false
 python-versions = ">=3.6"

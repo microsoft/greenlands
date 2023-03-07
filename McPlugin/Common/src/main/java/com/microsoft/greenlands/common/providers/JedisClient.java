@@ -5,7 +5,7 @@
 package com.microsoft.greenlands.common.providers;
 
 /**
- * A provider of PlaiGround data stored in Redis.
+ * A provider of Greenlands data stored in Redis.
  */
 public interface JedisClient {
 

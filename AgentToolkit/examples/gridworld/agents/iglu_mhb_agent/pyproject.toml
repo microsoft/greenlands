@@ -44,8 +44,8 @@ optional = true
 sample-factory = "1.121.3"
 
 [[tool.poetry.source]]
-name = "PlaiGround"
-url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGround/pypi/simple/"
+name = "Greenlands"
+url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple/"
 secondary = true
 
 # [[tool.poetry.source]]

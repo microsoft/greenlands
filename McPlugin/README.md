@@ -1,4 +1,4 @@
-# PlaiGround Minecraft Plugins
+# Greenlands Minecraft Plugins
 
 This repo contains the Minecraft server plugins and the Gradle build system to run the Greenlands Servers.
 

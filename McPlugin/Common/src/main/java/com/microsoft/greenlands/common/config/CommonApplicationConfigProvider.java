@@ -36,7 +36,7 @@ public class CommonApplicationConfigProvider implements CommonApplicationConfig 
   }
 
   /**
-   * Configuration to access the PlaiGround Service API.
+   * Configuration to access the Greenlands Service API.
    */
   public record GreenlandsApiSettings(String host) {
 

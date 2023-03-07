@@ -34,7 +34,7 @@ logging.getLogger('agent_toolkit').setLevel(logging.DEBUG)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Send static events through PlaiGround",
+        description="Send static events through Greenlands",
         usage="%(prog)s [options]"
         )
     parser.add_argument('--compare', help="True or False. Compare the results or write them to a file.", default="false")
