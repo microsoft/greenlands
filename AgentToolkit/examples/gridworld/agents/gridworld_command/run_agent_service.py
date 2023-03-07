@@ -13,7 +13,7 @@ from examples.gridworld.environment.world import World
 from examples.gridworld.environment.wrappers.iglu_format_task_converter import \
     IGLUFormatTaskConverterWrapper
 from agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,
-                                      GreenlandMessageClient, get_env_var, logger)
+                                      GreenlandsMessageClient, get_env_var, logger)
 from agent_toolkit.wrappers.remote_task_loader import RemoteTaskLoader
 
 _LOGGER = logger.get_logger(__name__)
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     _LOGGER.info(f"event_hub_name: {event_hub_name}")
     _LOGGER.info(f"event_hub_consumer_group: {event_hub_consumer_group}")
 
-    greenland_message_client = GreenlandMessageClient(
+    greenlands_message_client = GreenlandsMessageClient(
         agent_service_id=agent_service_id,
         publish_subscribe_connection_string=publish_subscribe_connection_string,
         event_hub_name=event_hub_name,
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         agent_service_role_id=agent_service_role_id,
         agent=random_action_agent,
         create_game_environment_fn=create_game_environment,
-        client=greenland_message_client,
+        client=greenlands_message_client,
         max_games=14,
         auto_rejoin_agent_queue=True
     )

@@ -2,17 +2,17 @@ import json
 import compare_events
 from datetime import datetime
 from typing import List, Sequence
-from plaiground_client.model import event_source
+from greenlands_client.model import event_source
 from agent_toolkit import (
     RegisteredEvent,
-    GreenlandMessageClient
+    GreenlandsMessageClient
 )
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
 from dotenv import load_dotenv
-from agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import GreenlandsEventFactory
 
 
-class StaticMessageClient(GreenlandMessageClient):
+class StaticMessageClient(GreenlandsMessageClient):
     def __init__(self,
                  agent_service_id: str,
                  agent_service_role_id: str,
@@ -34,7 +34,7 @@ class StaticMessageClient(GreenlandMessageClient):
     def store_event_in_cache_for_comparison(self, event: RegisteredEvent) -> None:
         is_from_plugin = getattr(event, "source", None) == event_source.EventSource(value="MinecraftPlugin")
         if is_from_plugin:
-            event_str = PlaigroundEventFactory.to_json(event)
+            event_str = GreenlandsEventFactory.to_json(event)
             event_obj = json.loads(event_str)
             self.received_events.append(event_obj)
 
@@ -78,7 +78,7 @@ class StaticMessageClient(GreenlandMessageClient):
 
     def send_events(self, events: List[RegisteredEvent]) -> None:
         for event in events:
-            event_str = PlaigroundEventFactory.to_json(event)
+            event_str = GreenlandsEventFactory.to_json(event)
             event_obj = json.loads(event_str)
             self.sent_events.append(event_obj)
 

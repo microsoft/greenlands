@@ -13,10 +13,10 @@ import uuid
 from datetime import datetime
 from typing import Dict
 
-from plaiground_client.model import event_source
-from plaiground_client.model.agent_is_ready_event import AgentIsReadyEvent
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
-from plaiground_client.model.platform_game_start_event import PlatformGameStartEvent
+from greenlands_client.model import event_source
+from greenlands_client.model.agent_is_ready_event import AgentIsReadyEvent
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_game_start_event import PlatformGameStartEvent
 
 from agent_toolkit import BaseMessageClient, logger
 from agent_toolkit.agent import Agent
@@ -167,7 +167,7 @@ class AgentToolkit:
             # belongs, which should never happen
             _LOGGER.warning(
                 f"Received event {event.__class__} for game that is not being tracked. This is likely an issue " +
-                "with the Greenland platform itself, please report this issue to a platform " +
+                "with the Greenlands platform itself, please report this issue to a platform " +
                 f"administrator so they can investigate. "
                 f"Game id: {event.game_id}, event: {event.id}")
 

@@ -14,14 +14,14 @@ By default, this is disabled.
 
 The renderer itself only works on Linux. If you're on Windows then the
 recommended way to get it to work is for you to use VSCode and open the root
-Greenland project in the `.devcontainer`. For more info about dev containers
+Greenlands project in the `.devcontainer`. For more info about dev containers
 and how to use it, refer to [the
 documentation](https://code.visualstudio.com/docs/remote/containers).
 
 Devcontainers can be [slightly slow on
 Windows](https://code.visualstudio.com/remote/advancedcontainers/improve-performance).
 If you experience this, then the recommended way to speed it up is to clone the
-Greenland repo in WSL and THEN open the repo in the devcontainer.
+Greenlands repo in WSL and THEN open the repo in the devcontainer.
 
 Once that's done, you'll need to install an x-server on Windows so that the
 openGL context can be shown. The recommended way is to install

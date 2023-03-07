@@ -19,7 +19,7 @@ def success_callback(send_events: List, args):
     _LOGGER.debug(f"Successfully sent {len(send_events)} events")
 
 
-class GreenlandMessageProducer(Process):
+class GreenlandsMessageProducer(Process):
     """
     This process is in charge of acting as a buffer of events that the AT wants
     to send to EH. It receives events and stores them in a queue. Every
@@ -35,7 +35,7 @@ class GreenlandMessageProducer(Process):
         wait_time=0.1,
     ):
         """
-        Initializes a new instance of the GreenlandMessageProducer class.
+        Initializes a new instance of the GreenlandsMessageProducer class.
 
         Args:
             queue (Queue): The queue used to inform this process which are the
@@ -52,7 +52,7 @@ class GreenlandMessageProducer(Process):
         """
 
         super().__init__(
-            name="GreenlandMessageProducer_Process",
+            name="GreenlandsMessageProducer_Process",
         )
 
         self.wait_time = wait_time

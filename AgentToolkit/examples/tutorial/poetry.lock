@@ -206,9 +206,9 @@ files = [
 ]
 
 [[package]]
-name = "plaiground-agent-toolkit"
+name = "agent-toolkit"
 version = "0.20221213.4"
-description = "A package to connect automatic agents to Plaiground server and services."
+description = "A package to connect automatic agents to Greenlands server and services."
 category = "main"
 optional = false
 python-versions = ">=3.8,<3.11"
@@ -220,7 +220,7 @@ files = [
 [package.dependencies]
 azure-eventhub = ">=5.10.0,<6.0.0"
 gym = "0.21.0"
-plaiground-api = "0.20221213.4"
+greenlands-api = "0.20221213.4"
 python-dateutil = ">=2.8.2,<3.0.0"
 python-dotenv = ">=0.20.0,<0.21.0"
 requests = ">=2.27.1,<3.0.0"
@@ -231,15 +231,15 @@ url = "https://pkgs.dev.azure.com/deeplearningeng/PlaiGround/_packaging/PlaiGrou
 reference = "PlaiGround"
 
 [[package]]
-name = "plaiground-api"
+name = "greenlands-api"
 version = "0.20221213.4"
 description = "PlaiGround API"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "plaiground_api-0.20221213.4-py3-none-any.whl", hash = "sha256:c66a7cea0399f1ec8029728d59d7985f65c5477dc8c85945799cf071669efca8"},
-    {file = "plaiground_api-0.20221213.4.tar.gz", hash = "sha256:d8584781405ca602366f5d1ec6b391cb8b3ef291457f836ebc4e70fa09e1eaeb"},
+    {file = "greenlands_api-0.20221213.4-py3-none-any.whl", hash = "sha256:c66a7cea0399f1ec8029728d59d7985f65c5477dc8c85945799cf071669efca8"},
+    {file = "greenlands_api-0.20221213.4.tar.gz", hash = "sha256:d8584781405ca602366f5d1ec6b391cb8b3ef291457f836ebc4e70fa09e1eaeb"},
 ]
 
 [package.dependencies]

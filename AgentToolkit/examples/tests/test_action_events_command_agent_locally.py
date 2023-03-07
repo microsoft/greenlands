@@ -1,8 +1,8 @@
 import time
 import unittest
 
-from plaiground_client.model.player_chat_event import PlayerChatEvent
-from plaiground_client.model.player_move_event import PlayerMoveEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.player_move_event import PlayerMoveEvent
 
 from examples.tutorial.agents.command_agent import ChatCommandAgent
 from examples.tutorial.environments.command_game_environment import (

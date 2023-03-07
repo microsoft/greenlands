@@ -7,13 +7,13 @@ from typing import Type
 
 from dotenv import load_dotenv
 from gym import Wrapper
-from plaiground_client.model import event_source
-from plaiground_client.model.location import Location
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
-from plaiground_client.model.platform_game_start_event import PlatformGameStartEvent
-from plaiground_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
-from plaiground_client.model.turn_change_reason import TurnChangeReason
+from greenlands_client.model import event_source
+from greenlands_client.model.location import Location
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_game_start_event import PlatformGameStartEvent
+from greenlands_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.turn_change_reason import TurnChangeReason
 
 from examples.tests.mocks import MockEventClient
 from agent_toolkit import (AgentToolkit, CommonEventsProperties, EventCallbackProvider,

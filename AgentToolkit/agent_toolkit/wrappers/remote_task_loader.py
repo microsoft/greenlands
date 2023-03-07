@@ -4,8 +4,8 @@ from typing import Dict, Optional
 
 import gym
 import requests
-from plaiground_client.model.game_changes import GameChanges
-from plaiground_client.model.game_state import GameState
+from greenlands_client.model.game_changes import GameChanges
+from greenlands_client.model.game_state import GameState
 
 from agent_toolkit import (CommonEventsProperties, GameEnvironment, LocalGameState,
                                       PlayerState, event_factory, logger, parse_location_string)
@@ -50,12 +50,12 @@ class RemoteTaskLoader(gym.Wrapper):
             raise ValueError("Failed to download target game changes from blob")
 
         # Deserialize downloaded data
-        deserialized_initial_game_state = event_factory.deserialize_plaiground_model(
+        deserialized_initial_game_state = event_factory.deserialize_greenlands_model(
             initial_game_state,
             GameState,
         )
 
-        deserialized_world_complete_blocks = event_factory.deserialize_plaiground_model(
+        deserialized_world_complete_blocks = event_factory.deserialize_greenlands_model(
             world_complete_blocks,
             dict,
             # TODO: Should deserialize into the actual type of dict[LocationString, Block]
@@ -70,7 +70,7 @@ class RemoteTaskLoader(gym.Wrapper):
         )
 
         deserialized_target_game_changes = []
-        target_game_changes_list = event_factory.deserialize_plaiground_model(
+        target_game_changes_list = event_factory.deserialize_greenlands_model(
             target_game_changes,
             list,
             # TODO: Should deserialize into actual type of list[GameChanges]
@@ -80,7 +80,7 @@ class RemoteTaskLoader(gym.Wrapper):
         # Because we only serialized as list above, we need to manually deserialize each GameChanges object in the list
         # to transform the properties. E.g. worldChanges into world_changes
         for target_game_change in target_game_changes_list:
-            deserialized_target_game_change = event_factory.deserialize_plaiground_model(
+            deserialized_target_game_change = event_factory.deserialize_greenlands_model(
                 target_game_change,
                 GameChanges,
             )

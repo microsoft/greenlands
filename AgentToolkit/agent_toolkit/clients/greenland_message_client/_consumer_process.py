@@ -10,7 +10,7 @@ from agent_toolkit import logger
 _LOGGER = logger.get_logger(__name__)
 
 
-class GreenlandMessageConsumer(Process):
+class GreenlandsMessageConsumer(Process):
     def __init__(
             self,
             queue: Queue,
@@ -19,7 +19,7 @@ class GreenlandMessageConsumer(Process):
             event_hub_name: str,
     ):
         super().__init__(
-            name="GreenlandMessageConsumer_Process",
+            name="GreenlandsMessageConsumer_Process",
         )
 
         self.__event_queue: Queue[EventData] = queue

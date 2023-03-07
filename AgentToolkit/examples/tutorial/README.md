@@ -2,7 +2,7 @@
 
 In this directory you will find some simple environments intended to show how to extend the basic components, `GameEnvironment` and `Agent` to develop a new agent.
 
-It also includes scripts to run the agent locally with a simulated server and client based running on threads, or with the Plaiground Minecraft Server.
+It also includes scripts to run the agent locally with a simulated server and client based running on threads, or with the Greenlands Minecraft Server.
 
 **TODO** Add clarification about how to run the agents, and possibly add parameters to the scripts to
 specify which agent to run, and to the agent to specify which environment they should be run in.

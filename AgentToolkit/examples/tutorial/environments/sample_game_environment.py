@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Dict, Tuple
 
-from plaiground_client.model.location import Location
+from greenlands_client.model.location import Location
 
 from examples.tutorial.environments import action_space
 from agent_toolkit import GameEnvironment
@@ -10,7 +10,7 @@ from agent_toolkit import GameEnvironment
 class SampleGameEnvironment(GameEnvironment):
     """Example game environment.
 
-    This class is designed to show a very simple way in which the Plaiground
+    This class is designed to show a very simple way in which the Greenlands
     GameEnvironment class can be extended. For each received action:
         1. Updates its game state calling the appropriate modifier method.
         2. Emits the events notifying the change.

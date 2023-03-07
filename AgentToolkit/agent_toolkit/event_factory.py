@@ -4,24 +4,24 @@
 import json
 from typing import Any, Dict, Type, TypeVar, Union
 
-from plaiground_client import api_client, configuration, model_utils
-from plaiground_client.model.agent_is_ready_event import AgentIsReadyEvent
-from plaiground_client.model.block_place_event import BlockPlaceEvent
-from plaiground_client.model.block_remove_event import BlockRemoveEvent
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
-from plaiground_client.model.platform_game_start_event import PlatformGameStartEvent
-from plaiground_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
-from plaiground_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
-from plaiground_client.model.platform_task_completed_event import PlatformTaskCompletedEvent
-from plaiground_client.model.player_chat_event import PlayerChatEvent
-from plaiground_client.model.player_move_event import PlayerMoveEvent
-from plaiground_client.model.player_toggle_flight_event import PlayerToggleFlightEvent
+from greenlands_client import api_client, configuration, model_utils
+from greenlands_client.model.agent_is_ready_event import AgentIsReadyEvent
+from greenlands_client.model.block_place_event import BlockPlaceEvent
+from greenlands_client.model.block_remove_event import BlockRemoveEvent
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_game_start_event import PlatformGameStartEvent
+from greenlands_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
+from greenlands_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.platform_task_completed_event import PlatformTaskCompletedEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.player_move_event import PlayerMoveEvent
+from greenlands_client.model.player_toggle_flight_event import PlayerToggleFlightEvent
 
 T = TypeVar('T')
 
 
-def deserialize_plaiground_model(model_dict: Dict, clazz: Type[T]) -> T:
+def deserialize_greenlands_model(model_dict: Dict, clazz: Type[T]) -> T:
     config = configuration.Configuration(discard_unknown_keys=True)
     return model_utils.validate_and_convert_types(
         model_dict,
@@ -33,10 +33,9 @@ def deserialize_plaiground_model(model_dict: Dict, clazz: Type[T]) -> T:
     )
 
 
-# TODO implement a cleaner registry of valid events that is in sync with
-# the plaiground_client version.
-# Events handled by the AgentToolkit. New events should be added to
-# this list.
+# TODO implement a cleaner registry of valid events that is in sync with the
+# greenlands_client version. Events handled by the AgentToolkit. New events
+# should be added to this list.
 _REGISTERED_EVENTS = [
     # Agent events
     AgentIsReadyEvent,
@@ -83,7 +82,7 @@ RegisteredEvent = Union[
 ]
 
 
-class PlaigroundEventFactory:
+class GreenlandsEventFactory:
     """Serialize OpenApiModels from json/to strings.
 
     OpenApiModel constructors assume a complex structure created by the same
@@ -128,7 +127,7 @@ class PlaigroundEventFactory:
         # override it.
         del event_dict[cls.EVENT_TYPE_KEY]
 
-        deserialized_data = deserialize_plaiground_model(event_dict, event_class)
+        deserialized_data = deserialize_greenlands_model(event_dict, event_class)
 
         return deserialized_data
 

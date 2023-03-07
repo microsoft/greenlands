@@ -842,7 +842,7 @@ docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-inline
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 
 [[package]]
-name = "plaiground-api"
+name = "greenlands-api"
 version = "1.0.0"
 description = "PlaiGround API"
 category = "main"

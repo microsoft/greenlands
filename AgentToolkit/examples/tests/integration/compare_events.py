@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List
 from xmlrpc.client import boolean
-from agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import GreenlandsEventFactory
 
 
 class RoleIdException(Exception):

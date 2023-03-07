@@ -33,7 +33,7 @@ class LocalConnectionSimulator:
         """Starts the simulator and executes the given function.
 
         Args:
-            run_agent_fn (callable): function that receives a PlaigroundClient
+            run_agent_fn (callable): function that receives a GreenlandsClient
                 or subclass instance and executes the behaviour of the agent.
                 This function will be called with an instance of
                 LocalQueueClient and will connect the environment and agent

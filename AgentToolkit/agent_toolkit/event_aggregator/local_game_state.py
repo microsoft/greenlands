@@ -3,15 +3,15 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Dict, Tuple
 
-from plaiground_client.model.block import Block
-from plaiground_client.model.game_state import GameState
-from plaiground_client.model.location import Location
-from plaiground_client.model.player_state import PlayerState as PlaigroundClientPlayerState
+from greenlands_client.model.block import Block
+from greenlands_client.model.game_state import GameState
+from greenlands_client.model.location import Location
+from greenlands_client.model.player_state import PlayerState as GreenlandsClientPlayerState
 from typing_extensions import TypeAlias
 
 from agent_toolkit import logger
-from agent_toolkit.event_factory import (PlaigroundEventFactory,
-                                                    deserialize_plaiground_model)
+from agent_toolkit.event_factory import (GreenlandsEventFactory,
+                                                    deserialize_greenlands_model)
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -50,7 +50,7 @@ class PlayerState:
         return {
             'player_id': str(self.player_id),
             'role_id': str(self.role_id),
-            'location': PlaigroundEventFactory.to_dict(self.location)
+            'location': GreenlandsEventFactory.to_dict(self.location)
         }
 
 
@@ -76,7 +76,7 @@ class LocalGameState:
         self.conversation_history: list[ConversationActivity] = []
 
         # initial states are set when the game begins and shouldn't be changed after that
-        self.initial_player_states: Dict[RoleId, PlaigroundClientPlayerState] = {}
+        self.initial_player_states: Dict[RoleId, GreenlandsClientPlayerState] = {}
 
         self.player_states: Dict[RoleId, PlayerState] = {}
         self.active_role_id: str = ""
@@ -186,9 +186,9 @@ class LocalGameState:
     def __deepcopy__(self, memo):
         shallow_copy_of_self = copy.copy(self)
 
-        shallow_copy_of_self.initial_player_states = deserialize_plaiground_model(
-            PlaigroundEventFactory.to_json(shallow_copy_of_self.initial_player_states),
-            PlaigroundClientPlayerState
+        shallow_copy_of_self.initial_player_states = deserialize_greenlands_model(
+            GreenlandsEventFactory.to_json(shallow_copy_of_self.initial_player_states),
+            GreenlandsClientPlayerState
         )
 
         fields_to_copy = dict(

@@ -1,6 +1,6 @@
 from .agent import Agent  # noqa: F401
 from .clients.base_message_client import BaseMessageClient  # noqa: F401
-from .clients.greenland_message_client import GreenlandMessageClient  # noqa: F401
+from .clients.greenlands_message_client import GreenlandsMessageClient  # noqa: F401
 from .common_events_properties import CommonEventsProperties  # noqa: F401
 from .event_aggregator.event_aggregator import EventAggregator  # noqa: F401
 from .event_aggregator.local_game_state import (LocalGameState,
@@ -8,7 +8,7 @@ from .event_aggregator.local_game_state import (LocalGameState,
                                                 PlayerState,
                                                 ConversationActivity)  # noqa: F401
 from .event_callback_provider import EventCallbackProvider  # noqa: F401
-from .event_factory import PlaigroundEventFactory  # noqa: F401
+from .event_factory import GreenlandsEventFactory  # noqa: F401
 from .event_factory import RegisteredEvent  # noqa: F401
 from .game_environment import GameEnvironment  # noqa: F401
 from agent_toolkit.utils import get_env_var  # noqa: F401

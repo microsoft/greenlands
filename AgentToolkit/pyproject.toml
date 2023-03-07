@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "agent-toolkit"
 version = "0.20221213.4"
-description = "A package to connect automatic agents to Greenland server and services."
+description = "A package to connect automatic agents to Greenlands server and services."
 authors = ["MSR Deep Learning Engineering Team"]
 packages = [
     { include = "agent_toolkit" }

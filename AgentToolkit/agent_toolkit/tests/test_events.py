@@ -1,13 +1,15 @@
 import unittest
 
-from plaiground_client.model import (block_place_event, event_source, location,
+from greenlands_client.model import (block_place_event, event_source, location,
                                      platform_game_start_event)
 
-from agent_toolkit.event_factory import PlaigroundEventFactory
+from agent_toolkit.event_factory import GreenlandsEventFactory
 
 
-class PlaigroundEventFactoryTests(unittest.TestCase):
-    """Tests for PlaigroundEventFactory serialization/deserialization functions.
+class GreenlandsEventFactoryTests(unittest.TestCase):
+    """
+    Tests for GreenlandsEventFactoryTests serialization/deserialization
+    functions.
 
     There are three main types of events in OpenApi:
         * ModelSimple: Parent class of models whose type != object in their
@@ -18,9 +20,8 @@ class PlaigroundEventFactoryTests(unittest.TestCase):
             swagger/openapi and have oneOf/allOf/anyOf
 
     Models can also be attributes of other model. The instantiation of each
-    model follows a slightly different path. We test for serialization each
-    type of model. Currently, there are no ModelComposed events in
-    the platform.
+    model follows a slightly different path. We test for serialization each type
+    of model. Currently, there are no ModelComposed events in the platform.
     """
 
     def test_to_dict_simple_event(self):
@@ -48,7 +49,7 @@ class PlaigroundEventFactoryTests(unittest.TestCase):
         }
 
         self.assertDictEqual(
-            expected_dict, PlaigroundEventFactory.to_dict(event))
+            expected_dict, GreenlandsEventFactory.to_dict(event))
 
     def test_to_dict_normal_event(self):
         """Test the deserialization of a model with a ModelNormal attribute."""
@@ -83,7 +84,7 @@ class PlaigroundEventFactoryTests(unittest.TestCase):
         }
 
         self.assertDictEqual(
-            expected_dict, PlaigroundEventFactory.to_dict(event))
+            expected_dict, GreenlandsEventFactory.to_dict(event))
 
     def test_from_dict_simple_event(self):
         """Test the deserialization of a model with a ModelSimple attribute."""
@@ -99,7 +100,7 @@ class PlaigroundEventFactoryTests(unittest.TestCase):
             'group_id': None
         }
 
-        event = PlaigroundEventFactory.from_dict(event_dict)
+        event = GreenlandsEventFactory.from_dict(event_dict)
         self.assertEqual(platform_game_start_event.PlatformGameStartEvent,
                          event.__class__)
         self.assertEqual(event_dict['id'], event.id)
@@ -129,7 +130,7 @@ class PlaigroundEventFactoryTests(unittest.TestCase):
         }
         new_location = location.Location(0.0, 1.0, 2.0, 3.0, 4.0)
 
-        event = PlaigroundEventFactory.from_dict(event_dict)
+        event = GreenlandsEventFactory.from_dict(event_dict)
         self.assertEqual(block_place_event.BlockPlaceEvent, event.__class__)
         self.assertEqual(event_dict['id'], event.id)
         self.assertEqual(event_dict['game_id'], event.game_id)

@@ -9,13 +9,13 @@ from uuid import uuid4
 import dateutil.parser
 from azure.eventhub import EventData, EventHubProducerClient
 from azure.eventhub.aio import EventHubConsumerClient, PartitionContext
-from plaiground_client.model.event_source import EventSource
+from greenlands_client.model.event_source import EventSource
 
 from agent_toolkit import logger
-from agent_toolkit.clients.greenland_message_client._producer_process import GreenlandMessageProducer
-from agent_toolkit.clients.greenland_message_client._consumer_process import GreenlandMessageConsumer
+from agent_toolkit.clients.greenlands_message_client._producer_process import GreenlandsMessageProducer
+from agent_toolkit.clients.greenlands_message_client._consumer_process import GreenlandsMessageConsumer
 from agent_toolkit.clients.base_message_client import BaseMessageClient
-from agent_toolkit.event_factory import PlaigroundEventFactory, RegisteredEvent
+from agent_toolkit.event_factory import GreenlandsEventFactory, RegisteredEvent
 
 _LOGGER = logger.get_logger(__name__)
 
@@ -30,7 +30,7 @@ def _add_property_if_not_empty(event_data: EventData,
         event_data.properties[property_name] = value
 
 
-class GreenlandMessageClient(BaseMessageClient):
+class GreenlandsMessageClient(BaseMessageClient):
     def __init__(
         self,
         agent_service_id: str,
@@ -40,22 +40,22 @@ class GreenlandMessageClient(BaseMessageClient):
     ) -> None:
         super().__init__()
 
-        _LOGGER.debug(f"Creating GreenlandMessageClient for agent service id: {agent_service_id}")
+        _LOGGER.debug(f"Creating GreenlandsMessageClient for agent service id: {agent_service_id}")
 
         self._agent_service_id = agent_service_id
 
         # - The Consumer Process ONLY puts events on incoming queue, then
-        #   GreenlandMessageClient#subscribe() takes events off of the queue
+        #   GreenlandsMessageClient#subscribe() takes events off of the queue
         #   and processes them.
         #
-        # - For publishing the GreenlandMessageClient ONLY puts events on to
+        # - For publishing the GreenlandsMessageClient ONLY puts events on to
         #   outgoing queue and the Producer process monitors this queue and
         #   publishes any events put on it.
 
         self.__outgoing_event_queue: Queue[EventData] = Queue()
         self.__incoming_event_queue: Queue[EventData] = Queue()
 
-        self.consumer_process = GreenlandMessageConsumer(
+        self.consumer_process = GreenlandsMessageConsumer(
             queue=self.__incoming_event_queue,
             publish_subscribe_connection_string=publish_subscribe_connection_string,
             consumer_group=consumer_group,
@@ -63,7 +63,7 @@ class GreenlandMessageClient(BaseMessageClient):
         )
         self.consumer_process.start()
 
-        self.producer_process = GreenlandMessageProducer(
+        self.producer_process = GreenlandsMessageProducer(
             queue=self.__outgoing_event_queue,
             publish_subscribe_connection_string=publish_subscribe_connection_string,
             event_hub_name=event_hub_name,
@@ -117,7 +117,7 @@ class GreenlandMessageClient(BaseMessageClient):
         try:
             body_json = json.loads(event.body_as_str())
 
-            decoded_event = PlaigroundEventFactory.from_json(body_json)
+            decoded_event = GreenlandsEventFactory.from_json(body_json)
             return decoded_event
 
         except (ValueError, TypeError) as e:
@@ -134,7 +134,7 @@ class GreenlandMessageClient(BaseMessageClient):
         if event.produced_at_datetime is None:
             event.produced_at_datetime = datetime.datetime.utcnow().isoformat() + 'Z'
 
-        message_json = PlaigroundEventFactory.to_json(event)
+        message_json = GreenlandsEventFactory.to_json(event)
         event_data = EventData(message_json)
 
         event_data.properties["source"] = _AGENT_SOURCE_STR

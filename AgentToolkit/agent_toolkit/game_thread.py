@@ -3,8 +3,8 @@ from queue import Empty, Queue
 from threading import Event as ThreadingSyncEvent
 from typing import Any, Dict, Optional, Protocol, Tuple
 
-from plaiground_client.model.platform_game_end_event import PlatformGameEndEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.platform_game_end_event import PlatformGameEndEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
 
 from agent_toolkit import (Agent, BaseMessageClient, CommonEventsProperties,
                                       EventCallbackProvider, GameEnvironment, RegisteredEvent,

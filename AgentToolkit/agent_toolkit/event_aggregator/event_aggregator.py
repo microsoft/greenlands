@@ -3,14 +3,14 @@
 from functools import cached_property
 from typing import Dict
 
-from plaiground_client.model.block import Block
-from plaiground_client.model.block_place_event import BlockPlaceEvent
-from plaiground_client.model.block_remove_event import BlockRemoveEvent
-from plaiground_client.model.game_state import GameState
-from plaiground_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
-from plaiground_client.model.player_chat_event import PlayerChatEvent
-from plaiground_client.model.player_move_event import PlayerMoveEvent
+from greenlands_client.model.block import Block
+from greenlands_client.model.block_place_event import BlockPlaceEvent
+from greenlands_client.model.block_remove_event import BlockRemoveEvent
+from greenlands_client.model.game_state import GameState
+from greenlands_client.model.platform_player_joins_game_event import PlatformPlayerJoinsGameEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.player_move_event import PlayerMoveEvent
 
 from agent_toolkit import logger
 from agent_toolkit.event_aggregator.local_game_state import LocalGameState

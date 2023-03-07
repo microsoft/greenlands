@@ -2,15 +2,15 @@ import math
 import uuid
 from datetime import datetime
 
-from plaiground_client.model.block_place_event import BlockPlaceEvent
-from plaiground_client.model.block_remove_event import BlockRemoveEvent
-from plaiground_client.model.event_source import EventSource
-from plaiground_client.model.location import Location
-from plaiground_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
-from plaiground_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
-from plaiground_client.model.player_chat_event import PlayerChatEvent
-from plaiground_client.model.player_move_event import PlayerMoveEvent
-from plaiground_client.model.turn_change_reason import TurnChangeReason
+from greenlands_client.model.block_place_event import BlockPlaceEvent
+from greenlands_client.model.block_remove_event import BlockRemoveEvent
+from greenlands_client.model.event_source import EventSource
+from greenlands_client.model.location import Location
+from greenlands_client.model.platform_player_leaves_game_event import PlatformPlayerLeavesGameEvent
+from greenlands_client.model.platform_player_turn_change_event import PlatformPlayerTurnChangeEvent
+from greenlands_client.model.player_chat_event import PlayerChatEvent
+from greenlands_client.model.player_move_event import PlayerMoveEvent
+from greenlands_client.model.turn_change_reason import TurnChangeReason
 
 from agent_toolkit.clients.base_message_client import BaseMessageClient
 from agent_toolkit.common_events_properties import CommonEventsProperties

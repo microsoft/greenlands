@@ -2,7 +2,7 @@
 
 This readme explains how to run the [MHB baseline
 agent](https://gitlab.aicrowd.com/aicrowd/challenges/iglu-challenge-2022/iglu-2022-rl-mhb-baseline/-/tree/master)
-so that it works properly with Greenland and the rest of the Agent Toolkit.
+so that it works properly with Greenlands and the rest of the Agent Toolkit.
 
 For the MHB to work it needs to have a renderer available (since one of the
 inputs of the model is the RGB matrix of the current frame). To enable renderer
@@ -174,5 +174,5 @@ docker run -it --gpus all \
                --env AGENT_SERVICE_ROLE_ID="xxx" \
                --env PUBLISH_SUBSCRIBE_CONNECTION_STRING="xxx" \
                --env EVENT_HUB_CONSUMER_GROUP="xxx" \
-               greenland/mhb-agent:0.0.1-GPU
+               greenlands/mhb-agent:0.0.1-GPU
 ```

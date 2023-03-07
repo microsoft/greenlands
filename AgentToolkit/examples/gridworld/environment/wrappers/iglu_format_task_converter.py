@@ -27,15 +27,15 @@ class IGLUFormatTaskConverterWrapper(gym.Wrapper):
 
         return mc_material_ids_to_gridworld_bid[material_id]
 
-    def _get_block_loc_and_bid_from_greenland_data(self, x, y, z, block) -> Tuple[int, int, int, int]:
+    def _get_block_loc_and_bid_from_greenlands_data(self, x, y, z, block) -> Tuple[int, int, int, int]:
         """
         Given the position where the Block instance is, return a new tuple
-        (x,y,z,bid), where the greenland location has been transformed into a
+        (x,y,z,bid), where the greenlands location has been transformed into a
         Gridworld location and the Block's material to the corresponding
         Gridworld block ID.
         """
 
-        # subtract -2 to Y since lowest non-floor block in greenland it y==1, but in Gridworld
+        # subtract -2 to Y since lowest non-floor block in greenlands it y==1, but in Gridworld
         # we want it to be at -1
         return (x, y-2, z, self._minecraft_material_id_to_iglu_bid(
             block.type
@@ -49,7 +49,7 @@ class IGLUFormatTaskConverterWrapper(gym.Wrapper):
                 continue
 
             sparse_tg.append(
-                self._get_block_loc_and_bid_from_greenland_data(x, y, z, block)
+                self._get_block_loc_and_bid_from_greenlands_data(x, y, z, block)
             )
 
         return Tasks.to_dense(sparse_tg)
@@ -66,7 +66,7 @@ class IGLUFormatTaskConverterWrapper(gym.Wrapper):
                 continue
 
             sparse_sg.append(
-                self._get_block_loc_and_bid_from_greenland_data(x, y, z, block)
+                self._get_block_loc_and_bid_from_greenlands_data(x, y, z, block)
             )
 
         return sparse_sg
