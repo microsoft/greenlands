@@ -1,12 +1,12 @@
-# How to collect data with Plaiground
+# How to collect data with Greenlands
 
-This document contains a description of the process a Researcher must follow to collect interaction data using Plaiground.
+This document contains a description of the process a Researcher must follow to collect interaction data using Greenlands.
 
 ## Prerequisites
 
-Plaiground is composed of several components. All of them must be running before starting the data collection. More information on how to check this can be found in [Home.md](Home.md)
+Greenlands is composed of several components. All of them must be running before starting the data collection. More information on how to check this can be found in [Home.md](Home.md)
 
-1. Ensure the Plaiground service server is running.
+1. Ensure the Greenlands service server is running.
 1. Check the Minecraft server IP works.
 
 ## High level view of the steps
@@ -158,7 +158,7 @@ Normally, creating a task requires multiple steps with manual input such creatin
 
 To be able to play against an agent, first you need to register the service in the Dashboard. Create a new agent service for each agent instance to run. For example, if you want to run 3 MHB agents instances, register 3 agent services. To do so, add any name to identify the agent, e.g. MHB1. Add any URL and check the agent challenge and Team are correct.
 
-The agent needs to be run through a script that recovers these environment variables and creates an environment, a client to connect to Event Hub, and an instance of the `AgentToolkit` class. There are several examples included in the repository. Once the script is running, it will start exchanging messages with the Plaiground server and the agent will be queued for new games.
+The agent needs to be run through a script that recovers these environment variables and creates an environment, a client to connect to Event Hub, and an instance of the `AgentToolkit` class. There are several examples included in the repository. Once the script is running, it will start exchanging messages with the Greenlands server and the agent will be queued for new games.
 
 TODO: how to get the connection keys trough service?
 

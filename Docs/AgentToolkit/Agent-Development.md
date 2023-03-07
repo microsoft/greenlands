@@ -22,7 +22,7 @@ Additionally, GameEnvironments can be integrated like wrappers that extend some 
 When the agent is implemented, it's time to connect it to the Minecraft server. See `run_agent_service.py` scripts for specific examples of the following steps. You must first register the agent through the service and obtain the necessary access keys for EventHub and Azure Storage. Use them to set up a `.env` file.
 
 The `AgentToolkit` class will orchestrate the traffic of events. You need to create:
-* The client that will send and receive the Events from the source. `GreenlandMessageClient` is the class that interacts with EventHub.
+* The client that will send and receive the Events from the source. `GreenlandsMessageClient` is the class that interacts with EventHub.
 * The environment generator function `create_game_environment`. This function combines all the environments and wrappers and returns the outer instance.
 
 When you call AgentToolkit `run` method, the connection to client is open and the process stays in a loop listening for events. See more details about the interaction between the AgentToolkit and the server in the [Getting Started](/AgentToolkit/Getting-Started.md) section.
@@ -44,7 +44,7 @@ The id of the task must be the one given by the Service. The URL of the containe
 ## Agent testing
 
 When you develop a new Agent, and possibly a new GameEnvironment, it's important
-that you test if they work correctly with the AgentToolkit. Plaiground supports
+that you test if they work correctly with the AgentToolkit. Greenlands supports
 several test scenarios:
 * Automatic local tests using a unittest battery.
 * Manual local simulation using a server and client simulator that allows you to
@@ -53,7 +53,7 @@ with EventHub. You can program the server to emit events in a custom order. In t
 battery of tests used for integration tests of the Agent Toolkit and the agents defined in
 `examples/tutorial/agents` and `examples/tutorial/environments`.
 
-* Manual remote tests, where you connect your agent to the Plaiground Minecraft server through
+* Manual remote tests, where you connect your agent to the Greenlands Minecraft server through
 EventHub and can play against your agent in real games. In the current implementation, there are no automatic checks for this instance, you'll
 need to manually review the logs to ensure the system works as expected.
 
