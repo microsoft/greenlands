@@ -43,11 +43,6 @@ optional = true
 [tool.poetry.group.linuxdeps.dependencies]
 sample-factory = "1.121.3"
 
-[[tool.poetry.source]]
-name = "Greenlands"
-url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple/"
-secondary = true
-
 # [[tool.poetry.source]]
 # name = "pytorch"
 # url = "https://download.pytorch.org/whl/cpu/"

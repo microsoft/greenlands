@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 
 COPY ./examples/agents/${AGENT_NAME}/pyproject.toml ./examples/agents/${AGENT_NAME}/poetry.lock ./examples/agents/${AGENT_NAME}/
 
-ARG PACKAGE_FEED_NAME="deeplearningeng"
+ARG PACKAGE_FEED_NAME="msgreenlands"
 ARG PACKAGE_FEED_TOKEN
 
 ENV POETRY_HTTP_BASIC_GREENLANDS_USERNAME="${PACKAGE_FEED_NAME}" \
