@@ -8,6 +8,7 @@
     - [Debugging a Plugin](#debugging-a-plugin)
     - [Example command to start specific server with debug symbols](#example-command-to-start-specific-server-with-debug-symbols)
   - [McPlugin Project Structure](#mcplugin-project-structure)
+    - [Other useful references](#other-useful-references)
 
 
 ## Prerequisites
@@ -131,3 +132,10 @@ build/reports: test coverage reports.
 ```
 
 ![image](https://user-images.githubusercontent.com/6556541/172445303-0b1dd023-2ed8-49c5-9767-29e6ec1695b1.png)
+
+
+### Other useful references
+
+If you want to learn more about Plugin, then check out these other pages:
+
+- [Agents](Agents) -- explains a bit how the _Agent_ abstraction works on the Minecraft side. At least enough to understand the code.
