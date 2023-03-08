@@ -26,7 +26,7 @@
 
 #### Set secrets as environment variables
 
-We need to get the Event Hub shared key that allows McPlugin to authenticate with EventHub, which is a requirement to send/receive events from it. To get the actual shared key you can refer to [this explanation](../Service/Getting-Started.md#adding-secrets).
+We need to get the Event Hub shared key that allows McPlugin to authenticate with EventHub, which is a requirement to send/receive events from it. To get the actual shared key you can refer to [this explanation](/Docs/Service/Getting-Started.md#adding-secrets).
 
 McPlugin uses a `.env` system to make variable values available to the running servers. There are two main files involved in this:
 
