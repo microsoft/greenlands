@@ -215,29 +215,3 @@ task setJavaClientVersion {
         Files.writeString(buildFilePath, newContents)
     }
 }
-
-task writeMavenSettings {
-    group 'Custom tasks'
-    description 'Expects a parameter -Ppassword="your key from ADO" and will add the appropriate credentials to ~/.m2/settings.xml. Note: this task will overwrite the settings.xml file.'
-    doFirst {
-        // create .m2 dir if it doesn't exist
-        var homeDir = System.getProperty("user.home");
-        var m2Dir = Files.createDirectories(new File(homeDir + "/.m2/").toPath())
-
-        var settingsFile = m2Dir.resolve("settings.xml").toFile()
-        settingsFile.write("""
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <servers>
-    <server>
-      <id>Greenlands</id>
-      <username>deeplearningeng</username>
-      <password>$password</password>
-    </server>
-  </servers>
-</settings>
-""")
-    }
-}

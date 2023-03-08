@@ -225,11 +225,6 @@ python-dateutil = ">=2.8.2,<3.0.0"
 python-dotenv = ">=0.20.0,<0.21.0"
 requests = ">=2.27.1,<3.0.0"
 
-[package.source]
-type = "legacy"
-url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple"
-reference = "Greenlands"
-
 [[package]]
 name = "greenlands-api"
 version = "0.20221213.4"
@@ -245,11 +240,6 @@ files = [
 [package.dependencies]
 python-dateutil = "*"
 urllib3 = ">=1.25.3"
-
-[package.source]
-type = "legacy"
-url = "https://pkgs.dev.azure.com/deeplearningeng/Greenlands/_packaging/Greenlands/pypi/simple"
-reference = "Greenlands"
 
 [[package]]
 name = "python-dateutil"

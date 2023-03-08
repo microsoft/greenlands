@@ -8,8 +8,6 @@ ARG POETRY_REPO_KEY
 RUN curl -sSL https://install.python-poetry.org | python - --version 1.2.1
 ENV PATH="${PATH}:~/.local/bin/"
 
-RUN poetry config http-basic.Greenlands deeplearningeng $POETRY_REPO_KEY
-
 RUN apt update && \
         apt install -yq gnupg2 git-lfs && \
         git lfs install

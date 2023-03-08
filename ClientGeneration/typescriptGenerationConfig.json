@@ -1,6 +1,0 @@
-{
-  "npmName": "@greenlands/client",
-  "npmRepository": "https://dev.azure.com/deeplearningeng/_git/Greenlands",
-  "supportsES6": true,
-  "typescriptThreePlus": true
-}
