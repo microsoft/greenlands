@@ -20,6 +20,7 @@
    - Run Redis with the command `docker run -it -p 6379:6379 redis:6.2.6`
      - This will create a brand new instance of Redis and expose it locally on port 6379
 4. [Install PowerShell version 7 or higher.](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2) (hint: old version PowerShell might need to be manually uninstalled to avoid unexpected errors)
+5. You'll also need to download the specific Minecraft version which is compatible with the PaperMC server we use. See [here](Client-Set-Up.md) for more information.
 
 
 ## Server set up
