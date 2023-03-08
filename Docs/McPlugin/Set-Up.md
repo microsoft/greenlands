@@ -52,7 +52,7 @@ STORAGE_CONTAINER_NAME=<Removed>taskdata
 
 # Application Insights
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Removed>
-APPLICATIONINSIGHTS_ROLE_INSTANCE=plaiground-mcplugin-<Removed>
+APPLICATIONINSIGHTS_ROLE_INSTANCE=greenlands-mcplugin-<Removed>
 ```
 
 
