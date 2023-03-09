@@ -49,13 +49,10 @@ jobs:
 
 
       # build Service
-      - name: Restore workloads
-        run: dotnet workload restore
-        working-directory: Service
-      - name: Restore dependencies
+      - name: Restore Service dependencies
         run: dotnet restore
         working-directory: Service
-      - name: Build
+      - name: Build Service
         run: dotnet build --no-restore -c Release
         working-directory: Service
 
