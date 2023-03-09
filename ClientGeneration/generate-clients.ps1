@@ -55,7 +55,7 @@ $env:ApiKeyAuthentication__HeaderName = $headerName
 # TODO: Find way to re-use swagger file later
 # Note: We might generate the same swagger file twice! (Once here and possibly later in generate-client.ps1)
 # Compare swagger file generated from target branch code to swagger file generated from current code
-dotnet tool run swagger tofile --output "$PSScriptRoot/$swaggerFileName" bin/Debug/net6.0/Greenlands.Api.dll v1
+dotnet swagger tofile --output "$PSScriptRoot/$swaggerFileName" bin/Debug/net6.0/Greenlands.Api.dll v1
 
 Write-Step "Downloading OpenAPI generator JAR"
 cd $clientGenerationDir
