@@ -159,6 +159,24 @@ files = [
 ]
 
 [[package]]
+name = "greenlands_api"
+version = "1.0.0"
+description = ""
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = []
+develop = true
+
+[package.dependencies]
+python-dateutil = "*"
+urllib3 = ">=1.25.3"
+
+[package.source]
+type = "directory"
+url = "../ClientGeneration/PythonClient"
+
+[[package]]
 name = "gym"
 version = "0.24.0"
 description = "Gym: A universal API for reinforcement learning environments"
@@ -488,4 +506,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.11"
-content-hash = "dbea9805f611c60161a5169fca65261d8b347d2b31e6ee1d44067f6f232d3f52"
+content-hash = "aa1980849450a3d60d7044853d2ba82aeb7a0e394eb5be9d75994ce8466930ed"
