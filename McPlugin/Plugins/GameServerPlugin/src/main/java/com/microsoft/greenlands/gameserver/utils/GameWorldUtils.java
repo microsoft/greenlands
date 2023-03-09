@@ -29,7 +29,7 @@ public class GameWorldUtils {
   private static final int rightSpacerSize = 1;
   private static final int leftSpacerSize = 3;
   // Visual which maps computation of offset to block distances. (Pictures shows leftSpacer as 1, but it is 3)
-  // https://dev.azure.com/deeplearningeng/b9fef4e9-2d2e-401c-8aaf-355c8f4c8ee3/_apis/git/repositories/5cf359cc-c3f9-4827-a12b-5bfd8fd43b2e/pullRequests/427/attachments/image.png
+  // https://user-images.githubusercontent.com/3422347/223847297-fd831854-c55f-4220-8249-6db70b18c13a.png
   private static final int targetStructureOffset =
       movementRegionRadius + leftSpacerSize + letterSize + rightSpacerSize + movementRegionRadius;
   private static final String gameWorldPrefix = "game-world-";

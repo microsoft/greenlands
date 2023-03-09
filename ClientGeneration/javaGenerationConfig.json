@@ -5,6 +5,6 @@
   "modelPackage": "com.microsoft.greenlands.client.model",
   "apiPackage": "com.microsoft.greenlands.client.api",
   "artifactId": "greenlands-client",
-  "artifactDescription": "Java Client for PLaiGround Service",
-  "artifactUrl": "https://dev.azure.com/deeplearningeng/_git/Greenlands?path=/Service"
+  "artifactDescription": "Java Client for Greenlands Service",
+  "artifactUrl": "https://github.com/microsoft/greenlands"
 }
