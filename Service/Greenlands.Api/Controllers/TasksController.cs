@@ -74,6 +74,7 @@ public class TasksController : ControllerBase
     /// <summary>
     /// Returns the task with the given ID for the specified tournament, returns
     /// the full task data instead of a summary.
+    /// </summary>
     [HttpGet("{taskId}/complete", Name = "GetCompleteTaskById")]
     [ProducesResponseType(404)]
     [ProducesResponseType(typeof(CompleteTask), 200)]

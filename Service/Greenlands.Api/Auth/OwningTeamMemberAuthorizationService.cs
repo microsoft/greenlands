@@ -340,7 +340,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
 public class UserOwnershipData
 {
     [Required]
-    public string UserId { get; init; }
+    public string UserId { get; set; }
 
     [Required]
     public List<string> TeamIds { get; init; } = new List<string>();
