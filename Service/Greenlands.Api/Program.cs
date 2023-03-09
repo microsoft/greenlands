@@ -2,6 +2,11 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+using Greenlands.Api.Auth;
+using Greenlands.Api.Events;
+using Greenlands.Api.Options;
+using Greenlands.Api.Services;
+using Greenlands.Api.Telemetry;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.HttpLogging;
@@ -11,11 +16,6 @@ using Microsoft.Azure.Cosmos;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
-using Greenlands.Api.Auth;
-using Greenlands.Api.Events;
-using Greenlands.Api.Options;
-using Greenlands.Api.Services;
-using Greenlands.Api.Telemetry;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -213,11 +213,10 @@ builder.Services.AddApplicationInsightsTelemetry();
 builder.Services.AddSingleton(serviceProvider =>
 {
     var applicationInsightsOptions = builder.Configuration.GetSection(ApplicationInsightsOptions.Section).Get<ApplicationInsightsOptions>();
-    return new CloudNameTelemetry()
-    {
-        CloudRoleName = applicationInsightsOptions.CloudRoleName,
-        CloudRoleInstance = applicationInsightsOptions.CloudRoleName
-    };
+    return new CloudNameTelemetry(
+        cloudRoleName: applicationInsightsOptions.CloudRoleName,
+        cloudRoleInstance: applicationInsightsOptions.CloudRoleName
+    );
 });
 
 builder.Services.Configure<ApiKeyAuthenticationOptions>(builder.Configuration.GetSection(ApiKeyAuthenticationOptions.Section));

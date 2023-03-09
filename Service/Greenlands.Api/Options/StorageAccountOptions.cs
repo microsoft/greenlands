@@ -4,13 +4,13 @@ public class StorageAccountOptions
 {
     public const string Section = "StorageAccount";
 
-    public string ConnectionString { get; set; }
+    public string ConnectionString { get; init; } = "NOT_SET";
 
-    public string HumanChallengeDataContainerName { get; set; }
+    public string HumanChallengeDataContainerName { get; init; } = "NOT_SET";
 
-    public string AgentChallengeDataContainerName { get; set; }
+    public string AgentChallengeDataContainerName { get; init; } = "NOT_SET";
 
-    public string TaskDataContainerName { get; set; }
+    public string TaskDataContainerName { get; init; } = "NOT_SET";
 
-    public string GameDataContainerName { get; set; }
+    public string GameDataContainerName { get; init; } = "NOT_SET";
 }

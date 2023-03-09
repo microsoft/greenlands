@@ -23,7 +23,7 @@ public class MatchedWorldBlocksEvaluator : Evaluator
 
         // Ensure unique locations of block changes and associate an IsMatched boolean with each block change initialized to false.
         var currentMatchedBlockChanges = currentBlockChanges
-            .ToDictionary(bc => bc.Key, bc => new BlockChangeMatch { Block = bc.Value, IsMatched = false });
+            .ToDictionary(bc => bc.Key, bc => new BlockChangeMatch(block: bc.Value, isMatched: false ));
 
         var targetBlockChanges = targetGameChanges.WorldChanges?.BlockChanges ?? new Dictionary<string, Block>();
 
@@ -90,4 +90,10 @@ public class BlockChangeMatch
     public Block Block { get; init; }
 
     public bool IsMatched { get; set; }
+
+
+    public BlockChangeMatch(Block block, bool isMatched) {
+        Block = block;
+        IsMatched = isMatched;
+    }
 }

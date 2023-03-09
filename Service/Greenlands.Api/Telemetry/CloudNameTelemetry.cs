@@ -5,9 +5,14 @@ namespace Greenlands.Api.Telemetry;
 
 public class CloudNameTelemetry : ITelemetryInitializer
 {
-    public string CloudRoleName { get; set; }
+    public string CloudRoleName { get; init; }
 
-    public string CloudRoleInstance { get; set; }
+    public string CloudRoleInstance { get; init; }
+
+    public CloudNameTelemetry(string cloudRoleName, string cloudRoleInstance) {
+        CloudRoleName = cloudRoleName;
+        CloudRoleInstance = cloudRoleInstance;
+    }
 
     public void Initialize(ITelemetry telemetry)
     {
