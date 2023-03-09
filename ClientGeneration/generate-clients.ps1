@@ -99,7 +99,7 @@ if ($Install) {
     cd JavaClient
 
     Write-Step "Publishing JavaClient to Maven Local repository"
-    ./gradlew.bat publishToMavenLocal
+    bash ./gradlew publishToMavenLocal
 
     cd ..
     cd PythonClient
