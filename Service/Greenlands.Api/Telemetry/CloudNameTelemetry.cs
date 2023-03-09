@@ -9,6 +9,11 @@ public class CloudNameTelemetry : ITelemetryInitializer
 
     public string CloudRoleInstance { get; init; }
 
+    public CloudNameTelemetry(string cloudRoleName, string cloudRoleInstance) {
+        CloudRoleName = cloudRoleName;
+        CloudRoleInstance = cloudRoleInstance;
+    }
+
     public void Initialize(ITelemetry telemetry)
     {
         telemetry.Context.Cloud.RoleName = CloudRoleName;

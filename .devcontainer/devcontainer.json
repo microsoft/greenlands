@@ -58,7 +58,8 @@
 				"vscjava.vscode-java-pack",
 				"wayou.vscode-todo-highlight",
 				"wholroyd.jinja",
-				"yzhang.markdown-all-in-one"
+				"yzhang.markdown-all-in-one",
+				"ms-dotnettools.csharp"
 			]
 		}
 	},

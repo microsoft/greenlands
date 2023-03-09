@@ -14,6 +14,7 @@ azure-eventhub = "^5.10.0"
 requests = "^2.27.1"
 gym = "0.24.0"
 python-dateutil = "^2.8.2"
+greenlands-api = { path = "../ClientGeneration/PythonClient", develop = true }
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.961"

@@ -8,7 +8,7 @@ param (
     # The typical version 1.0.0-CI-20220712.5 is not accepted, but 0.20220712.5 is accepted.
     # 
     # See: https://developercommunity.visualstudio.com/t/local-version-segments-for-python-package-feeds/892057
-    $PythonVersionOverride="",
+    $PythonVersionOverride="1.0.0",
     [switch]$Install
 )
 

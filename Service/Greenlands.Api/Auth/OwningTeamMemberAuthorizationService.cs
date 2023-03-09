@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Options;
-using Microsoft.Identity.Web;
+﻿using System.Diagnostics;
+using System.Security.Claims;
 using Greenlands.Api.Options;
 using Greenlands.Api.Services;
+using Microsoft.Extensions.Options;
+using Microsoft.Identity.Web;
 using StackExchange.Redis;
-using System.Diagnostics;
-using System.Security.Claims;
 
 namespace Greenlands.Api.Auth;
 
@@ -68,7 +68,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
         try
         {
             teamIdsUserIsMemberOf = await GetUserTeams(user);
-            userId = user.GetObjectId();
+            userId = user.GetObjectId()!;
         }
         catch (InvalidOperationException e)
         {
@@ -128,7 +128,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
         try
         {
             teamIdsUserIsMemberOf = await GetUserTeams(user);
-            userId = user.GetObjectId();
+            userId = user.GetObjectId()!;
         }
         catch (InvalidOperationException e)
         {
@@ -163,7 +163,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
         }
 
         var userId = user.GetObjectId();
-        var teamAndTournamentIds = await GetUserTeamAndTournamentIds(userId);
+        var teamAndTournamentIds = await GetUserTeamAndTournamentIds(userId!);
 
         return teamAndTournamentIds;
     }
@@ -340,7 +340,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
 public class UserOwnershipData
 {
     [Required]
-    public string UserId { get; init; }
+    public string UserId { get; set; } = "NOT_SET";
 
     [Required]
     public List<string> TeamIds { get; init; } = new List<string>();

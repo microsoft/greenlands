@@ -10,7 +10,6 @@ python = ">=3.8,<3.11"
 python-dotenv = "^0.20.0"
 azure-eventhub = "5.10.0"
 requests = "^2.28.1"
-agent-toolkit = "0.20221101.4"
 numba = "^0.56.2"
 matplotlib = "^3.6.0"
 azure-storage-blob = "^12.13"
@@ -19,10 +18,16 @@ wandb = "^0.13.3"
 sentencepiece = "^0.1.97"
 transformers = "^4.22.2"
 numpy = "^1.23.3"
-torch = "1.13.0"
-torchvision = "0.14.0"
-torchaudio = "0.13.0"
-greenlands-api = "0.20221101.4"
+torch = "1.13.1"
+torchvision = "0.14.1"
+torchaudio = "0.13.1"
+
+agent-toolkit = { path = "../../../../", develop = true }
+greenlands-api = { path = "../../../../../ClientGeneration/PythonClient", develop = true }
+setuptools = "65.5.1"
+gitpython = "3.1.30"
+cryptography = "39.0.1"
+werkzeug = "2.2.3"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.961"

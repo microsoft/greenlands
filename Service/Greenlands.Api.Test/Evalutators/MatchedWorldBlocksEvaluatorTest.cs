@@ -1,7 +1,7 @@
-using NUnit.Framework;
 using Greenlands.Api.Evaluators;
 using Greenlands.Api.Events.v1.Helpers;
 using Greenlands.Api.Models;
+using NUnit.Framework;
 
 namespace Greenlands.Api.Test.Evaluators;
 
@@ -161,11 +161,10 @@ public class MatchedWorldBlocksEvalutorTests
         // Arrange
         var currentBlockChangeMatches = new Dictionary<LocationString, BlockChangeMatch>
         {
-            [new Location(0, 0, 0).ToString()] = new BlockChangeMatch
-            {
-                Block = new Block(1),
-                IsMatched = true
-            }
+            [new Location(0, 0, 0).ToString()] = new BlockChangeMatch(
+                block: new Block(1),
+                isMatched: true
+            )
         };
 
         var targetBlockChanges = new Dictionary<LocationString, Block>
@@ -190,16 +189,14 @@ public class MatchedWorldBlocksEvalutorTests
         // Arrange
         var currentBlockChangeMatches = new Dictionary<LocationString, BlockChangeMatch>
         {
-            [new Location(0, 0, 0).ToString()] = new BlockChangeMatch
-            {
-                Block = new Block(1),
-                IsMatched = true
-            },
-            [new Location(0, 0, 1).ToString()] = new BlockChangeMatch
-            {
-                Block = new Block(1),
-                IsMatched = false
-            }
+            [new Location(0, 0, 0).ToString()] = new BlockChangeMatch(
+                block: new Block(1),
+                isMatched: true
+            ),
+            [new Location(0, 0, 1).ToString()] = new BlockChangeMatch(
+                block: new Block(1),
+                isMatched: false
+            )
         };
 
         var targetBlockChanges = new Dictionary<LocationString, Block>

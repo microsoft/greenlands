@@ -340,7 +340,7 @@ public enum TournamentState
     Public,
     
     /// <summary>
-    // Tournament data is preserved but games will not be played using its tasks
+    /// Tournament data is preserved but games will not be played using its tasks
     /// </summary>
     Archived
 }
