@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class MetadataUtils {
 
-  private static final String _PREFIX = "PlayGround_MDT_";
+  private static final String _PREFIX = "Greenlands_MDT_";
 
   /**
    * Gets the metadata value from the entity for the specified key. Return null if the key is not
