@@ -128,7 +128,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
         try
         {
             teamIdsUserIsMemberOf = await GetUserTeams(user);
-            userId = user.GetObjectId();
+            userId = user.GetObjectId()!;
         }
         catch (InvalidOperationException e)
         {
@@ -163,7 +163,7 @@ public class OwningTeamMemberAuthorizationService : IOwningTeamMemberAuthorizati
         }
 
         var userId = user.GetObjectId();
-        var teamAndTournamentIds = await GetUserTeamAndTournamentIds(userId);
+        var teamAndTournamentIds = await GetUserTeamAndTournamentIds(userId!);
 
         return teamAndTournamentIds;
     }
