@@ -1,0 +1,85 @@
+# FROM: https://github.com/github/codeql-action
+name: "Code Scanning - Action"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '30 1 * * 0'
+
+jobs:
+  CodeQL-Build:
+    # CodeQL runs on ubuntu-latest, windows-latest, and macos-latest
+    runs-on: ubuntu-latest
+
+    permissions:
+      # required for all workflows
+      security-events: write
+
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: csharp, python, java
+
+      # setup dependencies
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+    
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+
+
+      # build Service
+      - name: Restore workloads
+        run: dotnet workload restore
+        working-directory: Service
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: Service
+      - name: Build
+        run: dotnet build --no-restore -c Release
+        working-directory: Service
+
+      # build and install clients
+      - name: Build and install Clients
+        run: pwsh ./generate-clients.ps1 -Install
+        working-directory: ClientGeneration
+
+      # build plugin
+      - name: Build Plugins
+        run: ./gradlew build
+        working-directory: McPlugin
+
+      # Configure python for AgentToolkit
+      - name: Setup poetry
+        run: curl -sSL https://install.python-poetry.org | python3 - --version 1.4.0
+      - name: Create Poetry env for Agent Toolkit
+        run: poetry install
+        working-directory: AgentToolkit
+      - name: Tell CodeQL to use the new poetry env
+        # see https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#analyzing-python-dependencies
+        run: echo "CODEQL_PYTHON=$(poetry run which python)" >> $GITHUB_ENV
+        working-directory: AgentToolkit
+
+      # actually perform code analysis
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
