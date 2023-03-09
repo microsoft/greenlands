@@ -9,8 +9,9 @@ python = ">=3.8,<3.11"
 python-dotenv = "^0.20.0"
 azure-eventhub = "5.10.0"
 requests = "^2.28.1"
-agent-toolkit = "0.20221213.4"
-greenlands-api = "0.20221213.4"
+
+agent-toolkit = { path = "../../", develop = true }
+greenlands-api = { path = "../../../ClientGeneration/PythonClient", develop = true }
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.961"
