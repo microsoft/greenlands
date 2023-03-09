@@ -46,6 +46,13 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
           overwrite-settings: false
+
+      # the setup java action will create an encrypted settings.xml, which
+      # gradle will have trouble reading down below. We could unencrypt it here
+      # but since we don't really need it for anything it's easier to just
+      # remove it.
+      - name: Remove generated ~/.m2 folder
+        run: rm -rf ~/.m2 || true
     
       - uses: actions/setup-python@v4
         with:
