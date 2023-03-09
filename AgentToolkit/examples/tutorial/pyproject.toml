@@ -12,6 +12,7 @@ requests = "^2.28.1"
 
 agent-toolkit = { path = "../../", develop = true }
 greenlands-api = { path = "../../../ClientGeneration/PythonClient", develop = true }
+certifi = "2022.12.07"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.961"

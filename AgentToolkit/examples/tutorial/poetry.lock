@@ -58,14 +58,14 @@ uamqp = ">=1.5.1,<2.0.0"
 
 [[package]]
 name = "certifi"
-version = "2022.9.24"
+version = "2022.12.7"
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "certifi-2022.9.24-py3-none-any.whl", hash = "sha256:90c1a32f1d68f940488354e36370f6cca89f0f106db09518524c88d6ed83f382"},
-    {file = "certifi-2022.9.24.tar.gz", hash = "sha256:0d9c601124e5a6ba9712dbc60d9c53c21e34f5f641fe83002317394311bdce14"},
+    {file = "certifi-2022.12.7-py3-none-any.whl", hash = "sha256:4ad3232f5e926d6718ec31cfc1fcadfde020920e278684144551c91769c7bc18"},
+    {file = "certifi-2022.12.7.tar.gz", hash = "sha256:35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"},
 ]
 
 [[package]]
@@ -96,9 +96,9 @@ files = [
 ]
 
 [[package]]
-name = "greenlands_api"
+name = "greenlands-api"
 version = "1.0.0"
-description = ""
+description = "Greenlands API"
 category = "main"
 optional = false
 python-versions = ">=3.6"
@@ -465,4 +465,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.11"
-content-hash = "aebdc5d667b57d47f109f9a08ecbec10fdf4cde7e418272613efab0086134ed7"
+content-hash = "b33b5103c30f0cc78013632702d6a2b615717d15c79f0e5ec06119fa0257716a"
