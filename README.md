@@ -4,6 +4,13 @@ This repo contains the code for `greenlands`, a platform that can be used to run
 games between _AI agents_ and human players in Minecraft, and collect metrics
 throughout the games.
 
+We're still in the process of cleaning up the documentation (and this README), but
+the code of the platform is complete. 
+
+Here you can see an example of a human giving instructions to an agent and how said
+agent attempts to fulfill the human's requests (see full video [here](https://www.youtube.com/watch?v=PWrvLhQDybw)).
+
+![](https://user-images.githubusercontent.com/3422347/232133717-7537158e-02c0-4a15-9ab3-dcaf7e7a7eb8.mp4)
 
 ## Contributing
 
