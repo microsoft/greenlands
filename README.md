@@ -10,7 +10,8 @@ the code of the platform is complete.
 Here you can see an example of a human giving instructions to an agent and how said
 agent attempts to fulfill the human's requests (see full video [here](https://www.youtube.com/watch?v=PWrvLhQDybw)).
 
-![](https://user-images.githubusercontent.com/3422347/232133717-7537158e-02c0-4a15-9ab3-dcaf7e7a7eb8.mp4)
+[3452346.webm](https://user-images.githubusercontent.com/3422347/232140380-4605b2f8-2533-45d4-b389-d49f3c0ced1e.webm)
+
 
 ## Contributing
 
