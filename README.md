@@ -35,3 +35,37 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+## References
+
+The greenwolds was inspired as a playground for human in the loop evaluation for the competition [IGLU:Interactive Grounded Language Understanding in a Collaborative Environment](https://www.aicrowd.com/challenges/neurips-2022-iglu-challenge), which is described in the following papers:
+
+```
+@inproceedings{kiseleva2022interactive,
+  title={Interactive grounded language understanding in a collaborative environment: Iglu 2021},
+  author={Kiseleva, Julia and Li, Ziming and Aliannejadi, Mohammad and Mohanty, Shrestha and ter Hoeve, Maartje and Burtsev, Mikhail and Skrynnik, Alexey and Zholus, Artem and Panov, Aleksandr and Srinet, Kavya and others},
+  booktitle={NeurIPS 2021 Competitions and Demonstrations Track},
+  pages={146--161},
+  year={2022},
+  organization={PMLR}
+}
+```
+
+```
+@article{kiseleva2022iglu,
+  title={Iglu 2022: Interactive grounded language understanding in a collaborative environment at neurips 2022},
+  author={Kiseleva, Julia and Skrynnik, Alexey and Zholus, Artem and Mohanty, Shrestha and Arabzadeh, Negar and C{\^o}t{\'e}, Marc-Alexandre and Aliannejadi, Mohammad and Teruel, Milagro and Li, Ziming and Burtsev, Mikhail and others},
+  journal={arXiv preprint arXiv:2205.13771},
+  year={2022}
+}
+```
+
+```
+@article{zholus2022iglu,
+  title={IGLU Gridworld: Simple and Fast Environment for Embodied Dialog Agents},
+  author={Zholus, Artem and Skrynnik, Alexey and Mohanty, Shrestha and Volovikova, Zoya and Kiseleva, Julia and Szlam, Artur and Cot{\'e}, Marc-Alexandre and Panov, Aleksandr I},
+  journal={arXiv preprint arXiv:2206.00142},
+  year={2022}
+}
+```
+
