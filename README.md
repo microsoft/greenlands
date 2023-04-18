@@ -4,10 +4,10 @@ This repo contains the code for `greenlands`, a platform that can be used to run
 games between _AI agents_ and human players in Minecraft, and collect metrics
 throughout the games. Note that this is _almost exactly_ the code that was used
 for the platform used to collect human evaluation data for the [IGLU
-2022](https://www.aicrowd.com/challenges/neurips-2022-iglu-challenge), and while
-useful, the goal for it is to be a reference implementation that you can check
-if you're interested in building something similar, or just want to see how
-things work.
+2022](https://www.aicrowd.com/challenges/neurips-2022-iglu-challenge)
+competition, and while useful, the goal for it is to be a reference
+implementation that you can check if you're interested in building something
+similar, or just want to see how things work.
 
 We're still in the process of cleaning up the documentation (and this README),
 but the code of the platform is complete. The existing documentation can be
