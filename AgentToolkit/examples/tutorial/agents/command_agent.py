@@ -27,7 +27,7 @@ class ChatCommandAgent(Agent):
             To move east/west increase or decrease the x coordinate respectively.
             To move south/north increase or decrease the z coordinate respectively.
             To move up/down increase or decrease the y coordinate respectively.
-            See https://minecraft.fandom.com/wiki/Coordinates#World_coordinates
+            See https://minecraft.wiki/w/Coordinates#World_coordinates
         look:<[up|down]> moves pitch by 45 degrees on the desired direction.
             Looking stratight up corresponds to pitch -90, and straigh down to pitch 90.
         exit: leave the game.
@@ -123,7 +123,7 @@ class ChatCommandAgent(Agent):
 
         # X - (+) east (-) west
         # Z - (-) north (+) south
-        # https://minecraft.fandom.com/wiki/Coordinates#World_coordinates
+        # https://minecraft.wiki/w/Coordinates#World_coordinates
         if "north" in self.current_command:
             # Decrease in Z is movement in northern direction
             move_action.z -= self.position_movement_distance
@@ -152,7 +152,7 @@ class ChatCommandAgent(Agent):
 
     def handle_look(self, current_agent_position):
         # For the vertical rotation (pitch), -90.0 for straight up to 90.0 for straight down.
-        # https://minecraft.fandom.com/wiki/Commands/tp/Before_Java_Edition_17w45a
+        # https://minecraft.wiki/w/Commands/tp/Before_Java_Edition_17w45a
         new_pitch = current_agent_position['pitch']
         if 'down' in self.current_command:
             new_pitch = max(current_agent_position['pitch'] + 45.0, 90.0)
@@ -191,7 +191,7 @@ class ChatCommandAgent(Agent):
         # For horizontal rotation (yaw), -180.0 for due north, -90.0 for due east,
         # 0.0 for due south, 90.0 for due west, to 179.9 for just west of due north,
         # before wrapping back around to -180.0.
-        # https://minecraft.fandom.com/wiki/Commands/tp/Before_Java_Edition_17w45a
+        # https://minecraft.wiki/w/Commands/tp/Before_Java_Edition_17w45a
         new_yaw = current_agent_position['yaw']
         if direction == 'right':
             new_yaw += degrees

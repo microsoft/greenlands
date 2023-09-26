@@ -394,7 +394,7 @@ public class ActiveGameState {
     // use this workaround to get the confirmation code in the user's text-box,
     // from where they are able to copy it For more information on the `tellraw`
     // command check out:
-    // https://minecraft.fandom.com/wiki/Commands/tellraw
+    // https://minecraft.wiki/w/Commands/tellraw
 
     ServerUtils.tellRawToPlayer(player.getName(), Map.of(
         "text", "\n>> Click here to get your confirmation code!\n",

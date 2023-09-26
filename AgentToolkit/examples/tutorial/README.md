@@ -21,7 +21,7 @@ Currently, the supported commands are:
         To move east/west increase or decrease the x coordinate respectively.
         To move south/north increase or decrease the z coordinate respectively.
         To move up/down increase or decrease the y coordinate respectively.
-        See https://minecraft.fandom.com/wiki/Coordinates#World_coordinates
+        See https://minecraft.wiki/w/Coordinates#World_coordinates
     look:<[up|down]> moves pitch by 45 degrees on the desired direction.
         Looking stratight up corresponds to pitch -90, and straigh down to pitch 90.
 

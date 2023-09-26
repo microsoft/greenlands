@@ -215,7 +215,7 @@ public class BlockUtils {
     var maxChunkX = CommonConstants.WORLD_MIN_CHUNK_SIZE;
     var maxChunkZ = CommonConstants.WORLD_MIN_CHUNK_SIZE;
     // Chunk Height documentation
-    // https://minecraft.fandom.com/wiki/Java_Edition_1.18_Experimental_Snapshot_1#General
+    // https://minecraft.wiki/w/Java_Edition_1.18_Experimental_Snapshot_1#General
     var minChunkY = -64;
     var maxChunkY = 320;
 
