@@ -237,7 +237,7 @@ public class WorldUtils {
    * A Chunk is a column of size 16(x) * 16(z) * 384(y), 98,304 blocks total. They extend from Y=-64
    * to Y=320.
    *
-   * https://minecraft.fandom.com/wiki/Chunk
+   * https://minecraft.wiki/w/Chunk
    */
   public static void loadChunksAroundLocation(
       World world,
