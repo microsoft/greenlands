@@ -1,30 +1,29 @@
 # greenlands
 
-This repo contains the code for `greenlands`, a platform that can be used to run
-games between _AI agents_ and human players in Minecraft, and collect metrics
-throughout the games. 
+This repository contains the code for `greenlands`, a platform that enables
+gameplay between _AI agents_ and human players in Minecraft, as well as the
+collection of game metrics.
 
-The code in this repo is _almost exactly_ the code that was used for the
-platform used to collect human evaluation data for the [IGLU
+The code is essentially the same as what was used to gather human evaluation
+data for the [IGLU
 2022](https://www.aicrowd.com/challenges/neurips-2022-iglu-challenge)
-competition, and while useful, the goal for it is to be a reference
-implementation that you can check if you're interested in building something
-similar, or just want to see how things work. 
+competition. It is intended to serve as a reference for anyone interested in
+developing a similar system or for those curious about the implementation
+details.
 
-**NOTE:** The code in this repo is provided as-is in the hopes that it can be
-useful to the open source community. However, it is not actively maintained
-right now. But PRs are welcome, and we'll try to respond to issues as soon as we
-can.
 
-We're still in the process of cleaning up the documentation (and this README),
-but the code of the platform is complete. The existing documentation can be
-found [here](https://github.com/microsoft/greenlands/blob/main/Docs/Home.md),
-and it should give you an idea of the architecture and functionality of the
-different components.
+**NOTE:** The code is provided "as-is" with the hope that it will be useful for
+the open-source community. It's not under active development, but pull requests
+are welcome, and we'll address issues when possible.
 
-Here you can see an example of a human giving instructions to an agent and how
-said agent attempts to fulfill the human's requests (see full video
-[here](https://www.youtube.com/watch?v=PWrvLhQDybw)).
+The documentation can be found
+[here](https://github.com/microsoft/greenlands/blob/main/Docs/Home.md), and
+(while not exhaustive) should give you an idea of the architecture and
+functionality of the different components.
+
+For an example of a human interacting with an AI agent, where the agent acts on
+the human's instructions, you can view the full video
+[here](https://www.youtube.com/watch?v=PWrvLhQDybw).
 
 [3452346.webm](https://user-images.githubusercontent.com/3422347/232140380-4605b2f8-2533-45d4-b389-d49f3c0ced1e.webm)
 
