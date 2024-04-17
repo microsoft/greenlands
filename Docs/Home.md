@@ -4,7 +4,7 @@ Greenlands is an on-line platform for the collection of conversational data and 
 
 ## Components
 
-Greenlands comprises of these components:
+Greenlands is comprised of the following components:
 
 - [Service](Service/Service.md)
 - [Minecraft Plugin](McPlugin/Set-Up.md)

@@ -28,7 +28,7 @@ Detailed descriptions of each step will be provided in the following sections.
 
 ## Uploading tasks in json format
 
-TODO: how to upload the tasks trough service?
+TODO: how to upload the tasks through service?
 
 When uploading a task as a .json file you may define all of properties of a Task in a single object.
 Normally, creating a task requires multiple steps with manual input such creating task then editing target blocks through Minecraft. This format offers a way to more easily automate the process.

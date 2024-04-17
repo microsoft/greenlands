@@ -5,9 +5,9 @@ In the directory `examples/tutorial` you can find two basic agents and environme
 
 ### Definitions
 
-As all reinforcement learning problem, the first step is to define the action and observation space. These correspond to the input and output of the agent, respectively. With this in mind, you complete or extend the following classes:
+As with all reinforcement learning problems, the first step is to define the action and observation space. These correspond to the input and output of the agent, respectively. With this in mind, you complete or extend the following classes:
 
-* `LocalGameState` represents what the Agent Toolkit thinks is the current state of a game. It should contain all necessary information to produce the observation space. For example, if the agent now expects the turn number in the game, it is necessary to add a new attribute in the GameState to keep track of that. See the CommandLocalGameState for a possible implementation.
+* `LocalGameState` represents what the Agent Toolkit thinks is the current state of a game. It should contain all necessary information to produce the observation space. For example, if the agent now expects the turn number in the game, it is necessary to add a new attribute in the GameState to keep track of that. See the `CommandLocalGameState` `for a possible implementation.
 * `EventAggregator` is a wrapper on top of the GameState that defines how the game state changes for each of the possible events received from the server. If new events are added, this class needs to be extended.
 * `GameEnvironment` defines the interaction between the game state and the agent actions.
   * `step` updates the game state after applying the action and returns the new observation.
@@ -25,7 +25,7 @@ The `AgentToolkit` class will orchestrate the traffic of events. You need to cre
 * The client that will send and receive the Events from the source. `GreenlandsMessageClient` is the class that interacts with EventHub.
 * The environment generator function `create_game_environment`. This function combines all the environments and wrappers and returns the outer instance.
 
-When you call AgentToolkit `run` method, the connection to client is open and the process stays in a loop listening for events. See more details about the interaction between the AgentToolkit and the server in the [Getting Started](/AgentToolkit/Getting-Started.md) section.
+When you call AgentToolkit `run` method, the connection to client is open and the process stays in a loop listening for events. See more details about the interaction between the AgentToolkit and the server in the [Getting Started](/Docs/AgentToolkit/Getting-Started.md) section.
 
 
 ### Task loading
@@ -34,9 +34,11 @@ The tasks are available to the Minecraft server via Azure container, they are re
 
 Each task is expected to be stored in three files and follow an strict json format. The structure of the container must be:
 
+```
 <container_name>/<task_id>/initialWorldCompleteBlocks.json
 <container_name>/<task_id>/initialGameState.json
 <container_name>/<task_id>/targetGameChanges.json
+```
 
 The id of the task must be the one given by the Service. The URL of the container should be used to set the environment variable `TASKDATA_CONTAINER_URL` when running the agent service.
 

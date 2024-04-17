@@ -22,7 +22,7 @@ The service manages these different models:
     - These are the association between Architects and Builders (the players), and Tasks
     - As the game progress turns are added
 - Turns
-    - These a record of each change of session / game state to re-evaluation completion
+    - These are a record of each change of session / game state to re-evaluation completion
         - For example, each time the architect gives an instruction to the builder, an architect turn is added. Then after the builder places or removes blocks, a builder turn is added.
 
 
