@@ -35,13 +35,15 @@ RUN su vscode -c "echo 'alias python=\"python3\"' >> ~/.bashrc"
 # add poetry and just
 RUN su vscode -c "curl -sSL https://install.python-poetry.org | python3 - --version 1.4.0"
 
+RUN su vscode -c "curl https://sh.rustup.rs -sSf | sh -s -- -y"
+
 # tell poetry to create the virtualenvs inside .venv directories in the project.
 # This ensures VScode is able to find all dependencies and properly suggest
 # completions and types.
 RUN su vscode -c "~/.local/bin/poetry config virtualenvs.in-project true"
 
 RUN su vscode -c "cd /tmp && \
-                  wget -O just.tar.gz https://github.com/casey/just/releases/download/1.5.0/just-1.5.0-aarch64-unknown-linux-musl.tar.gz && \
+                  wget -O just.tar.gz https://github.com/casey/just/releases/download/1.25.2/just-1.25.2-x86_64-unknown-linux-musl.tar.gz && \
                   tar xvf just.tar.gz && \
                   cp just ~/.local/bin && \
                   ~/.local/bin/just --completions bash >> ~/.bashrc"
@@ -69,7 +71,9 @@ RUN apt install -yq \
                     libxext6 \
                     mesa-utils \
                     pkg-config \
-                    xvfb
+                    xvfb \
+                    libxrender1 \
+                    libxtst6
 
 
 #################################################
@@ -98,3 +102,10 @@ RUN curl -Lo terraform https://releases.hashicorp.com/terraform/1.3.6/terraform_
 
 RUN apt update && \
     apt install -yq dotnet-sdk-6.0 aspnetcore-runtime-6.0
+
+#################################################
+# install Dashboard dependencies
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
+    source /home/vscode/.bashrc && \
+    nvm install 14

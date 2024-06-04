@@ -17,10 +17,13 @@
 	//! NOTE: these are disabled because it only works if the host CPU has CUDA
 	//! installed. They can be enabled if desired but it's not required for
 	//! developmnet.
-	// "runArgs": [
-	// 	"--gpus",
-	// 	"all"
-	// ],
+	"runArgs": [
+		"--gpus",
+		"all"
+	],
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker": {}
+	},
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
