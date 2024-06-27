@@ -8,7 +8,7 @@ First of all, be sure that on your system you have installed a version of Python
 
 ### Using Poetry
 
-The AT uses [Poetry](https://python-poetry.org/docs/) as it's package manager. So you'll first need to set it up by following the [official instructions](https://python-poetry.org/docs/#installation) for your system.
+The AT uses [Poetry](https://python-poetry.org/docs/) as its package manager. So you'll first need to set it up by following the [official instructions](https://python-poetry.org/docs/#installation) for your system.
 
 If you want the environment created in the current directory (which we recommend), set the following configuration. The virtualenv will be created and **expected** in a folder named `.venv` within the root directory of the project. More info [here](https://python-poetry.org/docs/configuration/#virtualenvsin-project)
 
@@ -28,10 +28,10 @@ Use the following command to enter the virtualenv created by poetry.
 $ poetry shell
 ```
 
-However, it is strongly recommended that you set up the Poetry integration with your IDE
-PyCharm CE is the recommended one, but it is also possible to do with VSCode, refer to your IDE documentation regarding how to do this.
+However, it is strongly recommended that you set up the Poetry integration with your IDE, refer to your IDE documentation for how to do this.
 
 Note: in case poetry does not create an environment with your desired python version, you can change it using:
+
 ```bash
 poetry env use <your python version>
 ```
@@ -53,17 +53,17 @@ pip install -e .
 
 ### Task runner
 
-The Agent Toolkit project is also set up to use the [Just](https://github.com/casey/just) task runner (in short, Just is a modern alternative to `Make`).
+The Agent Toolkit project is also set up to use the [Just](https://github.com/casey/just) task runner (which is a modern alternative to GNU `Make`).
 You can see which tasks are available, and their documentation, by simply running `just` from the root of the AT project. To run a task use `just {task}`.
 
 ### Notation
 
 | Term                            | Definition                                                                                                                                        |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _Server_ or _Greenlands server_ | Minecraft server where games develop                                                                                                              |
-| _Greenlands Client_             | Automatically generated Python client based on an OpenAPI specification. It is used by the Agent Toolkit to operate over Events.                  |
+| _Server_ or _Greenlands server_ | Minecraft server where games happen                                                                                                              |
+| _Greenlands Client_             | Automatically generated Python client based on an OpenAPI specification. It is used by the Agent Toolkit send and receive Events.                  |
 | _Online mode_              | The scenario where the Event Client is connecting to the Greenlands server to play against Gamers, receiving and sending Events through Event Hub |
-| _Offline mode_             | The scenario where the Event Client is connecting to a local dummy server simulated using multiple processes.                                 |
+| _Offline mode_             | The scenario where the Event Client is connecting to a local dummy server simulated using a local _event broker_ process.                                 |
 
 ## Components
 
@@ -71,7 +71,7 @@ You can see which tasks are available, and their documentation, by simply runnin
 
 ### Model
 
-The Model is a machine learning system that receives a vectorial dense representation of the Game State and returns an action to perform, with its corresponding parameters. The agent is stateless, meaning that a single instance of an agent can play multiple games simultaneously. All the information necessary to make the next prediction is encoded in the Game State. A model can be executed in a different compute instance and play multiple simultaneous games.
+The Model is a machine learning system that receives a vectorial dense representation of the Game State and returns an action to perform, with its corresponding parameters. The agent is stateless, meaning that a single instance of an agent can play multiple games simultaneously. All the information necessary to make the next prediction is encoded in the Game State. A **stateless** model can be executed in a different compute instance and play multiple simultaneous games.
 
 ### Agent
 
@@ -123,7 +123,7 @@ In the context of the Service, the Initial World State is stored as a generator 
 1. Server enqueues one or more agents as a regular player and eventually assigns a game to them.
 1. Server sends `PlatformPlayerJoinsGameEvent(agent_service_id, game_id, player_id, …)` event after it initializes a game. The `agent_service_id` must be in the list originally sent by the AT in the `AgentReadyEvent`.
 1. AT receives `PlatformPlayerJoinsGameEvent`, that indicates the agent a new game has begun and its assigned `player_id`. It creates a `GameThread` instance to handle the game in a new process. All events received by the AT with the corresponding `game_id` will be forwarded to the `GameThread` through internal queues. Conversely, the `GameThread` will send Events to the AT to represent Agent actions, and the AT will forward them to EventHub.
-1. Inside the `GameThread`, the `GameEnvironment` keeps track of the current game state. It is initialized when the game begins, and it can create its initial state from events send by the server or from an external source like Azure Storage.
+1. Inside the `GameThread`, the `GameEnvironment` keeps track of the current game state. It is initialized when the game begins, and it can create its initial state from events sent by the server or from an external source like Azure Storage.
 1. Once the `GameEnvironment` has constructed the initial game state, the main Game loop starts:
 
     - `GameThread` listens for changes in server (via the AT) and updates `GameState`.
@@ -131,7 +131,7 @@ In the context of the Service, the Initial World State is stored as a generator 
     - `GameEnvironment` applies the action into the local game state. Through a callback system, the environment sends the events that reflect the changes performed to the game state.
     - The Server receives the events with the changes to the game state and applies them to the Minecraft world.
 
-1. Eventually, the server sends Game end message.
+1. Eventually, the game finishes and the server sends the _Game End_ message.
 
 
 ## Class diagrams

@@ -316,19 +316,19 @@ if (!isProgramExecutedFromSwaggerCli)
         // TODO: Would be more secure to generate SAS Url each time download was requested instead of making all blobs accessible
         // Each blob will have guid in name to prevent unkown access although IDs could be known
         logger.LogInformation($"If blob container {storageAccountOptions.HumanChallengeDataContainerName} does not exist, create it");
-        await humanChallengeBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.BlobContainer);
+        await humanChallengeBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.None);
 
         var agentChallengeBlobContainerClient = blobServiceClient.GetBlobContainerClient(storageAccountOptions.AgentChallengeDataContainerName);
         logger.LogInformation($"If blob container {storageAccountOptions.AgentChallengeDataContainerName} does not exist, create it");
-        await agentChallengeBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.BlobContainer);
+        await agentChallengeBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.None);
 
         var taskDataBlobContainerClient = blobServiceClient.GetBlobContainerClient(storageAccountOptions.TaskDataContainerName);
         logger.LogInformation($"If blob container {storageAccountOptions.TaskDataContainerName} does not exist, create it");
-        await taskDataBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.BlobContainer);
+        await taskDataBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.None);
 
         var gameDataBlobContainerClient = blobServiceClient.GetBlobContainerClient(storageAccountOptions.GameDataContainerName);
         logger.LogInformation($"If blob container {storageAccountOptions.GameDataContainerName} does not exist, create it");
-        await gameDataBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.BlobContainer);
+        await gameDataBlobContainerClient.CreateIfNotExistsAsync(PublicAccessType.None);
 
         var redisClient = serviceScope.ServiceProvider.GetRequiredService<ConnectionMultiplexer>();
         logger.LogInformation($"Test Redis Connection at endpoints: {string.Join(", ", redisClient.GetEndPoints().Select(e => e.ToString()))}");
